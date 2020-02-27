@@ -12,7 +12,9 @@ class NavBar extends Component {
         <li className={'listItem'}><a>Title1</a></li>
       </ul>
       <ul className={'rightList'}>
-        <li className={'listItem'}><a>Logout</a></li>
+        <li className={'listItem'}><a>Login</a></li>
+        <li className={'listItem'}><a>Sign up</a></li>
+
       </ul>
     </div>
   }
