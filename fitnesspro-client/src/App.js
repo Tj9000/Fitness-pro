@@ -1,13 +1,18 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import './App.css';
-import LandingPage from './pages/landingPage/landingPage';
+import Routes from './routes';
+import store from './redux/store';
 
+import LandingPage from './pages/landingPage/landingPage';
 
 
 function App() {
   return (
-    <LandingPage/>
-    );
+    <Provider store={store}>
+      <Routes />
+    </Provider>
+  );
 }
 
 export default App;
