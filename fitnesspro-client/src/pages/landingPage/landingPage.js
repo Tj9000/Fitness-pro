@@ -13,7 +13,7 @@ class LandingPage extends Component {
             <div>
                 <NavBar />
                 <div style={{ width: '100%' }}><img src={FitPic1} width='100%'></img></div>
-                <div style={{ alignItems: 'center', width: '100%'}}>
+                <div style={{ width: '100%'}}>
                     <div style={{ textAlign: 'center' }}>
                         <p style={{ display: 'inline', fontStyle: 'italic', fontSize: '35px' }}>
                             MOVIE STARS
