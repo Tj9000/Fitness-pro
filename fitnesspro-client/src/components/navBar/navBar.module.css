@@ -1,0 +1,68 @@
+.navContainer {
+    display: flex;
+    flex-direction: column;
+    width:100%;
+}
+.nav {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #000;
+    min-height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.leftList {
+    float: left;
+    display: flex;
+    height: 100%;
+}
+.rightList {
+    float: right;
+    height: 100%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    vertical-align: middle;
+}
+
+
+.listItemRightLanding {
+    list-style-type: none;
+    color: #000;
+    float: right;
+}
+.listItemRightLanding:hover {
+    font-weight: bold;
+}
+.listItemRightLanding a {
+    display: block;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+}
+
+.listItemRightGeneral {
+    display: block;
+    text-align: center;
+    color: white;
+    padding: 10px 16px;
+    text-decoration: none;
+}
+
+.listItemRightGeneral:hover {
+    color: beige;
+    background-color: #333;
+}
+
+.listItem a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.listItem a:hover {
+    background-color: #111;
+}

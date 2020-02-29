@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import FitProfilePic from '../../assets/images/fitProfilePic.png';
+import NavBar from "../../components/navBar/NavBar";
 
 class ProfileUpdatePage extends Component {
     render() {
         return (
             <div style={{ display: 'flex', flex: 1, flexDirection: 'column', alignItems: 'center', height: '100%' }}>
+                <NavBar type="user" />
                 <div style={{ display: 'flex', flexDirection: 'row', flex: 1, alignItems: 'center', padding: '20px' }}>
                     <div style={{}}>
                         <ul >
