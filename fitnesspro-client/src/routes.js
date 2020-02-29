@@ -11,7 +11,7 @@ const Routes = () => {
     return (
 
         <Router history={customHistory}>
-            <div classname={'routes'}>
+            <div className={'routes'}>
                 <Switch>
                     <Route path='/' exact component={LandingPage}></Route>
                     <Route path='/profile/update' exact component={ProfileUpdatePage}></Route>
