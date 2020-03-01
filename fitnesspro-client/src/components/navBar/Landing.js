@@ -16,8 +16,8 @@ class Landing extends Component {
                     <img src={logo} height='45px' alt='logo' style={{ paddingTop: '5px' }} />
                 </div>
                 <div className={styles.rightList}>
-                    <span className={styles.listItemRightLanding} ><a>Login</a></span>
-                    <span className={styles.listItemRightLanding} ><a>Sign up</a></span>
+                    <span className={styles.listItemRightLanding} ><Link to="profile/update">Login</Link></span>
+                    <span className={styles.listItemRightLanding} ><Link to="profile/update">Sign up</Link></span>
                 </div>
             </div>
 

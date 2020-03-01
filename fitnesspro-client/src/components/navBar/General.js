@@ -17,12 +17,12 @@ class General extends Component {
                     <div>
                     </div>
                     <div className={styles.rightList} style={{ color: '#fff' }}>
-                        <span className={styles.listItemRightGeneral} ><a>Workout Plan</a></span>
-                        <span className={styles.listItemRightGeneral} ><a>Membership</a></span>
-                        <span className={styles.listItemRightGeneral} ><a>Billing</a></span>
-                        <span className={styles.listItemRightGeneral} ><a>Support</a></span>
-                        <span className={styles.listItemRightGeneral} ><a>Profile</a></span>
-                        <span className={styles.listItemRightGeneral} ><a>Logout</a></span>
+                        <span className={styles.listItemRightGeneral} ><Link to="/workoutplan">Workout Plan</Link></span>
+                        <span className={styles.listItemRightGeneral} ><Link to="/membership">Membership</Link></span>
+                        <span className={styles.listItemRightGeneral} ><Link to="/billing">Billing</Link></span>
+                        <span className={styles.listItemRightGeneral} ><Link to="/support">Support</Link></span>
+                        <span className={styles.listItemRightGeneral} ><Link to="/profile">Profile</Link></span>
+                        <span className={styles.listItemRightGeneral} ><Link to="/logout">Logout</Link></span>
                     </div>
                 </div>
             </div>
