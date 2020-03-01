@@ -2,6 +2,36 @@ import React from 'react';
 import * as _ from 'lodash';
 
 export class ListInput extends React.Component {
+    RadioGroup = ({ input }) => {
+        let setRef = (e) => {
+            this.valuesRef[input.label] = e.target;
+        }
+        let options = input.options || [];
+        return (
+            <div>
+                {
+                    _.map(options, (v, i) =>
+
+                        <label key={i} style={{ paddingRight: '30px' }}>
+                            <input type='radio' value={v} name={input.label} onChange={setRef} />{v}
+                        </label>
+                    )
+                }
+            </div>
+        )
+    }
+
+    InputField = ({ input }) => {
+        switch (input.type) {
+            case 'radio': return (<this.RadioGroup input={input} ref={ref => this.valuesRef[input.label] = ref} />)
+            default: return (<input
+                type={input.type || 'text'}
+                defaultValue={input.defaultValue}
+                ref={ref => this.valuesRef[input.label] = ref}
+            />)
+        }
+    }
+
     constructor(props) {
         super(props);
         this.tableBody = null
@@ -23,14 +53,10 @@ export class ListInput extends React.Component {
             <table><tbody ref={ref => this.tableBody = ref}>
                 {
                     inputs.map(inp =>
-                        <tr style={{ margin: '3px', padding: '3px' }}>
+                        <tr key={inp.label} style={{ margin: '3px', padding: '3px' }}>
                             <td>{inp.label}</td>
                             <td>
-                                <input
-                                    type={inp.type || 'text'}
-                                    defaultValue={inp.defaultValue}
-                                    ref={ref => this.valuesRef[inp.label] = ref}
-                                />
+                                <this.InputField input={inp} />
                             </td>
                         </tr>
                     )

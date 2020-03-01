@@ -4,11 +4,11 @@ import NavBar from "../../components/navBar/NavBar";
 import { ListInput } from "../../components/input/ListInput";
 
 class ProfileUpdatePage extends Component {
-    formref=null;
-    
+    formref = null;
+
     getFormValues = () => {
-        if(this.formref) {
-            let values=this.formref.getValues()
+        if (this.formref) {
+            let values = this.formref.getValues()
             console.log(values);
         }
     }
@@ -21,20 +21,20 @@ class ProfileUpdatePage extends Component {
                     <div style={{ display: 'flex', flex: 3, flexDirection: 'row' }} >
                         <div style={{ display: 'flex', flex: 3, flexDirection: 'column' }}>
                             <ListInput inputs={[
-                                    {label:'Name', defaultValue: 'tejas' ,type: 'text'},
-                                    {label:'Age', type: 'text'},
-                                    {label:'Gender', type: 'text'},
-                                    {label:'Height', type: 'text'},
-                                    {label:'Weight', type: 'text'},
-                                    {label:'Email', type: 'text'},
-                                    {label:'Phone', type: 'text'},
-                                    {label:'City', type: 'text'},
-                                    {label:'ZipCode', type: 'text'},
-                                    {label:'GymAccess', type: 'text'},
-                                    {label:'Target', type: 'text'},
-                                    {label:'LanguagePref', type: 'text'}
-                                ]}
-                                ref={ref=>this.formref=ref} 
+                                { label: 'Name', type: 'text' },
+                                { label: 'Age', type: 'text' },
+                                { label: 'Gender', type: 'radio', options:['Male','Female','Other'] },
+                                { label: 'Height', type: 'text' },
+                                { label: 'Weight', type: 'text' },
+                                { label: 'Email', type: 'text' },
+                                { label: 'Phone', type: 'text' },
+                                { label: 'City', type: 'text' },
+                                { label: 'ZipCode', type: 'text' },
+                                { label: 'GymAccess', type: 'text' },
+                                { label: 'Target', type: 'text' },
+                                { label: 'LanguagePref', type: 'text' }
+                            ]}
+                                ref={ref => this.formref = ref}
                             />
                         </div>
 
