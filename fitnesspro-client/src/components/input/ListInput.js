@@ -12,7 +12,7 @@ export class ListInput extends React.Component {
                 {
                     _.map(options, (v, i) =>
 
-                        <label key={i} style={{ paddingRight: '30px' }}>
+                        <label key={i} style={{ paddingRight: '10px' }}>
                             <input type='radio' value={v} name={input.label} onChange={setRef} />{v}
                         </label>
                     )
@@ -50,10 +50,10 @@ export class ListInput extends React.Component {
     render() {
         let inputs = this.props.inputs || [];
         return (
-            <table><tbody ref={ref => this.tableBody = ref}>
+            <table style={{ borderSpacing: '10px' }}><tbody ref={ref => this.tableBody = ref}>
                 {
                     inputs.map(inp =>
-                        <tr key={inp.label} style={{ margin: '3px', padding: '3px' }}>
+                        <tr key={inp.label}>
                             <td>{inp.label}</td>
                             <td>
                                 <this.InputField input={inp} />
