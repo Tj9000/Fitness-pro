@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { push } from 'connected-react-router';
+
 import NavBar from "../../components/navBar/NavBar";
 
 class MembershipPage extends Component {
@@ -11,4 +14,9 @@ class MembershipPage extends Component {
     }
 }
 
-export default MembershipPage;
+const mapStateToProps = (state, ownProps) => ({
+});
+const mapDispatchToProps={
+    pushRoute: push
+};
+export default connect(mapStateToProps, mapDispatchToProps)(MembershipPage);

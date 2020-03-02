@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { push } from 'connected-react-router';
+
 import NavBar from "../../components/navBar/NavBar";
 
 class BillingPage extends Component {
@@ -11,4 +14,9 @@ class BillingPage extends Component {
     }
 }
 
-export default BillingPage;
+const mapStateToProps = (state, ownProps) => ({
+});
+const mapDispatchToProps = {
+    pushRoute: push
+};
+export default connect(mapStateToProps, mapDispatchToProps)(BillingPage);

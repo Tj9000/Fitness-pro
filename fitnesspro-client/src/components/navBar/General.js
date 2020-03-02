@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { push } from 'connected-react-router';
 
 import logo from '../../assets/images/ProFit-logo.png';
 
@@ -30,4 +32,9 @@ class General extends Component {
     }
 }
 
-export default General;
+const mapStateToProps = (state, ownProps) => ({
+});
+const mapDispatchToProps = {
+    pushRoute: push
+};
+export default connect(mapStateToProps, mapDispatchToProps)(General);

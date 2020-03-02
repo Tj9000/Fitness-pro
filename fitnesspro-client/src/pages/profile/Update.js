@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { push } from 'connected-react-router';
+
 import FitProfilePic from '../../assets/images/fitProfilePic.png';
 import { ListInput } from "../../components/input/ListInput";
 
@@ -12,6 +15,9 @@ class Update extends Component {
         }
     }
 
+    cancelEdit = () => {
+        this.props.pushRoute("/profile");
+    }
 
     render() {
         return (<div style={{ display: 'flex', flexDirection: 'row', flex: 1, alignItems: 'center', padding: '20px', height: '100%' }}>
@@ -41,7 +47,7 @@ class Update extends Component {
                             <img style={{ marginTop: '10px' }} src={FitProfilePic}></img>
                         </div>
                         <div style={{ display: 'flex', flex: 1, alignSelf: 'flex-start', flexDirection: 'row' }}>
-                            <button onClick={this.getFormValues}>cancel</button>
+                            <button onClick={this.cancelEdit}>cancel</button>
                             <div style={{ flexGrow: 1 }} />
                             <button onClick={this.getFormValues}>save</button>
                         </div>
@@ -52,4 +58,9 @@ class Update extends Component {
     }
 }
 
-export default Update; 
+const mapStateToProps = (state, ownProps) => ({
+});
+const mapDispatchToProps = {
+    pushRoute: push
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Update);

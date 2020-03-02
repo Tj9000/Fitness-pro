@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { push } from 'connected-react-router';
 
 import FitProfilePic from '../../assets/images/fitProfilePic.png';
 import * as _ from "lodash";
@@ -7,6 +9,7 @@ import * as _ from "lodash";
 class View extends Component {
 
     displayProfileUpdatePage = () => {
+        this.props.pushRoute('/profile/update')
     }
     data = [
         { label: 'Name', value: 'MyName' },
@@ -58,4 +61,9 @@ class View extends Component {
     }
 }
 
-export default View;
+const mapStateToProps = (state, ownProps) => ({
+});
+const mapDispatchToProps = {
+    pushRoute: push
+};
+export default connect(mapStateToProps, mapDispatchToProps)(View);

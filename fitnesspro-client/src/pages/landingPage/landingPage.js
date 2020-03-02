@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { push } from 'connected-react-router';
+
 import NavBar from '../../components/navBar/NavBar';
 import Footer from '../../components/footer';
 import FitPic1 from '../../assets/images/fitPic1.png'
@@ -54,4 +57,9 @@ class LandingPage extends Component {
 
 }
 
-export default LandingPage;
+const mapStateToProps = (state, ownProps) => ({
+});
+const mapDispatchToProps = {
+    pushRoute: push
+};
+export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);

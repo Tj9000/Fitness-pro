@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { push } from 'connected-react-router';
+
 import Update from "./Update";
 import View from "./View";
 import NavBar from "../../components/navBar/NavBar"
@@ -14,4 +17,9 @@ function ProfilePage(props) {
     );
 }
 
-export default ProfilePage;
+const mapStateToProps = (state, ownProps) => ({
+});
+const mapDispatchToProps = {
+    pushRoute: push
+};
+export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage);

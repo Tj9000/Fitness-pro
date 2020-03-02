@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
+import { Router, Route, Switch } from 'react-router-dom';
+import { ConnectedRouter } from 'connected-react-router'
 import LandingPage from './pages/landingPage/landingPage';
 
 import MembershipPage from './pages/membership/MembershipPage';
@@ -9,13 +9,12 @@ import SupportPage from './pages/support/SupportPage';
 import WorkoutPlanPage from './pages/workoutplan/WorkoutPlanPage';
 import ProfilePage from './pages/profile/ProfilePage';
 
-const createBrowserHistory = require('history').createBrowserHistory;
-const customHistory = createBrowserHistory();
+import { history } from './redux/store';
 
 const Routes = () => {
     return (
 
-        <Router history={customHistory}>
+        <ConnectedRouter history={history}>
             <div className={'routes'}>
                 <Switch>
                     <Route path='/' exact component={LandingPage}></Route>
@@ -27,7 +26,7 @@ const Routes = () => {
                     <Route path='/workoutplan' exact component={WorkoutPlanPage}></Route>
                 </Switch>
             </div>
-        </Router>
+        </ConnectedRouter>
     );
 }
 
