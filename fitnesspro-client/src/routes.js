@@ -13,9 +13,7 @@ import { history } from './redux/store';
 
 const Routes = () => {
     return (
-
         <ConnectedRouter history={history}>
-            <div className={'routes'}>
                 <Switch>
                     <Route path='/' exact component={LandingPage}></Route>
                     <Route path='/profile' exact render={(props) => <ProfilePage {...props} isEditProfile={false} />}></Route>
@@ -25,7 +23,6 @@ const Routes = () => {
                     <Route path='/support' exact component={SupportPage}></Route>
                     <Route path='/workoutplan' exact component={WorkoutPlanPage}></Route>
                 </Switch>
-            </div>
         </ConnectedRouter>
     );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import * as _ from 'lodash';
+import styles from './ListInput.module.css';
 
 export class ListInput extends React.Component {
     RadioGroup = ({ input }) => {
@@ -13,7 +14,7 @@ export class ListInput extends React.Component {
                     _.map(options, (v, i) =>
 
                         <label key={i} style={{ paddingRight: '10px' }}>
-                            <input type='radio' value={v} name={input.label} onChange={setRef} />{v}
+                            <input className={styles.tableInputField} type='radio' value={v} name={input.label} onChange={setRef} defaultChecked={input.defaultValue==v} />{v}
                         </label>
                     )
                 }
@@ -25,6 +26,7 @@ export class ListInput extends React.Component {
         switch (input.type) {
             case 'radio': return (<this.RadioGroup input={input} ref={ref => this.valuesRef[input.label] = ref} />)
             default: return (<input
+                class={styles.tableInputField}
                 type={input.type || 'text'}
                 defaultValue={input.defaultValue}
                 ref={ref => this.valuesRef[input.label] = ref}
@@ -54,7 +56,7 @@ export class ListInput extends React.Component {
                 {
                     inputs.map(inp =>
                         <tr key={inp.label}>
-                            <td>{inp.label}</td>
+                            <td>{inp.label}&ensp;</td>
                             <td>
                                 <this.InputField input={inp} />
                             </td>

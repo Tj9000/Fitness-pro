@@ -4,8 +4,6 @@ import './App.css';
 import Routes from './routes';
 import store from './redux/store';
 
-import LandingPage from './pages/landingPage/landingPage';
-
 
 function App() {
   return (

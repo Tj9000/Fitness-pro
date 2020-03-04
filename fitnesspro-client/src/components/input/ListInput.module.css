@@ -1,0 +1,16 @@
+.tableInputField:invalid {
+    border-color: rgb(238, 20, 20);
+}
+
+/* Chrome, Safari, Edge, Opera */
+
+.tableInputField:-webkit-outer-spin-button, .tableInputField:-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+
+.tableInputField[type=number] {
+    -moz-appearance: textfield;
+}

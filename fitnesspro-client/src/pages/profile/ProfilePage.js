@@ -11,7 +11,7 @@ function ProfilePage(props) {
 
     return (
         <div style={{ display: 'flex', flex: 1, flexDirection: 'column', alignItems: 'center', height: '100%' }}>
-            <NavBar type="user" />
+            <NavBar type="user" currentPageHead="Profile"/>
             {isEditProfile ? <Update /> : <View />}
         </div>
     );

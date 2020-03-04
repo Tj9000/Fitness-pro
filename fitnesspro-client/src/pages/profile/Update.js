@@ -5,6 +5,8 @@ import { push } from 'connected-react-router';
 import FitProfilePic from '../../assets/images/fitProfilePic.png';
 import { ListInput } from "../../components/input/ListInput";
 
+import styles from './ProfilePage.module.css';
+
 class Update extends Component {
     formref = null;
 
@@ -20,37 +22,35 @@ class Update extends Component {
     }
 
     render() {
-        return (<div style={{ display: 'flex', flexDirection: 'row', flex: 1, alignItems: 'center', padding: '20px', height: '100%' }}>
-            <div style={{ display: 'flex', flex: 3, flexDirection: 'row' }} >
-                <div style={{ display: 'flex', flex: 3, flexDirection: 'column' }}>
-                    <ListInput inputs={[
-                        { label: 'Name', type: 'text' },
-                        { label: 'Age', type: 'text' },
-                        { label: 'Gender', type: 'radio', options: ['Male', 'Female', 'Other'] },
-                        { label: 'Height', type: 'text' },
-                        { label: 'Weight', type: 'text' },
-                        { label: 'Email', type: 'text' },
-                        { label: 'Phone', type: 'text' },
-                        { label: 'City', type: 'text' },
-                        { label: 'ZipCode', type: 'text' },
-                        { label: 'GymAccess', type: 'text' },
-                        { label: 'Target', type: 'text' },
-                        { label: 'LanguagePref', type: 'text' }
-                    ]}
+        let InputListData = [
+            { label: 'Name', type: 'text', defaultValue: this.props.userDetails && this.props.userDetails.name },
+            { label: 'Age', type: 'number', defaultValue: this.props.userDetails && this.props.userDetails.age },
+            { label: 'Gender', type: 'radio', options: ['Male', 'Female', 'Other'], defaultValue: this.props.userDetails && this.props.userDetails.gender },
+            { label: 'Height', type: 'number', defaultValue: this.props.userDetails && this.props.userDetails.height },
+            { label: 'Weight', type: 'number', defaultValue: this.props.userDetails && this.props.userDetails.weight },
+            { label: 'Email', type: 'email', defaultValue: this.props.userDetails && this.props.userDetails.email },
+            { label: 'Phone', type: 'text', defaultValue: this.props.userDetails && this.props.userDetails.phone },
+            { label: 'City', type: 'text', defaultValue: this.props.userDetails && this.props.userDetails.city },
+            { label: 'Zipcode', type: 'number', defaultValue: this.props.userDetails && this.props.userDetails.zipCode },
+            { label: 'Gym Access', type: 'text', defaultValue: this.props.userDetails && this.props.userDetails.gymAccess },
+            { label: 'Target', type: 'text', defaultValue: this.props.userDetails && this.props.userDetails.target },
+            { label: 'Language Preference', type: 'text', defaultValue: this.props.userDetails && this.props.userDetails.languagePref }
+        ];
+        return (<div className={styles.profileContentContainer}>
+            <div className={styles.profileContentSubContainer}>
+                <div profileContentLeftList>
+                    <ListInput inputs={InputListData}
                         ref={ref => this.formref = ref}
                     />
                 </div>
 
-                <div style={{ display: 'flex', flex: 1, alignSelf: 'flex-start', flexDirection: 'column', alignContent: 'right', paddingLeft: '20px' }}>
+                <div className={styles.profileContentRightList}>
                     <div>
-                        <div style={{ display: 'flex', flex: 10, alignSelf: 'flex-start', marginBottom: '234px' }}>
-                            <img style={{ marginTop: '10px' }} src={FitProfilePic}></img>
-                        </div>
-                        <div style={{ display: 'flex', flex: 1, alignSelf: 'flex-start', flexDirection: 'row' }}>
-                            <button onClick={this.cancelEdit}>cancel</button>
-                            <div style={{ flexGrow: 1 }} />
-                            <button onClick={this.getFormValues}>save</button>
-                        </div>
+                        <img classname={styles.profileImage} src={FitProfilePic}></img>
+                    </div>
+                    <div className={styles.profileButtonContainer}>
+                        <button onClick={this.getFormValues} className={styles.button}>Save</button>
+                        <button onClick={this.cancelEdit} className={styles.button}>Cancel</button>
                     </div>
                 </div>
             </div>
@@ -59,6 +59,7 @@ class Update extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
+    userDetails: state.user.details
 });
 const mapDispatchToProps = {
     pushRoute: push

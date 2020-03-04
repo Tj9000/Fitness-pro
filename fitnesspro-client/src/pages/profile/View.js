@@ -2,58 +2,50 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
 
+import { ListTableView } from "../../components/text/ListTableView";
+
 import FitProfilePic from '../../assets/images/fitProfilePic.png';
 import * as _ from "lodash";
 
+import styles from './ProfilePage.module.css'; 
 
 class View extends Component {
 
     displayProfileUpdatePage = () => {
         this.props.pushRoute('/profile/update')
     }
-    data = [
-        { label: 'Name', value: 'MyName' },
-        { label: 'Age', value: '24' },
-        { label: 'Gender', value: 'Female' },
-        { label: 'Height', value: '160' },
-        { label: 'Weight', value: '56' },
-        { label: 'Email', value: 'myname@gmail.com' },
-        { label: 'Phone', value: '9876543210' },
-        { label: 'City', value: 'Mysore' },
-        { label: 'ZipCode', value: '570008' },
-        { label: 'GymAccess', value: 'NA' },
-        { label: 'Target', value: 'NA' },
-        { label: 'LanguagePref', value: 'Eng' }
+
+    viewListData = [
+        { label: 'Name', value: this.props.userDetails && this.props.userDetails.name },
+        { label: 'Age', value: this.props.userDetails && this.props.userDetails.age },
+        { label: 'Gender', value: this.props.userDetails && this.props.userDetails.gender },
+        { label: 'Height', value: this.props.userDetails && this.props.userDetails.height },
+        { label: 'Weight', value: this.props.userDetails && this.props.userDetails.weight },
+        { label: 'Email', value: this.props.userDetails && this.props.userDetails.email },
+        { label: 'Phone', value: this.props.userDetails && this.props.userDetails.phone },
+        { label: 'City', value: this.props.userDetails && this.props.userDetails.city },
+        { label: 'Zipcode', value: this.props.userDetails && this.props.userDetails.zipCode },
+        { label: 'Gym Access', value: this.props.userDetails && this.props.userDetails.gymAccess },
+        { label: 'Target', value: this.props.userDetails && this.props.userDetails.target },
+        { label: 'Language Preference', value: this.props.userDetails && this.props.userDetails.languagePref }
     ];
     render() {
         return (
-            <div style={{ display: 'flex', flexDirection: 'row', flex: 1, alignItems: 'center', padding: '20px', height: '100%' }}>
-                <div style={{ display: 'flex', flex: 3, flexDirection: 'row' }} >
-                    <div style={{ display: 'flex', flex: 3, flexDirection: 'column' }}>
-                        <table style={{ borderSpacing: '10px' }}>
-                            <tbody>
-                                {
-                                    _.map(this.data, (v, i) =>
-                                        <tr>
-                                            <td>{v.label}</td>
-                                            <td>{v.value}</td>
-                                        </tr>
-                                    )
-                                }
-                            </tbody>
-                        </table>
+            <div className={styles.profileContentContainer}>
+                <div className={styles.profileContentSubContainer} >
+                    <div className={styles.profileContentLeftList}>
+                        <ListTableView
+                            data={_.map(this.viewListData, (e, i) => { return { label: e.label, value: e.value } })}
+                        />
                     </div>
 
-                    <div style={{ display: 'flex', flex: 1, alignSelf: 'flex-start', flexDirection: 'column', alignContent: 'right', paddingLeft: '20px' }}>
-                        <div>
-                            <div style={{ display: 'flex', flex: 10, alignSelf: 'flex-start', marginBottom: '120px' }}>
-                                <img style={{ marginTop: '10px' }} src={FitProfilePic}></img>
+                    <div className={styles.profileContentRightList}>
+                            <div>
+                                <img className={styles.profileImage} src={FitProfilePic}></img>
                             </div>
-                            <div style={{ display: 'flex', flex: 1, alignSelf: 'flex-start', flexDirection: 'row' }}>
-                                <div style={{ flexGrow: 1 }} />
-                                <button onClick={this.displayProfileUpdatePage}>edit</button>
+                            <div className={styles.profileButtonContainer}>
+                                <button onClick={this.displayProfileUpdatePage} className={styles.button}>Edit</button>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -62,6 +54,7 @@ class View extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
+    userDetails: state.user.details
 });
 const mapDispatchToProps = {
     pushRoute: push
