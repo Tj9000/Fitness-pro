@@ -12,22 +12,20 @@ import styles from '../../assets/css/ProfilePage.module.css';
 class View extends Component {
 
     displayUpdatePage = () => {
-        this.props.pushRoute('/profile/update')
+        this.props.pushRoute('/membership/update')
     }
 
     viewListData = [
-        { label: 'Name', value: this.props.userDetails && this.props.userDetails.name },
-        { label: 'Age', value: this.props.userDetails && this.props.userDetails.age },
-        { label: 'Gender', value: this.props.userDetails && this.props.userDetails.gender },
-        { label: 'Height', value: this.props.userDetails && this.props.userDetails.height },
-        { label: 'Weight', value: this.props.userDetails && this.props.userDetails.weight },
-        { label: 'Email', value: this.props.userDetails && this.props.userDetails.email },
-        { label: 'Phone', value: this.props.userDetails && this.props.userDetails.phone },
-        { label: 'City', value: this.props.userDetails && this.props.userDetails.city },
-        { label: 'Zipcode', value: this.props.userDetails && this.props.userDetails.zipCode },
-        { label: 'Gym Access', value: this.props.userDetails && this.props.userDetails.gymAccess },
-        { label: 'Target', value: this.props.userDetails && this.props.userDetails.target },
-        { label: 'Language Preference', value: this.props.userDetails && this.props.userDetails.languagePref }
+        { label: 'Activated Date', type: 'date', value: this.props.membershipDetails && this.props.membershipDetails.activatedDate },
+        { label: 'Expiration date', type: 'date', value: this.props.membershipDetails && this.props.membershipDetails.exprationDate },
+        { label: 'Price', value: this.props.membershipDetails && this.props.membershipDetails.price },
+        { label: 'Payment Mode', value: this.props.membershipDetails && this.props.membershipDetails.paymentMode },
+        { label: 'No. of weeks', value: this.props.membershipDetails && this.props.membershipDetails.noOfWeeks },
+        { label: 'Auto Renewal', value: this.props.membershipDetails && this.props.membershipDetails.autoRenewal },
+        { label: 'Rewards', value: this.props.membershipDetails && this.props.membershipDetails.rewards },
+        { label: 'Referal Link', value: this.props.membershipDetails && this.props.membershipDetails.referralLink },
+        { label: 'Card Info', value: this.props.membershipDetails && this.props.membershipDetails.cardInfo },
+        { label: 'Phone Pay Info', value: this.props.membershipDetails && this.props.membershipDetails.phonePayInfo },
     ];
     render() {
         return (
@@ -54,7 +52,7 @@ class View extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    userDetails: state.user.details
+    membershipDetails: state.user.membershipDetails
 });
 const mapDispatchToProps = {
     pushRoute: push

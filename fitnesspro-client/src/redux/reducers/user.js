@@ -14,6 +14,18 @@ const initialState = {
         'gymAccess': null,
         'target': null,
         'languagePref': 'English'
+    },
+    membershipDetails: {
+        activatedDate : Date.now()-(24*3600*1000*10),
+        exprationDate : Date.now()+(24*3600*1000*10),
+        price : 1800,
+        paymentMode : 'Credit',
+        noOfWeeks : 26,
+        autoRenewal : 'Yes',
+        rewards : null,
+        referralLink : 'tj0251t3rq',
+        cardInfo : '9876 1234 XXXX XXXX',
+        phonePayInfo : null,
     }
 }
 const user = (state = initialState, action) => {

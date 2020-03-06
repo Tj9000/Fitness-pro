@@ -5,7 +5,7 @@ import { push } from 'connected-react-router';
 import FitProfilePic from '../../assets/images/fitProfilePic.png';
 import { ListInput } from "../../components/input/ListInput";
 
-import styles from './ProfilePage.module.css';
+import styles from '../../assets/css/ProfilePage.module.css';
 
 class Update extends Component {
     formref = null;
@@ -54,7 +54,7 @@ class Update extends Component {
                     </div>
                 </div>
             </div>
-        </div>)
+        </div>);
     }
 }
 

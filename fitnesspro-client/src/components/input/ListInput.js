@@ -1,6 +1,7 @@
 import React from 'react';
 import * as _ from 'lodash';
 import styles from './ListInput.module.css';
+import moment from 'moment';
 
 export class ListInput extends React.Component {
     RadioGroup = ({ input }) => {
@@ -14,23 +15,53 @@ export class ListInput extends React.Component {
                     _.map(options, (v, i) =>
 
                         <label key={i} style={{ paddingRight: '10px' }}>
-                            <input className={styles.tableInputField} type='radio' value={v} name={input.label} onChange={setRef} defaultChecked={input.defaultValue==v} />{v}
+                            <input
+                                className={styles.tableInputField}
+                                type='radio'
+                                value={v}
+                                name={input.label}
+                                onChange={setRef}
+                                defaultChecked={input.defaultValue == v}
+                                readOnly={input.readOnly}
+                            />{v}
                         </label>
                     )
                 }
             </div>
         )
     }
+    Dropdown = ({ input }) => {
+        let setRef = (e) => {
+            this.valuesRef[input.label] = e.target;
+        }
+        let options = input.options || [];
+        return (
+            <div>
+                {/* TODO */}
+            </div>
+        )
+    }
 
     InputField = ({ input }) => {
         switch (input.type) {
-            case 'radio': return (<this.RadioGroup input={input} ref={ref => this.valuesRef[input.label] = ref} />)
+            case 'radio': return (<this.RadioGroup input={input} ref={ref => this.valuesRef[input.label] = ref} />);
+            case 'date':
+                let dt = input.defaultValue && new moment(input.defaultValue).format("YYYY-MM-DD");
+                return (<input
+                    class={styles.tableInputField}
+                    type={input.type || 'text'}
+                    defaultValue={dt || null}
+                    readOnly={input.readOnly}
+                    ref={ref => this.valuesRef[input.label] = ref}
+                />);
+            case 'dropdown' : return (<this.Dropdown input={input} ref={ref => this.valuesRef[input.label] = ref}/> )
             default: return (<input
                 class={styles.tableInputField}
                 type={input.type || 'text'}
                 defaultValue={input.defaultValue}
+                readOnly={input.readOnly}
                 ref={ref => this.valuesRef[input.label] = ref}
-            />)
+            />);
         }
     }
 

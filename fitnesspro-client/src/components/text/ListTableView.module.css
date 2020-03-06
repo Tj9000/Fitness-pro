@@ -10,3 +10,8 @@
     display: flex;
     justify-content: space-between;
 }
+
+.valueCell {
+    background: #eee;
+    padding: 0 6px;
+}
