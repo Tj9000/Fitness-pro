@@ -35,17 +35,17 @@ class View extends Component {
                 <div className={styles.profileContentSubContainer} >
                     <div className={styles.profileContentLeftList}>
                         <ListTableView
-                            data={_.map(this.viewListData, (e, i) => { return { label: e.label, value: e.value } })}
+                            data={_.filter(this.viewListData, (e, i) => e.label != null)}
                         />
                     </div>
 
                     <div className={styles.profileContentRightList}>
-                            <div>
-                                <img className={styles.profileImage} src={FitProfilePic}></img>
-                            </div>
-                            <div className={styles.profileButtonContainer}>
-                                <button onClick={this.displayUpdatePage} className={styles.button}>Edit</button>
-                            </div>
+                        <div>
+                            <img className={styles.profileImage} src={FitProfilePic}></img>
+                        </div>
+                        <div className={styles.profileButtonContainer}>
+                            <button onClick={this.displayUpdatePage} className={styles.button}>Edit</button>
+                        </div>
                     </div>
                 </div>
             </div>

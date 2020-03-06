@@ -22,10 +22,16 @@
     align-content: right;
     justify-content: space-between;
     padding-left: 20px;
+    width: 220px;
 }
 
 .profileImage {
     margin-top: 10px;
+    min-height: 100px;
+    max-height: 200px;
+    min-width: 100px;
+    max-width: 200px;
+    resize: both;
 }
 
 .profileButtonContainer {
@@ -40,4 +46,28 @@
     border-radius: 12px;
     background: #000;
     color: #fff;
+}
+
+.workoutContentLeftList {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.workoutContentRightList {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-content: right;
+    justify-content: space-between;
+    padding-left: 20px;
+    width: 220px;
+}
+
+.workoutImage {
+    margin-top: 10px;
+    min-height: 300px;
+    max-height: 400px;
+    min-width: 100px;
+    max-width: 200px;
 }
