@@ -1,0 +1,10 @@
+.inputEmail {
+
+}
+.inputEmail:invalid {
+    border-color: rgb(238, 20, 20);
+
+}
+.loginButton {
+
+}

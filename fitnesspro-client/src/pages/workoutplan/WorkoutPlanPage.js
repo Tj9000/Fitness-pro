@@ -32,7 +32,7 @@ class WorkoutPlanPage extends Component {
     render() {
         return (
             <div className="pageMainContainer">
-                <NavBar />
+                <NavBar currentPageHead="Workout Plan" />
                 {/* View content */}
                 <div className={styles.profileContentContainer}>
                     <div className={styles.profileContentSubContainer} >

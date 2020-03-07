@@ -45,7 +45,12 @@ const user = (state = initialState, action) => {
             return {
                 ...state,
             };
-
+        case types.LOGIN_WITH_EMAIL: {
+            return {
+                ...state,
+                details: { ...state.details, email: action.email}
+            }
+        }
         default:
             return state;
     }

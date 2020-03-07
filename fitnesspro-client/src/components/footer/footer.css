@@ -3,6 +3,9 @@
     align-items: center;
     justify-content: flex-end;
     background-color: #333;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .footer {
@@ -13,6 +16,7 @@
 
 .footerUl li {
     list-style-type: none;
+    line-height: 24px
 }
 
 .footerUl li a {

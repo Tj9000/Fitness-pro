@@ -1,10 +1,13 @@
 import React, { Component} from 'react';
 import { connect } from 'react-redux';
-import { push } from 'connected-react-router';
+import { push, replace } from 'connected-react-router';
 
 import NavBar from "../../components/navBar/NavBar"
 
 class SignupPage extends Component {
+    componentDidMount() {
+        this.props.replaceRoute('/profile/update')
+    }
     render() {
         return (
             <div className="pageMainContainer">
@@ -20,6 +23,7 @@ class SignupPage extends Component {
 const mapStateToProps = (state, ownProps) => ({
 });
 const mapDispatchToProps = {
-    pushRoute: push
+    pushRoute: push,
+    replaceRoute: replace
 };
 export default connect(mapStateToProps, mapDispatchToProps)(SignupPage);
