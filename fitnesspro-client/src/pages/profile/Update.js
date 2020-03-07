@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
 
+import Icon from 'react-web-vector-icons';
 import FitProfilePic from '../../assets/images/fitProfilePic.png';
 import { ListInput } from "../../components/input/ListInput";
 
@@ -9,6 +10,10 @@ import styles from '../../assets/css/ProfilePage.module.css';
 
 class Update extends Component {
     formref = null;
+    state = {
+        newImageFile: null,
+        newImageBase64: null,
+    };
 
     getFormValues = () => {
         if (this.formref) {
@@ -19,6 +24,26 @@ class Update extends Component {
 
     cancelEdit = () => {
         this.props.pushRoute("/profile");
+    }
+
+    _handleImageChange = (e) => {
+        e.preventDefault();
+        let reader = new FileReader();
+        let file = e.target.files[0];
+        reader.onloadend = () => {
+            this.setState({
+                newImageFile: file,
+                newImageBase64: reader.result
+            }, ()=>{ console.log(this.state)});
+        }
+        reader.readAsDataURL(file)
+    }
+
+    _chooseImage = (e) => {
+        let inputNode = document.createElement('input');
+        inputNode.type = 'file';
+        inputNode.onchange = this._handleImageChange;
+        inputNode.click();
     }
 
     render() {
@@ -45,8 +70,9 @@ class Update extends Component {
                 </div>
 
                 <div className={styles.profileContentRightList}>
-                    <div>
-                        <img classname={styles.profileImage} src={FitProfilePic}></img>
+                    <div className={styles.profileImageEditContainer} onClick={this._chooseImage}>
+                        <img className={styles.profileImageEdit} src={this.state.newImageBase64 || FitProfilePic}></img>
+                        <span className={styles.profileImageEditIcon}><Icon name="edit" font="MaterialIcons" size={32} color={'black'}></Icon></span>
                     </div>
                     <div className={styles.profileButtonContainer}>
                         <button onClick={this.getFormValues} className={styles.button}>Save</button>

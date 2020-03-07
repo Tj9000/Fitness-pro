@@ -71,3 +71,36 @@
     min-width: 100px;
     max-width: 200px;
 }
+
+.profileImageEditContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 200px;
+    width: 200px;
+    background: #ccc;
+}
+
+.profileImageEdit {
+    display: block;
+    border: 2px solid black;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.profileImageEditContainer:hover .profileImageEdit {
+    opacity: 0.4;
+}
+
+.profileImageEditContainer:hover .profileImageEditIcon {
+    opacity: 1;
+}
+
+.profileImageEditIcon {
+    opacity: 0;
+    top: 0px;
+    right: 0px;
+    position: absolute;
+    display: block;
+}
