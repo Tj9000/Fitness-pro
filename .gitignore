@@ -75,3 +75,6 @@ typings/
 #skip build follders
 fitnesspro-client/build
 
+
+#firebase
+firebase-debug.log
