@@ -6,6 +6,7 @@
     width: 100%;
     padding-top: 20px;
     padding-bottom: 20px;
+    min-height: 180;
 }
 
 .footer {
@@ -14,9 +15,10 @@
     justify-content: space-evenly;
 }
 
-.footerUl li {
+.footerUl{
     list-style-type: none;
-    line-height: 24px
+    line-height: 28px;
+    font-size: 16px;
 }
 
 .footerUl li a {
@@ -27,6 +29,15 @@
     color: dimgray;
 }
 
+.footerLiHead {
+    color: ivory;
+    font-size: 32px;
+    font-style: oblique;
+    line-height: 36px;
+    padding-bottom: 12px;
+    text-underline-position: under;
+    text-decoration: underline;
+}
 @media screen and (max-width: 768px) {
     .footer {
         align-items: center;
