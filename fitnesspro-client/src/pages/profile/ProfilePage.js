@@ -10,8 +10,8 @@ function ProfilePage(props) {
     const isEditProfile = props.isEditProfile;
 
     return (
-        <div style={{ display: 'flex', flex: 1, flexDirection: 'column', alignItems: 'center', height: '100%' }}>
-            <NavBar type="user" />
+        <div className="pageMainContainer">
+            <NavBar type="user" currentPageHead="Profile"/>
             {isEditProfile ? <Update /> : <View />}
         </div>
     );

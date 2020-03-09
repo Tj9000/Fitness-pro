@@ -1,0 +1,17 @@
+.table {
+    border-spacing: 10px;
+}
+
+.trow {
+    height: 20px;
+}
+
+.labelCell {
+    display: flex;
+    justify-content: space-between;
+}
+
+.valueCell {
+    background: #eee;
+    padding: 0 6px;
+}

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
 
-import NavBar from '../../components/navBar/NavBar';
+import LandingNavBar from '../../components/navBar/Landing';
 import Footer from '../../components/footer';
 import FitPic1 from '../../assets/images/fitPic1.png'
 import FitPic2 from '../../assets/images/fitPic2.png'
@@ -12,8 +12,8 @@ import './landingPage.css'
 class LandingPage extends Component {
     render() {
         return (
-            <div>
-                <NavBar type='landing' />
+            <div className="pageMainContainer">
+                <LandingNavBar />
                 <div style={{ width: '100%' }}><img src={FitPic1} width='100%'></img></div>
                 <div style={{ width: '100%' }}>
                     <div style={{ textAlign: 'center' }}>

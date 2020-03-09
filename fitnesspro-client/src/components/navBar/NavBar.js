@@ -12,7 +12,7 @@ class NavBar extends Component {
       return <Landing />
     }
     else {
-      return <General />
+      return <General currentPageHead={this.props.currentPageHead} />
     }
   }
 }

@@ -11,13 +11,18 @@ import styles from './navBar.module.css';
 class General extends Component {
     render() {
         return (
-            <div className={styles.navContainer} style={{ height: '60px', backgroundColor: '#fff' }}>
+            <div className={styles.navContainer} style={{ height: '80px', backgroundColor: '#fff' }}>
                 <div className={styles.nav}>
                     <div className={styles.leftList} >
-                        <img src={logo} height='45px' alt='logo' style={{ paddingTop: '5px', paddingBottom: '5px' }} />
+                        <img src={logo} height='45px' alt='logo' style={{ padding: '2px 0px' }} />
                     </div>
-                    <div>
-                    </div>
+                    {
+                        this.props.currentPageHead ? (
+                            <div className={styles.currentPageHeadContainer}>
+                                <span className={styles.currentPageHeadText}>{this.props.currentPageHead}</span>
+                            </div>
+                        ) : null
+                    }
                     <div className={styles.rightList} style={{ color: '#fff' }}>
                         <span className={styles.listItemRightGeneral} ><Link to="/workoutplan">Workout Plan</Link></span>
                         <span className={styles.listItemRightGeneral} ><Link to="/membership">Membership</Link></span>
