@@ -47,8 +47,6 @@ class LandingPage extends Component {
                 <div className={'landingpage-fittext-container'}>
 
                 </div>
-
-                <Footer />
             </div>
 
 

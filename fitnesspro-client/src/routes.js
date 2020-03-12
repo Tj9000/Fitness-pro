@@ -12,6 +12,7 @@ import WorkoutPlanPage from './pages/workoutplan/WorkoutPlanPage';
 import ProfilePage from './pages/profile/ProfilePage';
 
 import { history } from './redux/store';
+import Footer from './components/footer';
 
 const Routes = () => {
     return (
@@ -28,6 +29,7 @@ const Routes = () => {
                     <Route path='/support' exact component={SupportPage}></Route>
                     <Route path='/workoutplan' exact component={WorkoutPlanPage}></Route>
                 </Switch>
+            <Footer/>
         </ConnectedRouter>
     );
 }
