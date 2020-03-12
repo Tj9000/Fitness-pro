@@ -1,28 +1,38 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
-import { loginUserWithEmail } from '../../redux/actions/login';
+import { loginUserWithPhoneNumber, loginUserWithGoogle, logout } from '../../redux/actions/login';
 
 import NavBar from "../../components/navBar/NavBar"
 
 import styles from './Login.module.css';
 
 class LoginPage extends Component {
-    login = () => {
-        let loginIdIp = document.getElementById('loginEmailAddress');
-        let loginId = loginIdIp && loginIdIp.value;
-        this.props.loginUserWithEmail(loginId);
+    loginWithPhone = () => {
+        this.props.loginUserWithPhoneNumber(this.state.phone);
     }
-    emailInputChange = (e) => {
-        this.setState({"email":e.target.value})
+    phoneInputChange = (e) => {
+        this.setState({ "phone": e.target.value })
+    }
+    loginWithGoogle = () => {
+        this.props.loginUserWithGoogle();
+    }
+    logout = () => {
+        this.props.logout();
     }
     render() {
         return (
             <div className="pageMainContainer">
-                <NavBar currentPageHead="Login"/>
+                <NavBar currentPageHead="Login" />
                 <div>
-                    <input type="email" className={styles.inputEmail} placeholder="Enter email Address" id="loginEmailAddress" onChange={this.emailInputChange}></input>
-                    <input type="button" className={styles.loginButton} onClick={this.login} value="Login"></input>
+                    <input type="text" className={styles.inputEmail} placeholder="Enter PhoneNumber" id="loginPhoneNumber" onChange={this.phoneInputChange}></input>
+                    <input type="button" className={styles.loginButton} onClick={this.loginWithPhone} value="Login"></input>
+                </div>
+                <div>
+                    <input type="button" className={styles.loginButton} onClick={this.loginWithGoogle} value="Signin with Google"></input>
+                </div>
+                <div>
+                    <input type="button" className={styles.loginButton} onClick={this.logout} value="Signout"></input>
                 </div>
             </div>
         );
@@ -33,7 +43,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 const mapDispatchToProps = {
     pushRoute: push,
-    loginUserWithEmail: loginUserWithEmail,
-
+    loginUserWithPhoneNumber: loginUserWithPhoneNumber,
+    loginUserWithGoogle: loginUserWithGoogle,
+    logout: logout
 };
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
