@@ -1,17 +1,24 @@
 .table {
     border-spacing: 10px;
+    min-width: 350px;
 }
 
+/* .table td {
+    min-width: 150px;
+} */
+
 .trow {
-    height: 20px;
+    height: 27px;
 }
 
 .labelCell {
     display: flex;
     justify-content: space-between;
+    min-width: 150px;
 }
 
 .valueCell {
     background: #eee;
     padding: 0 6px;
+    min-width: 250px;
 }
