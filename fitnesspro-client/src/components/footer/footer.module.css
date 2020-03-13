@@ -30,13 +30,13 @@
 }
 
 .footerLiHead {
-    color: ivory;
+    color:#E72975;
     font-size: 32px;
-    font-style: oblique;
+    /* font-style: oblique; */
     line-height: 36px;
     padding-bottom: 12px;
     text-underline-position: under;
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }
 @media screen and (max-width: 768px) {
     .footer {

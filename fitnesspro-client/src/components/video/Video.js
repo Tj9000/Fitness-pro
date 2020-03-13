@@ -11,7 +11,7 @@ class Video extends Component {
         pip: false,
         playing: true,
         controls: true,
-        light: false,
+        light: true,
         volume: 0.8,
         muted: false,
         played: 0,
@@ -83,32 +83,31 @@ class Video extends Component {
     render() {
         const { url, playing, controls, light, volume, muted, loop, playbackRate } = this.state
         return (
-            <div>
-                <ReactPlayer
-                    ref={this.ref}
-                    className='react-player'
-                    url={url}
-                    // width='100%'
-                    // height='100%'
-                    playing={playing}
-                    controls={controls}
-                    light={light}
-                    loop={loop}
-                    playbackRate={playbackRate}
-                    volume={volume}
-                    muted={muted}
-                    onReady={() => console.log('onReady')}
-                    onStart={this.playerOnStart}
-                    onPlay={this.handlePlay}
-                    onPause={this.handlePause}
-                    onBuffer={() => console.log('onBuffer')}
-                    onSeek={e => console.log('onSeek', e)}
-                    onEnded={this.handleEnded}
-                    onError={e => console.log('onError', e)}
-                    onProgress={this.handleProgress}
-                    onDuration={this.handleDuration}
-                />
-            </div>
+            <ReactPlayer
+                ref={this.ref}
+                className='react-player'
+                url={url}
+                width='100%'
+                height='100%'
+                playing={playing}
+                controls={controls}
+                light={light}
+                loop={loop}
+                playbackRate={playbackRate}
+                volume={volume}
+                muted={muted}
+                onReady={() => console.log('onReady')}
+                onStart={this.playerOnStart}
+                onPlay={this.handlePlay}
+                onPause={this.handlePause}
+                onBuffer={() => console.log('onBuffer')}
+                onSeek={e => console.log('onSeek', e)}
+                onEnded={this.handleEnded}
+                onError={e => console.log('onError', e)}
+                onProgress={this.handleProgress}
+                onDuration={this.handleDuration}    
+                style={{borderRadius:'20px',overflow:'hidden',backgroundColor:'black'}}        
+            />
         )
     }
 }
