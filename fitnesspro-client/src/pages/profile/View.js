@@ -23,6 +23,7 @@ class View extends Component {
         { label: 'Weight', value: this.props.userDetails && this.props.userDetails.weight },
         { label: 'Email', value: this.props.userDetails && this.props.userDetails.email },
         { label: 'Phone', value: this.props.userDetails && this.props.userDetails.phone },
+        { label: 'Country', value: this.props.userDetails && this.props.userDetails.country },
         { label: 'City', value: this.props.userDetails && this.props.userDetails.city },
         { label: 'Zipcode', value: this.props.userDetails && this.props.userDetails.zipCode },
         { label: 'Gym Access', value: this.props.userDetails && this.props.userDetails.gymAccess },
@@ -40,7 +41,7 @@ class View extends Component {
                     </div>
 
                     <div className={styles.profileContentRightList}>
-                        <div>
+                        <div className={styles.profileImageContainer}>
                             <img className={styles.profileImage} src={FitProfilePic}></img>
                         </div>
                         <div className={styles.profileButtonContainer}>

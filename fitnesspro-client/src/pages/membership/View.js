@@ -38,7 +38,7 @@ class View extends Component {
                     </div>
 
                     <div className={styles.profileContentRightList}>
-                        <div>
+                        <div className={styles.profileImageContainer}>
                             <img className={styles.profileImage} src={FitProfilePic}></img>
                         </div>
                         <div className={styles.profileButtonContainer}>

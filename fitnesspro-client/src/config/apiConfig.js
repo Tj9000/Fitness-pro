@@ -1,0 +1,2 @@
+export const HOST = process.env.NODE_ENV !== 'production' ? 'http://localhost:5001' : 'https://us-central1-fitvib-ff8bb.cloudfunctions.net';
+export const BASEURL = process.env.NODE_ENV !== 'production' ? '/fitvib-ff8bb/us-central1/app' : '/app'

@@ -29,3 +29,24 @@ code {
   font-weight: 400;
   src: url(../node_modules/react-web-vector-icons/fonts/MaterialIcons.ttf) format('truetype')
 }
+
+@font-face {
+  font-family: MaterialCommunityIcons;
+  font-style: normal;
+  font-weight: 400;
+  src: url(../node_modules/react-web-vector-icons/fonts/MaterialCommunityIcons.ttf) format('truetype')
+}
+
+@font-face {
+  font-family: SimpleLineIcons;
+  font-style: normal;
+  font-weight: 400;
+  src: url(../node_modules/react-web-vector-icons/fonts/SimpleLineIcons.ttf) format('truetype')
+}
+
+@font-face {
+  font-family: Ionicons;
+  font-style: normal;
+  font-weight: 400;
+  src: url(../node_modules/react-web-vector-icons/fonts/Ionicons.ttf) format('truetype')
+}

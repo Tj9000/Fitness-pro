@@ -2,18 +2,6 @@ import * as types from '../types';
 
 const initialState = {
     details: {
-        'name': 'MyName',
-        'age': 24,
-        'gender': 'Female',
-        'height': 160,
-        'weight': 56,
-        'email': 'myname@gmail.com',
-        'phone': '+1 9876543210',
-        'city': 'Mysore',
-        'zipCode': 570008,
-        'gymAccess': null,
-        'target': null,
-        'languagePref': 'English'
     },
     membershipDetails: {
         activatedDate : Date.now()-(24*3600*1000*100),
@@ -37,24 +25,51 @@ const initialState = {
         endDate: Date.now()+(24*3600*1000*7*8),
         programName: 'Muscle Dribble',
         programLevel: 'Intermediate',
-    }
+    },
+    profileSignupComplete: false
 }
 const user = (state = initialState, action) => {
     switch (action.type) {
-        case types.FETCH_USER_FULFILLED:
+        case types.FETCH_CHECKADDUSER_SUCCESS:
             return {
                 ...state,
+                details: generateUserDetailsObject({ ...state.details, ...action.userDetails }),
+                profileSignupComplete: action.userDetails.profileSignupComplete
             };
-        case types.LOGIN_WITH_EMAIL: {
+        case types.UPDATE_USER_DETAILS_SUCCESS:
             return {
                 ...state,
-                details: { ...state.details, email: action.email}
+                details: generateUserDetailsObject({ ...state.details, ...action.userDetails }),
             }
-        }
+        case types.UPDATE_USER_TANDC_SUCCESS:
+            return {
+                ...state,
+                profileSignupComplete: true
+            }
         default:
             return state;
     }
 };
 
+
+
+function generateUserDetailsObject(userDetails) {
+    if (!userDetails) return {};
+    return {
+        name: userDetails.name,
+        age: userDetails.age,
+        gender: userDetails.gender,
+        height: userDetails.height,
+        weight: userDetails.weight,
+        email: userDetails.email,
+        phone: userDetails.phone,
+        country: userDetails.country,
+        city: userDetails.city,
+        zipCode: userDetails.zipCode,
+        gymAccess: userDetails.gymAccess,
+        target: userDetails.target,
+        languagePref: userDetails.languagePref,
+    };
+}
 
 export default user;

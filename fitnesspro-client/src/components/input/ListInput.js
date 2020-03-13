@@ -44,19 +44,19 @@ export class ListInput extends React.Component {
 
     InputField = ({ input }) => {
         switch (input.type) {
-            case 'radio': return (<this.RadioGroup input={input} ref={ref => this.valuesRef[input.label] = ref} />);
+            case 'radio': return (<this.RadioGroup input={input} />);
             case 'date':
                 let dt = input.defaultValue && new moment(input.defaultValue).format("YYYY-MM-DD");
                 return (<input
-                    class={styles.tableInputField}
+                    className={styles.tableInputField}
                     type={input.type || 'text'}
                     defaultValue={dt || null}
                     readOnly={input.readOnly}
                     ref={ref => this.valuesRef[input.label] = ref}
                 />);
-            case 'dropdown' : return (<this.Dropdown input={input} ref={ref => this.valuesRef[input.label] = ref}/> )
+            case 'dropdown': return (<this.Dropdown input={input} ref={ref => this.valuesRef[input.label] = ref} />)
             default: return (<input
-                class={styles.tableInputField}
+                className={styles.tableInputField}
                 type={input.type || 'text'}
                 defaultValue={input.defaultValue}
                 readOnly={input.readOnly}
@@ -83,18 +83,20 @@ export class ListInput extends React.Component {
     render() {
         let inputs = this.props.inputs || [];
         return (
-            <table style={{ borderSpacing: '10px' }}><tbody ref={ref => this.tableBody = ref}>
-                {
-                    inputs.map(inp =>
-                        <tr key={inp.label}>
-                            <td>{inp.label}&ensp;</td>
-                            <td>
-                                <this.InputField input={inp} />
-                            </td>
-                        </tr>
-                    )
-                }
-            </tbody> </table>
+            <table style={{ borderSpacing: '10px' }} className={styles.table}>
+                <tbody ref={ref => this.tableBody = ref}>
+                    {
+                        inputs.map(inp =>
+                            <tr key={inp.label} className={styles.trow}>
+                                <td className={styles.labelCell}>{inp.label}&ensp;</td>
+                                <td className={styles.valueCell}>
+                                    <this.InputField input={inp} />
+                                </td>
+                            </tr>
+                        )
+                    }
+                </tbody>
+            </table>
         )
     }
 }
