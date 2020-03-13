@@ -7,7 +7,7 @@ import FitProfilePic from '../../assets/images/fitProfilePic.png';
 import { ListInput } from "../../components/input/ListInput";
 
 import styles from '../../assets/css/ProfilePage.module.css';
-
+import { LANG_PREF_DEFAULT, COUNTRY_DEFAULT } from '../../config/defaults';
 class Update extends Component {
     formref = null;
     state = {
@@ -55,12 +55,12 @@ class Update extends Component {
             { label: 'Weight', type: 'number', defaultValue: this.props.userDetails && this.props.userDetails.weight },
             { label: 'Email', type: 'email', readOnly: true, defaultValue: this.props.userDetails && this.props.userDetails.email },
             { label: 'Phone', type: 'text', readOnly: true, defaultValue: this.props.userDetails && this.props.userDetails.phone },
-            { label: 'Country', type: 'text', readOnly: true, defaultValue: this.props.userDetails && this.props.userDetails.country },
+            { label: 'Country', type: 'text', readOnly: true, defaultValue: this.props.userDetails && this.props.userDetails.country || COUNTRY_DEFAULT },
             { label: 'City', type: 'text', defaultValue: this.props.userDetails && this.props.userDetails.city },
             { label: 'Zipcode', type: 'number', defaultValue: this.props.userDetails && this.props.userDetails.zipCode },
             { label: 'Gym Access', type: 'text', defaultValue: this.props.userDetails && this.props.userDetails.gymAccess },
             { label: 'Target', type: 'text', defaultValue: this.props.userDetails && this.props.userDetails.target },
-            { label: 'Language Preference', type: 'text', readOnly: true, defaultValue: this.props.userDetails && this.props.userDetails.languagePref }
+            { label: 'Language Preference', type: 'text', readOnly: true, defaultValue: this.props.userDetails && this.props.userDetails.languagePref || LANG_PREF_DEFAULT}
         ];
         return (<div className={styles.profileContentContainer}>
             <div className={styles.profileContentSubContainer}>
