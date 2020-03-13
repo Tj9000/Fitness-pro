@@ -33,11 +33,19 @@ const user = (state = initialState, action) => {
         case types.FETCH_CHECKADDUSER_SUCCESS:
             return {
                 ...state,
-                details: { ...state.details, 
-                    ...generateUserDetailsObject(action.userDetails)
-                },
+                details: generateUserDetailsObject({ ...state.details, ...action.userDetails }),
                 profileSignupComplete: action.userDetails.profileSignupComplete
             };
+        case types.UPDATE_USER_DETAILS_SUCCESS:
+            return {
+                ...state,
+                details: generateUserDetailsObject({ ...state.details, ...action.userDetails }),
+            }
+        case types.UPDATE_USER_TANDC_SUCCESS:
+            return {
+                ...state,
+                profileSignupComplete: true
+            }
         default:
             return state;
     }
@@ -46,7 +54,7 @@ const user = (state = initialState, action) => {
 
 
 function generateUserDetailsObject(userDetails) {
-    if(! userDetails) return {};
+    if (!userDetails) return {};
     return {
         name: userDetails.name,
         age: userDetails.age,
@@ -62,6 +70,6 @@ function generateUserDetailsObject(userDetails) {
         target: userDetails.target,
         languagePref: userDetails.languagePref,
     };
-} 
+}
 
 export default user;
