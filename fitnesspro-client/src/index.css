@@ -50,3 +50,9 @@ code {
   font-weight: 400;
   src: url(../node_modules/react-web-vector-icons/fonts/Ionicons.ttf) format('truetype')
 }
+@font-face {
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: 400;
+  src: url(../node_modules/react-web-vector-icons/fonts/FontAwesome.ttf) format('truetype')
+}
