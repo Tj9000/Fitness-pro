@@ -14,6 +14,7 @@ import * as _ from 'lodash';
 
 import styles from '../../assets/css/ProfilePage.module.css';
 import { LANG_PREF_DEFAULT, COUNTRY_DEFAULT } from '../../config/defaults';
+import { validateUserInput } from '../../helpers/userProfileHelper';
 
 class SignupPage extends Component {
     formref = null;
@@ -36,7 +37,7 @@ class SignupPage extends Component {
             val.phone = values['Phone'];
             val.country = values['Country'];
             val.city = values['City'];
-            val.zipcode = values['Zipcode'];
+            val.zipCode = values['Zipcode'];
             val.gymAccess = values['Gym Access'];
             val.target = values['Target'];
             val.languagePref = values['Language Preference'];
@@ -50,6 +51,32 @@ class SignupPage extends Component {
             return v && (userDetails[k] != v);
         });
         return reducedValues;
+    }
+
+    checkFormValidation = () => {
+        let val = {};
+        if (this.formref) {
+            let validations = this.formref.getValidationResult();
+            val.name = validations['Name'];
+            val.age = validations['Age'];
+            val.gender = validations['Gender'];
+            val.height = validations['Height'];
+            val.weight = validations['Weight'];
+            val.email = validations['Email'];
+            val.phone = validations['Phone'];
+            val.country = validations['Country'];
+            val.city = validations['City'];
+            val.zipCode = validations['Zipcode'];
+            val.gymAccess = validations['Gym Access'];
+            val.target = validations['Target'];
+            val.languagePref = validations['Language Preference'];
+        }
+        let invalidRes =_.pickBy(val, (v,k)=> {
+            return !(v && v.validity.valid)
+        })
+        //TODO: handle Invalid Res
+        
+        return _.size(invalidRes) == 0;
     }
     _handleImageChange = (e) => {
         e.preventDefault();
@@ -71,6 +98,11 @@ class SignupPage extends Component {
         inputNode.click();
     }
 
+    componentDidUpdate() {
+        if (this.props.profileSignupStep == -1 && this.props.profileSignupComplete ){
+            this.props.pushRoute('/profile');
+        }
+    }
     renderEditContent = () => {
         let userDetails = this.props.userDetails || {};
         let InputListData = [
@@ -89,7 +121,7 @@ class SignupPage extends Component {
             { label: 'Language Preference', type: 'text', readOnly: true, defaultValue: userDetails.languagePref || LANG_PREF_DEFAULT },
         ];
         switch (this.props.profileSignupStep) {
-            case -1: if (this.props.profileSignupComplete) this.props.pushRoute('/profile'); //Move this out of Render
+            case -1:
                 return <Fragment></Fragment>
             case 3: return (<div> Terms And Conditions</div>);
             case 2:
@@ -108,7 +140,18 @@ class SignupPage extends Component {
     nextButton = () => {
         switch (this.props.profileSignupStep) {
             case 1:
-                this.props.updateUserDetails(this.getChangedFormValues())
+                if(this.checkFormValidation()) {
+                    let valuesToUpdate=this.getChangedFormValues();
+                    let invalidations =_.pickBy(valuesToUpdate, (v,k)=> !validateUserInput(k,v));
+                    if(!_.size(invalidations)) {
+                        this.props.updateUserDetails(this.getChangedFormValues())
+                    }
+                    else {
+                        alert(`Invalid ${Object.keys(invalidations).join(', ')}.`)
+                    }
+                } else {
+                    alert("Please check Validity of the inputs"); //TODO handle input error
+                }
                 return;
             case 2:
                 this.props.updateUserImage(this.newImageBase64)

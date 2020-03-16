@@ -8,7 +8,8 @@ export class ListInput extends React.Component {
         let setRef = (e) => {
             this.valuesRef[input.label] = e.target;
         }
-        let options = input.options || [];
+        let options = _.set(input.options || []);
+        let defaultValue = input.defaultValue || options[0]
         return (
             <div>
                 {
@@ -21,7 +22,8 @@ export class ListInput extends React.Component {
                                 value={v}
                                 name={input.label}
                                 onChange={setRef}
-                                defaultChecked={input.defaultValue == v}
+                                defaultChecked={defaultValue == v}
+                                ref={ref => { if (defaultValue == v) this.valuesRef[input.label] = ref; }}
                                 readOnly={input.readOnly}
                             />{v}
                         </label>
@@ -78,7 +80,16 @@ export class ListInput extends React.Component {
             values[k] = v.value;
         })
         return values;
-
+    }
+    getValidationResult = () => {
+        let values = {};
+        _.forEach(this.valuesRef, (v, k) => {
+            values[k] = {
+                validity: v.validity,
+                validationMessage: v.validationMessage
+            };
+        })
+        return values;
     }
     render() {
         let inputs = this.props.inputs || [];
