@@ -21,6 +21,11 @@
     width: 100%;
 }
 
+.videoContainer:hover,
+.videoContainer:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
 .title {
     height: 32px;
     font-size: larger;
@@ -52,4 +57,18 @@
     justify-content: center;
     display: flex;
     flex-direction: column;
+    box-shadow: 5px 5px 8px #aaaaaa;
+    border: 0.5px solid #BFBFBF;
+}
+
+.nutritionCardDesc{
+     padding-top: 0px;
+     padding-bottom:10px;
+     font-size:large;
+     display:flex;
+     flex-direction:row ;
+}
+
+.nutritionCardList{
+    padding: 5px;
 }

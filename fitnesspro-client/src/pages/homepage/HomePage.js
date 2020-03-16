@@ -3,6 +3,7 @@ import Video from '../../components/video/Video';
 import styles from './homepage.module.css'
 import NavBar from '../../components/navBar/NavBar'
 import Vid from '../../assets/videos/Test-Intro-30sec-4mb.mp4'
+import Muscle from '../../assets/images/gym.png'
 
 export default class HomePage extends React.Component {
     render() {
@@ -31,20 +32,25 @@ export default class HomePage extends React.Component {
                 <div><div className={styles.title}>Nutrition</div></div>
                 <div className={styles.nutritionCardContainer}>
                     <div className={styles.nutritionCard}>
-                    <div style={{ paddingTop: '0px',paddingBottom:'10px',fontSize:'large' }}>Building Muscle</div>
-
-                        <ul>
-                            <li style={{ padding: '10px' }}>Morning</li>
-                            <li style={{ padding: '10px' }}>Afternoon</li>
-                            <li style={{ padding: '10px' }}>Evening</li>
+                        <div className={styles.nutritionCardDesc}>Building Muscle
+                    <img src={Muscle} height='20px' width='50px' style={{ paddingLeft: '10px' }}></img></div>
+                        <ul style={{ listStyleType: 'none', padding: '10px' }}>
+                            <li className={styles.nutritionCardList}>Breakfast :
+                            Egg-white omelet with chicken and veggies</li>
+                            <li className={styles.nutritionCardList}>Lunch :
+                            1-2 grilled chicken breasts
+                            2 handful-sized servings of brown rice
+                            </li>
+                            <li className={styles.nutritionCardList}>Dinner : Large salad with mixed veggies
+                            1 baked regular or sweet potato</li>
                         </ul>
                     </div>
                     <div className={styles.nutritionCard}>
-                        <div style={{ paddingTop: '0px',paddingBottom:'10px',fontSize:'large' }}>Non Veg</div>
-                        <ul>
-                            <li style={{ padding: '10px' }}>Morning</li>
-                            <li style={{ padding: '10px' }}>Afternoon</li>
-                            <li style={{ padding: '10px' }}>Evening</li>
+                        <div className={styles.nutritionCardDesc}>Non Veg</div>
+                        <ul style={{ listStyleType: 'none', padding: '10px' }}>
+                            <li className={styles.nutritionCardList}>Morning</li>
+                            <li className={styles.nutritionCardList}>Afternoon</li>
+                            <li className={styles.nutritionCardList}>Evening</li>
                         </ul>
                     </div>
                 </div>
