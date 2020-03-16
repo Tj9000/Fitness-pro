@@ -4,16 +4,16 @@
     "private": true,
     "scripts": {
         "start": "node ./bin/www",
-        "start-client": "cd fitnesspro-client && react-scripts start",
-        "start-dev": "node ./bin/www && cd fitnesspro-client && react-scripts start",
-        "build-client": "cd fitnesspro-client && react-scripts build",
-        "test-client": "cd fitnesspro-client && react-scripts test",
-        "eject-client": "cd fitnesspro-client && react-scripts eject"
+        "start-client": "cd client && react-scripts start",
+        "start-dev": "node ./bin/www && cd client && react-scripts start",
+        "build-client": "cd client && react-scripts build",
+        "test-client": "cd client && react-scripts test",
+        "eject-client": "cd client && react-scripts eject"
     },
     "dependencies": {
         "cookie-parser": "~1.4.4",
         "debug": "~2.6.9",
         "express": "~4.16.1",
-        "http-errors": "~1.6.3",
+        "http-errors": "~1.6.3"
     }
 }

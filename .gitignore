@@ -73,9 +73,9 @@ typings/
 # skipping apidoc & docz folders
 
 #skip build follders
-fitnesspro-client/build
+client/build
 
 
 #firebase
 firebase-debug.log
-fitnesspro-client/.firebase/*.cache
+client/.firebase/*.cache
