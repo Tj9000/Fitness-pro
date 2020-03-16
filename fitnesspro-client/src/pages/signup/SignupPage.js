@@ -100,7 +100,7 @@ class SignupPage extends Component {
 
     componentDidUpdate() {
         if (this.props.profileSignupStep == -1 && this.props.profileSignupComplete ){
-            this.props.pushRoute('/profile');
+            this.props.pushRoute('/homepage');
         }
     }
     renderEditContent = () => {

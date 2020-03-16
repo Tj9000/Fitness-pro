@@ -24,6 +24,9 @@ class LoginModal extends Component {
   loginWithGoogle = () => {
     this.props.loginUserWithGoogle();
   }
+  loginWithFacebook = () => {
+    
+  }
 
   render() {
     return (
@@ -57,7 +60,7 @@ class LoginModal extends Component {
               <div type="button" className={[styles.socialMediaSigninButton, styles.googleSigninButton].join(' ')} onClick={this.loginWithGoogle}>
                 <Icon name="google" font="FontAwesome" size={14} color={'#fff'} style={{ padding: '5px' }} /> Signin with Google
             </div>
-              <div type="button" className={[styles.socialMediaSigninButton, styles.facebookSigninButton].join(' ')} onClick={this.loginWithGoogle}>
+              <div type="button" className={[styles.socialMediaSigninButton, styles.facebookSigninButton].join(' ')} onClick={this.loginWithFacebook}>
                 <Icon name="facebook" font="FontAwesome" size={14} color={'#fff'} style={{ padding: '5px' }} /> Signin with Facebook
               </div>
             </div>
