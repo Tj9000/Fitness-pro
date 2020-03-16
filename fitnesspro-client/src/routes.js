@@ -13,6 +13,7 @@ import ProfilePage from './pages/profile/ProfilePage';
 
 import { history } from './redux/store';
 import Footer from './components/footer';
+import HomePage from './pages/homepage/HomePage';
 
 const Routes = () => {
     return (
@@ -28,6 +29,8 @@ const Routes = () => {
                     <Route path='/billing' exact component={BillingPage}></Route>
                     <Route path='/support' exact component={SupportPage}></Route>
                     <Route path='/workoutplan' exact component={WorkoutPlanPage}></Route>
+                    <Route path='/homepage' exact component={HomePage}></Route>
+
                 </Switch>
             <Footer/>
         </ConnectedRouter>
