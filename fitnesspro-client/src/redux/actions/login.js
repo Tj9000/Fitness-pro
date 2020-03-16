@@ -60,7 +60,7 @@ const checkAndGetUserData = () => (dispatch) => {
                     dispatch(push('/signup'));
                 }
                 else {
-                    dispatch(push('/profile'));
+                    dispatch(push('/homepage'));
                 }
             }
         })

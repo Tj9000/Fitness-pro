@@ -33,6 +33,11 @@
     list-style-type: none;
     color: #000;
     float: right;
+    display: block;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .listItemRightLanding:hover {

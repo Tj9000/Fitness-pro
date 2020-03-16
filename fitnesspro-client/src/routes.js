@@ -11,6 +11,8 @@ import SupportPage from './pages/support/SupportPage';
 import WorkoutPlanPage from './pages/workoutplan/WorkoutPlanPage';
 import ProfilePage from './pages/profile/ProfilePage';
 
+import Modals from './Modals';
+
 import { history } from './redux/store';
 import Footer from './components/footer';
 import HomePage from './pages/homepage/HomePage';
@@ -20,7 +22,7 @@ const Routes = () => {
         <ConnectedRouter history={history}>
                 <Switch>
                     <Route path='/' exact component={LandingPage}></Route>
-                    <Route path='/login' exact component={LoginPage}></Route>
+                    {/* <Route path='/login' exact component={LoginPage}></Route> */}
                     <Route path='/signup' exact component={SignupPage}></Route>
                     <Route path='/profile' exact render={(props) => <ProfilePage {...props} isEditProfile={false} />}></Route>
                     <Route path='/profile/update' exact render={(props) => <ProfilePage {...props} isEditProfile={true} />}></Route>
@@ -32,6 +34,8 @@ const Routes = () => {
                     <Route path='/homepage' exact component={HomePage}></Route>
 
                 </Switch>
+                <Modals/>
+
             <Footer/>
         </ConnectedRouter>
     );

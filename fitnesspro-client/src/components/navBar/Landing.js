@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
 
+import { showLoginModal } from '../../redux/actions/modal';
+
 import logo from '../../assets/images/ProFit-logo.png';
 
 import styles from './navBar.module.css';
@@ -18,8 +20,8 @@ class Landing extends Component {
                     <img src={logo} height='45px' alt='logo' />
                 </div>
                 <div className={styles.rightList}>
-                    <span className={styles.listItemRightLanding} ><Link to="/login">Login</Link></span>
-                    <span className={styles.listItemRightLanding} ><Link to="/signup">Sign up</Link></span>
+                    <span className={styles.listItemRightLanding} onClick={this.props.showLoginModal} >Login</span>
+                    <span className={styles.listItemRightLanding} onClick={this.props.showLoginModal} >Sign up</span>
                 </div>
             </div>
 
@@ -30,6 +32,8 @@ class Landing extends Component {
 const mapStateToProps = (state, ownProps) => ({
 });
 const mapDispatchToProps = {
-    pushRoute: push
+    pushRoute: push,
+    showLoginModal: showLoginModal
+
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Landing);
