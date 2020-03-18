@@ -120,11 +120,13 @@
 .serviceContainer{
     display: flex;
     flex-direction: row;
-    background-color: #090808;
+    background-color: black;
     height: 300px;
     padding-left: 200px;
     padding-right: 200px;
     width: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
 .serviceHeading{

@@ -35,7 +35,7 @@ class LandingPage extends Component {
                         </div>
                     </div>
                 </div>
-                <div>                    
+                <div style={{width:'100%'}}>                    
                     <div className={styles.serviceHeading}>Trust the <span style={{color:'#e5ce48'}}>process</span></div>
                     <div className={styles.serviceSubHeading}>Some motivational lines here</div>
                     <div className={styles.serviceContainer}>
