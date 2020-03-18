@@ -6,13 +6,37 @@ import { createBrowserHistory } from 'history';
 import rootReducer from './reducers';
 import rootEpic from './epics';
 
-export const history = createBrowserHistory()
+
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+const expireReducer = require('redux-persist-expire');
+
+export const history = createBrowserHistory();
 
 // const epicMiddleware = createEpicMiddleware();
 // epicMiddleware.run(rootEpic);
 
+const persistConfig = {
+  key: 'root',
+  storage,
+  transforms: [
+    expireReducer('user', {
+      // (Optional) Key to be used for the time relative to which store is to be expired
+      // persistedAtKey: '__persisted_at',
+      expireSeconds: 5 * 60,
+      autoExpire: true
+    })
+    // You can add more `expireReducer` calls here for different reducers
+    // that you may want to expire
+  ]
+}
+
+const withHistoryReducer = rootReducer(history);
+const persistedReducer = persistReducer(persistConfig, withHistoryReducer);
+
+
 const store = createStore(
-  rootReducer(history),
+  persistedReducer,
   applyMiddleware(
     routerMiddleware(history),
     ThunkMiddleware
@@ -20,3 +44,4 @@ const store = createStore(
 );
 
 export default store;
+export const persistor = persistStore(store);
