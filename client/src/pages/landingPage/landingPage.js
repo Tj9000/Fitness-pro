@@ -35,8 +35,8 @@ class LandingPage extends Component {
                         </div>
                     </div>
                 </div>
-                <div style={{width:'100%'}}>                    
-                    <div className={styles.serviceHeading}>Trust the <span style={{color:'#e5ce48'}}>process</span></div>
+                <div className={styles.serviceImgTextContainer}>
+                    <div className={styles.serviceHeading}>Trust the <span style={{ color: '#e5ce48' }}>process</span></div>
                     <div className={styles.serviceSubHeading}>Some motivational lines here</div>
                     <div className={styles.serviceContainer}>
                         <div className={styles.fitvibServiceContainer}>
@@ -54,7 +54,32 @@ class LandingPage extends Component {
                     </div>
                 </div>
 
-                {/* <div style={{ width: '100%' }}>
+                <div className={styles.homepageContainer1}>
+                    <div className={styles.aboutFitvib}>
+                        <div className={styles.aboutFitvibWelcome}>
+                            <span>welcome to fitvib</span>
+                        </div>
+                        <div className={styles.aboutFitvibHeading}>
+                            <span>
+                                About Fitvib <span className={styles.dot}/>
+                            </span>
+                        </div>
+                        <div className={styles.aboutFitvibDesc}>
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.t
+                            </p>
+                        </div>
+                        <div className={styles.aboutFitvibWelcome} style={{paddingBottom:'30px'}}>
+                            <span> Our Promise Is Result, Not Pumpkins !</span>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+                {/* 
+                <div className={styles.homepageContainer1} style={{ width: '100%' }}>
                     <div style={{ textAlign: 'center' }}>
                         <p style={{ display: 'inline', fontStyle: 'italic', fontSize: '35px' }}>
                             MOVIE STARS

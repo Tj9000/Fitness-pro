@@ -7,6 +7,10 @@
     padding-top: 20px;
     padding-bottom: 20px;
     min-height: 180;
+    background-image: url(../../assets/images/bg_4.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .footer {
