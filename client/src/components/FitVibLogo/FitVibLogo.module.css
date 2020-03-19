@@ -1,0 +1,60 @@
+.LogoContainer {
+    cursor: pointer;
+    display: inline-block;
+    padding: 4px 0;
+}
+
+.logoText {
+    padding: 0 4px;
+    font-size: 36px;
+    text-decoration: none;
+}
+
+.LogoContainer:hover {
+    scale: 1.025;
+}
+
+a.logoText {
+    position: relative;
+}
+
+a.logoText:before {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 5px;
+    bottom: 0;
+    left: 0;
+    background-color: #e5ce48;
+}
+
+@keyframes fitvibLogo {
+    0% {
+        width: 0%;
+        left: 0%
+    }
+    5% {
+        width: 0%;
+        left: 0%
+    }
+    50% {
+        width: 100%;
+        left: 0%
+    }
+    95% {
+        width: 0%;
+        left: 100%;
+    }
+    100% {
+        width: 0%;
+        left: 100%;
+    }
+}
+
+a.logoText:hover:before {
+    transform-origin: 0% 100%;
+    animation-name: fitvibLogo;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}

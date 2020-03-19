@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
 
-import logo from '../../assets/images/ProFit-logo.png';
+import FitVibLogo from  '../FitVibLogo/FitVibLogo';
 
 import styles from './navBar.module.css';
 
@@ -14,7 +14,7 @@ class General extends Component {
             <div className={styles.navContainer} style={{ height: '80px', backgroundColor: '#fff' }}>
                 <div className={styles.nav}>
                     <div className={styles.leftList} >
-                        <img src={logo} height='45px' alt='logo' style={{ padding: '2px 0px' }} />
+                        <FitVibLogo/>
                     </div>
                     {
                         this.props.currentPageHead ? (
