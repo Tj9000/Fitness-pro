@@ -1,0 +1,216 @@
+.landingpage-fittext-container {}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    /* background-color: tomato; */
+    width: 500px;
+    height: 300px;
+}
+
+.testRotate:hover {
+    transform: rotateX('45');
+}
+
+.imageTextheader {
+    /* position: relative; */
+    width: 200px;
+    color: white;
+    /* font: bold 24px/45px Helvetica, Sans-Serif; */
+    letter-spacing: -1px;
+    padding: 10px;
+    font-size: 900;
+    line-height: 1.5;
+    letter-spacing: 3px;
+    font-size: 30px;
+    text-transform: uppercase;
+    box-sizing: border-box;
+}
+
+.imageTextContent {
+    color: white;
+    position: relative;
+    width: 450px;
+    padding-left: 10px;
+    font-family: 'Poppins';
+}
+
+.imgC1 {
+    position: relative;
+    min-height: 600px;
+    width: 450px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.imgC1_def {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* z-index: 1; */
+}
+
+.imgC1_1 {
+    background-image: url('../../assets/images/landingpage/bg_2.jpg');
+    transform: scale(1.2);
+}
+
+.imgC1_2 {
+    background-image: url('../../assets/images/landingpage/ripped-man.jpg');
+    animation-name: cf3FadeInOut;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 4s;
+    animation-direction: alternate;
+}
+
+@keyframes cf3FadeInOut {
+    0% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    40% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    60% {
+        opacity: 0;
+        pointer-events: none;
+    }
+    /* 99% {
+        opacity: 1; 
+
+    } */
+    100% {
+        opacity: 0;
+        pointer-events: none;
+        /* z-index: -5; */
+    }
+}
+
+.joinNow {
+    padding: 10px;
+    background-color: #e5ce48;
+    border-color: #e5ce48;
+    font-size: 12px;
+    color: black;
+    font-family: 'Poppins';
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.joinNow:hover {
+    font-weight: bolder;
+}
+
+.buttonWrapper {
+    padding: 10px;
+}
+
+.serviceContainer {
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    height: 300px;
+    padding-left: 200px;
+    padding-right: 200px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.serviceHeading {
+    font-weight: 700;
+    font-size: 34px;
+    text-transform: uppercase;
+    /* background-color: #090808; */
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+.serviceSubHeading {
+    color: #9e9fa199;
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 900;
+}
+
+.fitvibServiceContainer {
+    padding: 20px;
+}
+
+.serviceImgTextContainer {
+    /* background-image: url(../../assets/images/bg_4.jpg); */
+    background-color: black;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+}
+
+.homepageContainer1 {
+    background-image: url(../../assets/images/landingpage/13570.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    /* display: flex; */
+    
+}
+
+.aboutFitvib{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    align-items: center;
+    justify-content: center;
+}
+
+.aboutFitvibWelcome{
+    padding-top: 30px;
+}
+
+.aboutFitvibWelcome span{
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    /* background-color: red; */
+  
+    color: #e5ce48;
+    text-transform: uppercase;
+}
+
+.aboutFitvibHeading span{
+    font-size: 40px;
+    font-weight: bolder;
+    color: white;
+    /* background-color: yellow; */
+    text-transform: capitalize;
+}
+
+.aboutFitvibDesc p{
+    font-size: 17px;
+    font-weight: bold;
+    color: #C8C9CBC3;
+    /* background-color: red; */
+    text-align: justify;
+    padding-top: 30px;
+    padding-left: 60px;
+    padding-bottom: 60px;
+}
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: #e5ce48;
+    border-radius: 50%;
+    display: inline-block;
+  }
