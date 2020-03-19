@@ -91,7 +91,7 @@ class Video extends Component {
                 height='100%'
                 playing={playing}
                 controls={controls}
-                light={light}
+                light={this.props.thumbnail}
                 loop={loop}
                 playbackRate={playbackRate}
                 volume={volume}
