@@ -6,7 +6,7 @@ import { push } from 'connected-react-router';
 
 import { showLoginModal } from '../../redux/actions/modal';
 
-import logo from '../../assets/images/ProFit-logo.png';
+import FitVibLogo from '../FitVibLogo/FitVibLogo';
 
 import styles from './navBar.module.css';
 
@@ -17,7 +17,7 @@ class Landing extends Component {
             </div>
             <div className={styles.nav} style={{ height: '60px', backgroundColor: '#fff' }}>
                 <div className={styles.leftList} >
-                    <img src={logo} height='45px' alt='logo' />
+                    <FitVibLogo color={"#000"} />
                 </div>
                 <div className={styles.rightList}>
                     <span className={styles.listItemRightLanding} onClick={this.props.showLoginModal} >Login</span>

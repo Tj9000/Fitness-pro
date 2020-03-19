@@ -6,9 +6,9 @@ class Footer extends Component {
             <div className={styles.footerContainer}>
                 <div className={styles.footer}>
                     <ul className={styles.footerUl}>
-                        <li className={styles.footerLiHead}>ProFit</li>
-                        <li><a>ABOUT PROFIT</a></li>
-                        <li><a>WHY PROFIT</a></li>
+                        <li className={[styles.footerLiHead, 'fitVibText'].join(' ')}>FitVib</li>
+                        <li><a>ABOUT <span className={'fitVibText'}>FitVib</span></a></li>
+                        <li><a>WHY <span className={'fitVibText'}>FitVib</span></a></li>
                         <li><a>VISION AND VALUES</a></li>
                         <li><a>TRAINERS</a></li>
                     </ul>

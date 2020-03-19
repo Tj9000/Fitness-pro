@@ -29,7 +29,7 @@ class LandingPage extends Component {
                     <div className={[styles.imgC1_def, styles.imgC1_2].join(' ')}>
                         {/* <img className={styles.top} src={FitPic1} width='100%'></img> */}
                         <div className={styles.textContainer}>
-                            <div className={styles.imageTextheader}>We are <span style={{ color: '#e5ce48' }}>FitVib</span></div>
+                            <div className={styles.imageTextheader}>We are <span style={{ color: '#e5ce48' }} className={'fitVibText'}>FitVib</span></div>
                             <div className={styles.imageTextContent}> The future of fitness</div>
                             <div className={styles.buttonWrapper}><button className={styles.joinNow}>Join now</button></div>
                         </div>
@@ -61,7 +61,7 @@ class LandingPage extends Component {
                         </div>
                         <div className={styles.aboutFitvibHeading}>
                             <span>
-                                About Fitvib <span className={styles.dot}/>
+                                About <span className={'fitVibText'}>FitVib</span> <span className={styles.dot}/>
                             </span>
                         </div>
                         <div className={styles.aboutFitvibDesc}>

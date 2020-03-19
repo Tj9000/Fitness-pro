@@ -25,6 +25,12 @@ code {
   min-height: calc(100vh - 180px);
 }
 
+@import url('https://fonts.googleapis.com/css?family=Allerta+Stencil&display=swap');
+
+.fitVibText {
+  font-family: 'Allerta Stencil', sans-serif;
+}
+
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
 @font-face {
