@@ -46,7 +46,7 @@ class LoginModal extends Component {
 
           <div className={styles.loginPhoneContent}>
             <div className={styles.loginPhoneContainer}>
-              <input type="text" className={styles.phoneInputButton} placeholder="Enter Phone Number" id="loginPhoneNumber" onChange={this.phoneInputChange} disabled></input>
+              <input type="text" className={styles.phoneInputButton} placeholder="Enter Phone Number" id="loginPhoneNumber" onChange={this.phoneInputChange} disabled style={{maxWidth: '250px'}}></input>
               <input type="button" className={styles.loginButton} onClick={this.loginWithPhone} value="Login" disabled></input>
             </div>
 
