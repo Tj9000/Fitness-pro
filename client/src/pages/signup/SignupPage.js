@@ -12,8 +12,10 @@ import { ListInput } from "../../components/input/ListInput";
 
 import * as _ from 'lodash';
 
-import styles from '../../assets/css/ProfilePage.module.css';
+import styles from './SignupPage.module.css';
 import { LANG_PREF_DEFAULT, COUNTRY_DEFAULT } from '../../config/defaults';
+import { TANDC_TEXT } from '../../config/termsAndCondition';
+
 import { validateUserInput } from '../../helpers/userProfileHelper';
 
 class SignupPage extends Component {
@@ -71,11 +73,11 @@ class SignupPage extends Component {
             val.target = validations['Target'];
             val.languagePref = validations['Language Preference'];
         }
-        let invalidRes =_.pickBy(val, (v,k)=> {
+        let invalidRes = _.pickBy(val, (v, k) => {
             return !(v && v.validity.valid)
         })
         //TODO: handle Invalid Res
-        
+
         return _.size(invalidRes) == 0;
     }
     _handleImageChange = (e) => {
@@ -99,7 +101,7 @@ class SignupPage extends Component {
     }
 
     componentDidUpdate() {
-        if (this.props.profileSignupStep == -1 && this.props.profileSignupComplete ){
+        if (this.props.profileSignupStep == -1 && this.props.profileSignupComplete) {
             this.props.pushRoute('/homepage');
         }
     }
@@ -123,7 +125,13 @@ class SignupPage extends Component {
         switch (this.props.profileSignupStep) {
             case -1:
                 return <Fragment></Fragment>
-            case 3: return (<div> Terms And Conditions</div>);
+            case 3: return (
+                <div>
+                    <div className={styles.TandCHeader}>Terms And Conditions</div>
+                    <div className={styles.TandCText}>{TANDC_TEXT}</div>
+                    <div className={styles.TandCCheckContainer}>I have read the above and agree to the terms and conditions <input type="checkbox" /> </div>
+                </div>
+            );
             case 2:
                 return (<div className={styles.profileImageEditContainer} onClick={this._chooseImage}>
                     <img className={styles.profileImageEdit} src={this.state.newImageBase64 || FitProfilePic}></img>
@@ -140,10 +148,10 @@ class SignupPage extends Component {
     nextButton = () => {
         switch (this.props.profileSignupStep) {
             case 1:
-                if(this.checkFormValidation()) {
-                    let valuesToUpdate=this.getChangedFormValues();
-                    let invalidations =_.pickBy(valuesToUpdate, (v,k)=> !validateUserInput(k,v));
-                    if(!_.size(invalidations)) {
+                if (this.checkFormValidation()) {
+                    let valuesToUpdate = this.getChangedFormValues();
+                    let invalidations = _.pickBy(valuesToUpdate, (v, k) => !validateUserInput(k, v));
+                    if (!_.size(invalidations)) {
                         this.props.updateUserDetails(this.getChangedFormValues())
                     }
                     else {
@@ -166,13 +174,13 @@ class SignupPage extends Component {
         return (
             <div className="pageMainContainer">
                 <NavBar currentPageHead="Signup" />
-                <div className={styles.profileContentContainer}>
-                    <div className={styles.profileContentSubContainer}>
-                        <div className={styles.profileContentLeftList}>
+                <div className={styles.contentContainer}>
+                    <div className={styles.contentSubContainer}>
+                        <div className={styles.contentLeftList}>
                             <this.renderEditContent />
                         </div>
 
-                        <div className={styles.profileContentRightList}>
+                        <div className={styles.contentRightList}>
                             <div className={styles.SingleActionIcon}>
                                 <div className={styles.IconContainer} onClick={this.nextButton}>
                                     <Icon name="arrow-right-circle" font="SimpleLineIcons" size={64} color={'black'} />

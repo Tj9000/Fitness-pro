@@ -1,0 +1,110 @@
+.contentContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    height: 100%;
+    width: 768px;
+    min-height: 480px;
+}
+
+.contentSubContainer {
+    display: flex;
+    flex-direction: 'row';
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.contentLeftList {
+    display: flex;
+    flex-direction: 'column';
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.contentRightList {
+    display: flex;
+    flex-direction: column;
+    align-content: right;
+    justify-content: space-between;
+    padding-left: 20px;
+    width: 220px;
+}
+
+.profileImageEditContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 200px;
+    width: 200px;
+    background: #ccc;
+}
+
+.profileImageEdit {
+    display: block;
+    border: 2px solid black;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.profileImageEditContainer:hover .profileImageEdit {
+    opacity: 0.4;
+}
+
+.profileImageEditContainer:hover .profileImageEditIcon {
+    opacity: 1;
+}
+
+.profileImageEditIcon {
+    opacity: 0;
+    top: 0px;
+    right: 0px;
+    position: absolute;
+    display: block;
+}
+
+.TandCHeader {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.TandCText {
+    max-height: 400px;
+    padding: 10px;
+    margin: 10px;
+    text-align: justify;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    border: 1px solid black;
+}
+
+.TandCCheckContainer {
+    font-size: 16px;
+    text-align: center;
+    line-height: 20px;
+    height: 20px;
+}
+
+.SingleActionIcon {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: inherit;
+    flex-grow: 1;
+    align-self: center;
+}
+
+.IconContainer {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.IconContainer:hover {
+    background-color: #ddd;
+    border-radius: 50px;
+    padding: 0px;
+}
