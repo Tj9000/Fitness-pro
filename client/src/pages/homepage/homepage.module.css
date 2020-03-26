@@ -62,3 +62,35 @@
     border-radius: 50%;
     display: inline-block;
   }
+
+.homeContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+
+.homeSubContainer {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.myCoursesDiv{
+    font-size: 50px;
+    color: white;
+    text-align: center;
+}
+.myCoursesDiv .dot {
+    height: 18px;
+    width: 18px;
+    background-color: #e5ce48;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .sideNavContainer{
+      border: #e5ce48;
+  }

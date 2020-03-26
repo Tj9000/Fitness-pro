@@ -1,0 +1,36 @@
+.sideNavBar {
+    width: 400px;
+    background-color: black;
+    height: 100%;
+    padding: 10px;
+}
+
+.sideNavList{
+    /* overflow-y: scroll; */
+}
+
+.navElement {
+    padding: 20px;
+    font-size: xx-large;
+    color: #e5ce48;
+    list-style-type: none;
+    text-align: center;
+    outline: 1px solid #e5ce48;
+    cursor: pointer;
+}
+
+.sideNavList div{
+    padding: 7px;
+}
+
+.navElement:hover{
+    background-color: #e5ce48;
+    color: black;
+    font-weight: bold;}
+
+.active {
+    background-color: #e5ce48;
+    color: black;
+    font-weight: bold;
+
+}
