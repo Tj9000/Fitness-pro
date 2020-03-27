@@ -34,8 +34,8 @@ class SelectTrainerCard extends React.Component {
                         <div className={styles.courseDetailList}><span className={styles.courseDetailListHead}>Author: </span> {course.author}</div>
                         <div className={styles.courseDetailList}><span className={styles.courseDetailListHead}>Difficulty: </span> {course.difficulty}</div>
                         <div className={styles.courseDetailList}><span className={styles.courseDetailListHead}>Average Feedback: </span> {course.averageFeedback}</div>
-                        <div className={styles.courseDetailDescription}>{course.description}</div>
                     </div>
+                    <div className={styles.courseDetailDescription}>{course.description}</div>
                 </div>
 
                 {/* Join Now */}

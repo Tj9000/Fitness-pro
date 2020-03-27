@@ -3,9 +3,15 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-  --primary-color-yellow: #e5ce48;
-  --primary-color-pink: #E72975;
-
+  --primary-color: #e5ce48;
+  --secondary-color: #E72975;
+  --tertiary-color: #02b2e2;
+  --primary-black: #000;
+  --secondary-black: #010101;
+  --tertiary-black: #030303;
+  --primary-white: #fff;
+  --secondary-white: #ededed;
+  --tertiary-white: #eaeaea;
 }
 
 body {

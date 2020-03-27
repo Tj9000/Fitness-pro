@@ -10,7 +10,7 @@ export const IconDropdown = ({ buttonText, onClick, data, selectedVal }) => {
         <div className={styles.DropdownContainer}>
             <div className={styles.changeButton}>
                 <span>{buttonText}</span>
-                <Icon name="arrow-drop-down" font="MaterialIcons" size={20} color={'var(--primary-color-yellow)'} />
+                <Icon name="arrow-drop-down" font="MaterialIcons" size={20} color={'var(--primary-color)'} />
             </div>
             <div className={styles.DropdownContent}>
                 {

@@ -9,8 +9,8 @@
 .changeButton {
     font-size: 16px;
     padding: 0 4px;
-    background-color: black;
-    color: var(--primary-color-yellow);
+    background-color: var(--primary-black);
+    color: var(--primary-color);
     text-transform: capitalize;
     text-align: center;
     display: inline-flex;
@@ -40,9 +40,9 @@
     width: 100%;
     font-size: 16px;
     vertical-align: middle;
-    background-color: black;
-    color: var(--primary-color-yellow);
-    border-color: var(--primary-color-yellow);
+    background-color: var(--primary-black);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
     text-align: left;
     text-transform: capitalize;
     height: 40px;
@@ -56,15 +56,19 @@
 
 .DropdownList:hover {
     display: inline-flex;
-    background-color: var(--primary-color-yellow);
-    color: black;
-    border-color: black;
+    background-color: var(--primary-color);
+    color: var(--primary-black);
+    border-color: var(--primary-black);
 }
 
 .DropdownListSelected {
-    color: blue;
+    color: var(--tertiary-color);
+    font-weight: bold;
+    border-color: var(--primary-color);
 }
 
 .DropdownListSelected:hover {
-    color: blue;
+    color: var(--tertiary-black);
+    font-weight: bold;
+    border-color: var(--primary-black);
 }
