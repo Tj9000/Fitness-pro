@@ -50,7 +50,7 @@ class SignupPage extends Component {
         let userDetails = this.props.userDetails || {};
         let values = this.getFormValues()
         let reducedValues = _.pickBy(values, (v, k) => {
-            return v && (userDetails[k] != v);
+            return v && (userDetails[k] !== v);
         });
         return reducedValues;
     }
@@ -78,7 +78,7 @@ class SignupPage extends Component {
         })
         //TODO: handle Invalid Res
 
-        return _.size(invalidRes) == 0;
+        return _.size(invalidRes) === 0;
     }
     _handleImageChange = (e) => {
         e.preventDefault();
@@ -101,7 +101,7 @@ class SignupPage extends Component {
     }
 
     componentDidUpdate() {
-        if (this.props.profileSignupStep == -1 && this.props.profileSignupComplete) {
+        if (this.props.profileSignupStep === -1 && this.props.profileSignupComplete) {
             this.props.pushRoute('/homepage');
         }
     }
@@ -134,7 +134,7 @@ class SignupPage extends Component {
             );
             case 2:
                 return (<div className={styles.profileImageEditContainer} onClick={this._chooseImage}>
-                    <img className={styles.profileImageEdit} src={this.state.newImageBase64 || FitProfilePic}></img>
+                    <img className={styles.profileImageEdit} src={this.state.newImageBase64 || FitProfilePic} alt={'Profile pic'}></img>
                     <span className={styles.profileImageEditIcon}><Icon name="edit" font="MaterialIcons" size={32} color={'black'}></Icon></span>
                 </div>);
             case 1:

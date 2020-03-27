@@ -40,7 +40,7 @@ class Video extends Component {
     playerOnStart = () => {
         let playerNode = findDOMNode(this.player);
         let videoNode = playerNode && playerNode.firstChild;
-        if (videoNode && videoNode.nodeName && videoNode.nodeName.toUpperCase() == 'VIDEO') {
+        if (videoNode && videoNode.nodeName && videoNode.nodeName.toUpperCase() === 'VIDEO') {
             screenfull.request(videoNode)
         }
     }

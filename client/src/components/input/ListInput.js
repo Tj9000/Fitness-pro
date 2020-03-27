@@ -22,8 +22,8 @@ export class ListInput extends React.Component {
                                 value={v}
                                 name={input.label}
                                 onChange={setRef}
-                                defaultChecked={defaultValue == v}
-                                ref={ref => { if (defaultValue == v) this.valuesRef[input.label] = ref; }}
+                                defaultChecked={defaultValue === v}
+                                ref={ref => { if (defaultValue === v) this.valuesRef[input.label] = ref; }}
                                 readOnly={input.readOnly}
                             />{v}
                         </label>

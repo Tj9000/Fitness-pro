@@ -23,7 +23,7 @@ class SideNavBarHome extends React.Component {
     navElement = ({ text, courseId }) => {
         return (
             <div
-                className={[styles.navElement, this.state.selectedCourse == courseId ? styles.active : ''].join(' ')}
+                className={[styles.navElement, this.state.selectedCourse === courseId ? styles.active : ''].join(' ')}
                 onClick={() => this.selection(courseId)}>
 
                 {text}

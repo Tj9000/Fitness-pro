@@ -3,7 +3,6 @@ import { push } from 'connected-react-router';
 
 import { getApiCaller } from '../../utils/apiUtil';
 import { getObjectWithKeys } from '../../utils'
-import * as _ from 'lodash';
 
 export const fetchUser = username => ({ type: types.FETCH_USER, payload: username });
 export const fetchUserFulfilled = payload => ({ type: types.FETCH_USER_FULFILLED, payload });

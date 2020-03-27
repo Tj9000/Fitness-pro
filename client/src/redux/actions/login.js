@@ -75,5 +75,5 @@ export const logout = () => (dispatch) => {
     });
 }
 function validatePhoneNumber(email) {
-    return email != null;
+    return email !== null;
 }

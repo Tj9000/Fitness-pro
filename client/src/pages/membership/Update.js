@@ -46,7 +46,7 @@ class Update extends Component {
 
                     <div className={styles.profileContentRightList}>
                         <div>
-                            <img classname={styles.profileImage} src={FitProfilePic}></img>
+                            <img classname={styles.profileImage} src={FitProfilePic} alt={'Profile Pic'}></img>
                         </div>
                         <div className={styles.profileButtonContainer}>
                             <button onClick={this.getFormValues} className={styles.button}>Save</button>

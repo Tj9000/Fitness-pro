@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import { push, replace } from 'connected-react-router';
 import { getAllCoursesList } from '../../redux/actions/training';
 
-import Icon from 'react-web-vector-icons';
-
 import NavBar from '../../components/navBar/NavBar';
 import { IconDropdown } from '../../components/dropdown/IconDropdown';
 import SelectTrainerCard from '../../components/card/SelectTrainerCard';

@@ -1,10 +1,8 @@
 import { createStore, applyMiddleware } from 'redux';
-import { createEpicMiddleware } from 'redux-observable';
 import { routerMiddleware } from 'connected-react-router'
 import ThunkMiddleware from 'redux-thunk';
 import { createBrowserHistory } from 'history';
 import rootReducer from './reducers';
-import rootEpic from './epics';
 
 
 import { persistStore, persistReducer } from 'redux-persist';
@@ -13,13 +11,10 @@ const expireReducer = require('redux-persist-expire');
 
 export const history = createBrowserHistory();
 
-// const epicMiddleware = createEpicMiddleware();
-// epicMiddleware.run(rootEpic);
-
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['user'],
+  whitelist: ['user', 'login'],
   transforms: [
     expireReducer('user', {
       // (Optional) Key to be used for the time relative to which store is to be expired

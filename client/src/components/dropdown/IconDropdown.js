@@ -15,7 +15,7 @@ export const IconDropdown = ({ buttonText, onClick, data, selectedVal }) => {
             <div className={styles.DropdownContent}>
                 {
                     _.map(_.toPairs(data), ([k, v]) => <div
-                        className={[styles.DropdownList, v==selectedVal? styles.DropdownListSelected : ''].join(' ')}
+                        className={[styles.DropdownList, v===selectedVal? styles.DropdownListSelected : ''].join(' ')}
                         key={k}
                         onClick={() => onClick(k)}>
                         {v}
