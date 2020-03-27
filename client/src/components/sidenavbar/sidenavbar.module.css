@@ -34,3 +34,7 @@
     font-weight: bold;
 
 }
+
+.noCourseFoundContainer {
+    color: var(--primary-white);
+}

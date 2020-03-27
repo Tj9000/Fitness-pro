@@ -14,7 +14,7 @@ export const history = createBrowserHistory();
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['user'],
+  whitelist: ['user', 'login', 'training'],
   transforms: [
     expireReducer('user', {
       // (Optional) Key to be used for the time relative to which store is to be expired
