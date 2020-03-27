@@ -10,6 +10,7 @@ import BillingPage from './pages/billing/BillingPage';
 import SupportPage from './pages/support/SupportPage';
 import WorkoutPlanPage from './pages/workoutplan/WorkoutPlanPage';
 import ProfilePage from './pages/profile/ProfilePage';
+import SelectTraining from './pages/selectTraining/SelectTraining';
 
 import Modals from './Modals';
 
@@ -34,6 +35,7 @@ const Routes = () => {
                 <PrivateRoute path='/support' exact> <SupportPage /> </PrivateRoute>
                 <PrivateRoute path='/workoutplan' exact> <WorkoutPlanPage /> </PrivateRoute>
                 <PrivateRoute path='/homepage' exact> <HomePage /> </PrivateRoute>
+                <PrivateRoute path='/training/select' exact><SelectTraining/></PrivateRoute>
             </Switch>
             <Modals />
 
