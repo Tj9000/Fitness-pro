@@ -1,0 +1,70 @@
+.DropdownContainer {
+    display: inline-flex;
+    margin-right: 20px;
+    position: relative;
+    transition: .5s all;
+    width: 200px;
+}
+
+.changeButton {
+    font-size: 16px;
+    padding: 0 4px;
+    background-color: black;
+    color: var(--primary-color-yellow);
+    text-transform: capitalize;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    width: inherit;
+    border-radius: 3px;
+}
+
+.DropdownContent {
+    font-size: 12px;
+    position: absolute;
+    position: relative;
+    display: none;
+    width: 100%;
+    transition: .5s all;
+}
+
+.DropdownContainer:hover .DropdownContent {
+    display: block;
+    position: absolute;
+}
+
+.DropdownList {
+    display: inline-flex;
+    width: 100%;
+    font-size: 16px;
+    vertical-align: middle;
+    background-color: black;
+    color: var(--primary-color-yellow);
+    border-color: var(--primary-color-yellow);
+    text-align: left;
+    text-transform: capitalize;
+    height: 40px;
+    border: 1px;
+    padding: 0 4px;
+    border-style: solid;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s all;
+}
+
+.DropdownList:hover {
+    display: inline-flex;
+    background-color: var(--primary-color-yellow);
+    color: black;
+    border-color: black;
+}
+
+.DropdownListSelected {
+    color: blue;
+}
+
+.DropdownListSelected:hover {
+    color: blue;
+}

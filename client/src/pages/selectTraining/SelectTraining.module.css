@@ -1,0 +1,75 @@
+.contentContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0 60px;
+    width: 80%;
+    flex-grow: 1;
+    min-height: 600px;
+    min-width: 800px;
+}
+
+.contentSubContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: inherit;
+    width: 100%;
+    padding: 10px;
+    align-items: center;
+    position: relative;
+}
+
+.contentHeaderContainer {
+    margin: 5px 0;
+    height: 110px;
+    width: 100%;
+}
+
+.contentHeaderContainerLinewrap {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.contentHeaderContainerLine {
+    height: 4px;
+    width: 20%;
+    min-width: 150px;
+    max-width: 400px;
+    background-color: #000000;
+    display: inline-block;
+}
+
+.contentHeaderContainerText {
+    font-size: 3.2rem;
+    text-align: left;
+    font-weight: bold;
+    line-height: 1;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.filterContentContainer {
+    margin: 5px 0;
+    height: 40px;
+    width: 100%;
+    display: flex;
+}
+
+.resultContentContainer {
+    margin: 10px 0 0 0;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.resultCountHead {
+    font-weight: bold;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.courseListItemContainer {
+    padding: 10px 0;
+}
+
+.noResultsFound {}
