@@ -24,7 +24,11 @@ export const loginUserWithGoogle = () => (dispatch) => {
     FireBase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION).then(() => {
         return FireBase.auth().signInWithPopup(googleAuthProvider);
     }).then(async (res) => {
-        dispatch({ type: types.LOGIN_WITH_GOOGLE_SUCCESS });  //TODO Handle
+        if (res.user) {
+            dispatch({ type: types.LOGIN_WITH_GOOGLE_SUCCESS, currentUser: res.user });  //TODO Handle
+        } else {
+            throw new Error("Something went wrong while signing");
+        }
         try {
             let token = await dispatch(genrateIdToken());
             if (token) {

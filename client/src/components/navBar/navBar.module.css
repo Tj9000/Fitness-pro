@@ -58,7 +58,7 @@
     color: white;
 }
 
-.listItemRightGeneral a, span {
+.listItemRightGeneral a, .listItemRightGeneral span {
     display: block;
     color: white;
     text-align: center;

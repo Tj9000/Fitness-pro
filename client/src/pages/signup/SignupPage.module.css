@@ -1,75 +1,229 @@
 .contentContainer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     padding: 20px 0;
     height: 100%;
-    width: 768px;
+    flex-grow: 1;
+    width: 100%;
     min-height: 480px;
+    background-color: var(--primary-black);
 }
 
 .contentSubContainer {
     display: flex;
-    flex-direction: 'row';
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-grow: 1;
 }
 
-.contentLeftList {
+.signupHeader {
+    color: var(--primary-white);
+    font-size: 3.2rem;
+    line-height: 1.1;
+    font-weight: bold;
+    text-align: center;
+}
+
+.signupHeaderUnderline {
+    width: 0%;
+    height: 5px;
+    background-color: #e5ce48;
+    position: absolute;
+    transform-origin: 0% 100%;
+    animation-name: signupHeaderUnderlineAnimation;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes signupHeaderUnderlineAnimation {
+    0% {
+        width: 0%;
+        left: 30%
+    }
+    5% {
+        width: 0%;
+        left: 30%
+    }
+    50% {
+        width: 40%;
+        left: 30%
+    }
+    95% {
+        width: 0%;
+        left: 70%;
+    }
+    100% {
+        width: 0%;
+        left: 70%;
+    }
+}
+
+.signupContainer {
+    color: var(--primary-white);
     display: flex;
-    flex-direction: 'column';
-    flex-grow: 1;
-    justify-content: center;
+    flex-direction: row;
 }
 
-.contentRightList {
+.profileContent {
     display: flex;
     flex-direction: column;
-    align-content: right;
-    justify-content: space-between;
-    padding-left: 20px;
-    width: 220px;
-}
-
-.profileImageEditContainer {
-    display: flex;
     align-items: center;
-    justify-content: center;
-    position: relative;
-    height: 200px;
-    width: 200px;
-    background: #ccc;
+    justify-content: space-evenly;
+    width: 350px;
+    margin: 0 30px;
+    padding: 0 30px;
 }
 
-.profileImageEdit {
+.ProfileImageContainer {
+    width: 150px;
+    height: 150px;
+    border-color: var(--primary-white);
+    border: 1px solid;
+    border-radius: 150px;
+    overflow: hidden;
+}
+
+.ProfileImage {
+    object-fit: cover;
+}
+
+.ProfileName {
+    padding: 4px 0;
+    font-size: 24px;
+    font-weight: bold;
+    width: inherit;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.ProfileEmail {
+    padding: 4px 0;
+    font-size: 14px;
+    font-weight: bold;
+    width: inherit;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+}
+
+.ProfilePhonenumber {
+    padding: 4px 0;
+    font-size: 14px;
+    font-weight: bold;
+    width: inherit;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+}
+
+.signupContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.signupContentList {
+    color: var(--primary-white);
+    display: flex;
+    height: 30px;
+    margin: 10px 0;
+}
+
+.signupContentListname {
+    display: inline-block;
+    font-size: 18px;
+    /* margin-bottom: 20px; */
+}
+
+.signupContentDisplayName {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--primary-color)
+}
+
+.signupContentListEmail {}
+
+.signupContentListPhoneNumber {}
+
+.inputPhoneNumberContainer {
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.inputPhoneNumber {
+    display: inline-block;
+    resize: none;
+    height: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    width: 180px;
+    padding: 0 10px;
+    border-radius: 5px;
+    border-style: none;
+    text-align: right;
+    line-height: 30px;
+}
+
+.OTPButton {
+    display: inline-block;
+    border: 1px solid;
+    border-color: var(--primary-white);
+    border-radius: 20px;
+    padding: 10px 10px;
+    line-height: 8px;
+    height: 30px;
+    cursor: pointer;
+    margin: 0 10px;
+    color: var(--primary-white);
+}
+
+.OTPButton:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    scale: 1.1;
+}
+
+.EnterOTPLayer {
     display: block;
-    border: 2px solid black;
-    max-width: 200px;
-    max-height: 200px;
+    text-align: right;
 }
 
-.profileImageEditContainer:hover .profileImageEdit {
-    opacity: 0.4;
+.inputOTP {
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    resize: none;
+    border-radius: 10px;
+    border-style: none;
+    padding: 0 10px;
+    margin: 0 10px;
+    text-align: center;
+    line-height: 30px;
 }
 
-.profileImageEditContainer:hover .profileImageEditIcon {
-    opacity: 1;
-}
-
-.profileImageEditIcon {
-    opacity: 0;
-    top: 0px;
-    right: 0px;
-    position: absolute;
-    display: block;
+.TandCContainer {
+    max-width: 800px;
+    margin: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .TandCHeader {
-    font-size: 24px;
+    font-size: 32px;
     font-weight: bold;
     text-align: center;
+    color: var(--primary-color);
 }
 
 .TandCText {
@@ -80,6 +234,8 @@
     scroll-behavior: smooth;
     overflow-y: scroll;
     border: 1px solid black;
+    color: var(--primary-white);
+    text-indent: 50px;
 }
 
 .TandCCheckContainer {
@@ -87,6 +243,8 @@
     text-align: center;
     line-height: 20px;
     height: 20px;
+    color: var(--primary-white);
+    margin: 10px 0 20px;
 }
 
 .SingleActionIcon {

@@ -20,7 +20,7 @@ export const updateUserDetails = (details, redirectSuccess) => (dispatch) => {
                 } else {
                     let updatedDetails = getObjectWithKeys(details, res.data);
                     dispatch({ type: types.UPDATE_USER_DETAILS_SUCCESS, userDetails: updatedDetails }); //TODO Handle un updated details
-                    if(redirectSuccess) {
+                    if (redirectSuccess) {
                         dispatch(push(redirectSuccess));
                     }
                 }
@@ -30,6 +30,10 @@ export const updateUserDetails = (details, redirectSuccess) => (dispatch) => {
         })
     }
 }
+
+export const updatePhoneNumber = (phoneNumber) => (dispatch) => {
+    dispatch({ type: types.UPDATE_USER_PHONENUMBER });
+};
 
 export const updateUserImage = (image) => (dispatch) => {
     dispatch({ type: types.UPDATE_USER_PROF_IMG_SUCCESS })
