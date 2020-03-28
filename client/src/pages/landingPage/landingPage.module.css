@@ -56,12 +56,13 @@
 }
 
 .imgC1_1 {
-    background-image: url('../../assets/images/landingpage/bg_2.jpg');
+    background-image: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 90%), url('../../assets/images/landingpage/personalTraining.jpg');
+    /* background-image: url('../../assets/images/landingpage/personalTraining.jpg'); */
     transform: scale(1.2);
 }
 
 .imgC1_2 {
-    background-image: url('../../assets/images/landingpage/ripped-man.jpg');
+    background-image: url('../../assets/images/landingpage/muscle.jpg');
     animation-name: cf3FadeInOut;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
@@ -113,6 +114,64 @@
     padding: 10px;
 }
 
+.fitnessText{
+    font-size: 3.2rem;
+    font-weight: 900;
+    background-image: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 90%),url(../../assets/images/bg_4.jpg);
+    width: 100%;
+    color: #e5ce48;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.ourTrainingsContainer{
+    width: 100%;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: linear-gradient(135deg, rgba(209, 209, 209, 0.4) 0%, rgba(209, 209, 209, 0.4) 90%),url(../../assets/images/landingpage/ourTrainingsbg.jpg);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.ourTrainingsHeading{
+    font-size: 3.2rem;
+    font-weight: 900;
+}
+.ourTrainingsContent{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.trainingImgWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.trainingImg{
+    /* height: 200px;
+    width: 300px;
+    border-radius: 100px / 150px; */
+    width: 300px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.trainingImgDesc{
+    padding: 30px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-align: center;
+    line-height: 1.1rem;
+
+}
 .serviceContainer {
     display: flex;
     flex-direction: row;

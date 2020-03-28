@@ -1,13 +1,14 @@
 .footerContainer {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     /* background-color: #333; */
     width: 100%;
     padding-top: 20px;
     padding-bottom: 20px;
     min-height: 180;
-    background-image: url(../../assets/images/bg_4.jpg);
+    height: 300px;
+    background-image: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 90%),url(../../assets/images/bg_4.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -16,7 +17,51 @@
 .footer {
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+
+.footerTextContainer{
+    display: flex;
+    align-items: center;
     justify-content: space-evenly;
+    color: white;
+    font-size:18;
+    width: 100%;
+}
+
+.footerIconContainer{
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
+    font-size:25px;
+    width: 400px;
+
+}
+
+.iconWrapper{
+    background-color:#E72975 ;
+    border-radius: 27px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    padding: 7px;
+    cursor: pointer;
+
+}
+
+
+.iconWrapper:hover{
+    scale: 1.1;
+}
+
+
+
+.pipe{
+    font-size: xx-large;
 }
 
 .footerUl{
@@ -36,11 +81,9 @@
 .footerLiHead {
     color:#E72975;
     font-size: 32px;
-    /* font-style: oblique; */
     line-height: 36px;
     padding-bottom: 12px;
     text-underline-position: under;
-    /* text-decoration: underline; */
 }
 @media screen and (max-width: 768px) {
     .footer {

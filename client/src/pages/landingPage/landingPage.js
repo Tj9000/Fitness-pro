@@ -6,6 +6,10 @@ import { showLoginModal } from "../../redux/actions/modal";
 import LandingNavBar from '../../components/navBar/Landing';
 import styles from './landingPage.module.css'
 import FitvibService from "../../components/landingpage/FitvibService";
+import TrainingImg1 from '../../assets/images/landingpage/aerobicsTraining.jpg'
+import TrainingImg2 from '../../assets/images/landingpage/gymTraining.png'
+import TrainingImg3 from '../../assets/images/landingpage/weightsTraining.jpg'
+
 
 
 class LandingPage extends Component {p
@@ -30,8 +34,8 @@ class LandingPage extends Component {p
                     <div className={[styles.imgC1_def, styles.imgC1_1].join(' ')}>
                         {/* <img className={styles.bottom} src={FitPic4} width='100%'></img> */}
                         <div className={styles.textContainer}>
-                            <div className={styles.imageTextheader}>Challenge <span style={{ color: '#e5ce48' }}>yourself</span></div>
-                            <div className={styles.imageTextContent}>Train to be a better version of yourself, everyday!</div>
+                            <div className={styles.imageTextheader}>Personal <span style={{ color: '#e5ce48' }}>Training</span></div>
+                            <div className={styles.imageTextContent}>We know how to make you stronger</div>
                             <div className={styles.buttonWrapper}><button className={styles.joinNow}>Join now</button></div>
                         </div>
                     </div>
@@ -43,6 +47,38 @@ class LandingPage extends Component {p
                             <div className={styles.buttonWrapper}><button className={styles.joinNow}>Join now</button></div>
                         </div>
                     </div>
+                </div>
+                <div className={styles.fitnessText}>
+                    <span>
+                        FITNESS IS NOT A SECRET
+                    </span>
+                    <span style={{ color: 'white', fontSize: '1.8rem', padding: '10px' }}>
+                        Train With The Best To Become Beast
+                    </span>
+                </div>
+                <div className={styles.ourTrainingsContainer}>
+                    <div className={styles.ourTrainingsHeading}>Our Trainings</div>
+
+                    <div className={styles.ourTrainingsContent}>
+                        <div className={styles.trainingImgWrapper}>
+                            <img src={TrainingImg1} className={styles.trainingImg} />
+                            <div className={styles.trainingImgDesc}>Aerobics</div>
+                        </div>
+                        <div className={styles.trainingImgWrapper}>
+                            <img src={TrainingImg2} className={styles.trainingImg} />
+                            <div className={styles.trainingImgDesc}>Gym</div>
+                        </div>
+                        <div className={styles.trainingImgWrapper}>
+                            <img src={TrainingImg3} className={styles.trainingImg} />
+                            <div className={styles.trainingImgDesc}>Free Weights</div>
+
+                        </div>
+
+                    </div>
+
+
+
+
                 </div>
                 <div className={styles.serviceImgTextContainer}>
                     <div className={styles.serviceHeading}>Trust the <span style={{ color: '#e5ce48' }}>process</span></div>
@@ -70,7 +106,7 @@ class LandingPage extends Component {p
                         </div>
                         <div className={styles.aboutFitvibHeading}>
                             <span>
-                                About <span className={'fitVibText'}>FitVib</span> <span className={styles.dot}/>
+                                About <span className={'fitVibText'}>FitVib</span> <span className={styles.dot} />
                             </span>
                         </div>
                         <div className={styles.aboutFitvibDesc}>
@@ -78,7 +114,7 @@ class LandingPage extends Component {p
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.t
                             </p>
                         </div>
-                        <div className={styles.aboutFitvibWelcome} style={{paddingBottom:'30px'}}>
+                        <div className={styles.aboutFitvibWelcome} style={{ paddingBottom: '30px' }}>
                             <span> Our Promise Is Result, Not Pumpkins !</span>
                         </div>
 
