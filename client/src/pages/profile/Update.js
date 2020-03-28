@@ -4,7 +4,7 @@ import { push } from 'connected-react-router';
 import { updateUserDetails, updateUserImage } from '../../redux/actions/user';
 
 import Icon from 'react-web-vector-icons';
-import FitProfilePic from '../../assets/images/fitProfilePic.png';
+import ProfilePic from '../../assets/images/profile.png';
 import { ListInput } from "../../components/input/ListInput";
 
 import * as _ from 'lodash';
@@ -139,7 +139,7 @@ class Update extends Component {
 
                 <div className={styles.profileContentRightList}>
                     <div className={styles.profileImageEditContainer} onClick={this._chooseImage}>
-                        <img className={styles.profileImageEdit} src={this.state.newImageBase64 || FitProfilePic} alt={'Profile Pic'}></img>
+                        <img className={styles.profileImageEdit} src={this.state.newImageBase64 || ProfilePic} alt={'Profile Pic'}></img>
                         <span className={styles.profileImageEditIcon}><Icon name="edit" font="MaterialIcons" size={32} color={'black'}></Icon></span>
                     </div>
                     <div className={styles.profileButtonContainer}>

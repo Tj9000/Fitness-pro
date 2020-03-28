@@ -61,6 +61,7 @@ export class ListInput extends React.Component {
                 className={styles.tableInputField}
                 type={input.type || 'text'}
                 defaultValue={input.defaultValue}
+                placeholder={input.readOnly ? '- -' : null}
                 readOnly={input.readOnly}
                 ref={ref => this.valuesRef[input.label] = ref}
             />);

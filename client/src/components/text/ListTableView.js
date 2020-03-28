@@ -1,5 +1,4 @@
 import React from 'react';
-import * as _ from 'lodash';
 import * as moment from 'moment';
 import styles from './ListTableView.module.css';
 
@@ -12,7 +11,7 @@ export class ListTableView extends React.Component {
                 return <span>{dt && dt.format("DD MMM YYYY")}</span>
             case 'text':
             default:
-                return <span>{input.value}</span>
+                return <span>{input.value || '- -'}</span>
         }
     }
 

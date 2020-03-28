@@ -4,7 +4,7 @@ import { push } from 'connected-react-router';
 
 import { ListTableView } from "../../components/text/ListTableView";
 
-import FitProfilePic from '../../assets/images/fitProfilePic.png';
+import ProfilePic from '../../assets/images/profile.png';
 import * as _ from "lodash";
 
 import styles from '../../assets/css/ProfilePage.module.css';
@@ -42,7 +42,7 @@ class View extends Component {
 
                     <div className={styles.profileContentRightList}>
                         <div className={styles.profileImageContainer}>
-                            <img className={styles.profileImage} src={FitProfilePic} alt={'Profile Pic'}></img>
+                            <img className={styles.profileImage} src={ProfilePic} alt={'Profile Pic'}></img>
                         </div>
                         <div className={styles.profileButtonContainer}>
                             <button onClick={this.displayUpdatePage} className={styles.button}>Edit</button>
