@@ -1,7 +1,6 @@
 import * as types from '../types';
 
 import { getApiCaller } from '../../utils/apiUtil';
-import * as _ from 'lodash';
 
 export const getAllCoursesList = () => (dispatch) => {
     dispatch({ type: types.TRAINING_GETALL_COURSE_LIST_START });

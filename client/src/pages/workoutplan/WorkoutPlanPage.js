@@ -38,7 +38,7 @@ class WorkoutPlanPage extends Component {
                     <div className={styles.profileContentSubContainer} >
                         <div className={styles.workoutContentLeftList}>
                             <ListTableView
-                                data={_.filter(this.viewListData, (e, i) => e.label != null)}
+                                data={_.filter(this.viewListData, (e, i) => e.label !== null)}
                             />
                             <div className={styles.profileButtonContainer}>
                                 <button onClick={this.displayUpdatePage} className={styles.button}>Edit</button>
@@ -47,7 +47,7 @@ class WorkoutPlanPage extends Component {
 
                         <div className={styles.workoutContentRightList}>
                             <div>
-                                <img className={styles.workoutImage} src={WorkoutPic}></img>
+                                <img className={styles.workoutImage} src={WorkoutPic} alt={'Workout Pic'}></img>
                             </div>
                         </div>
                     </div>

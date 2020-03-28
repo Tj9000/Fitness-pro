@@ -1,11 +1,16 @@
 import * as types from '../types';
 
 const initialState = {
-
+    checkingLogin: true,
+    signedIn: null,
+    currentUser: null,
 }
 
 const login = (state = initialState, action) => {
     switch (action.type) {
+        case types.LOGOUT_FINISH:
+            return initialState;
+            
         case types.LOGIN_WITH_PHONE_START:
         case types.LOGIN_WITH_PHONE_SUCCESS:
         case types.LOGIN_WITH_PHONE_ERROR:
@@ -27,6 +32,13 @@ const login = (state = initialState, action) => {
             return { ...state, tokenId: action.tokenId };
         case types.GET_IDTOKEN_ERROR:
             return state;
+
+        case types.CHECK_USER_SIGNEDIN_START:
+            return { ...state, checkingLogin: true }
+        case types.CHECK_USER_SIGNEDIN_SUCCESS:
+            return { ...state, checkingLogin: false, signedIn: !!action.currentUser, currentUser: action.currentUser}
+        case types.CHECK_USER_SIGNEDIN_ERROR:
+            return { ...state, checkingLogin: false, signedIn: false, currentUser: action.currentUser}
         
         
             default:

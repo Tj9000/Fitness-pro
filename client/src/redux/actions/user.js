@@ -3,7 +3,6 @@ import { push } from 'connected-react-router';
 
 import { getApiCaller } from '../../utils/apiUtil';
 import { getObjectWithKeys } from '../../utils'
-import * as _ from 'lodash';
 
 export const fetchUser = username => ({ type: types.FETCH_USER, payload: username });
 export const fetchUserFulfilled = payload => ({ type: types.FETCH_USER_FULFILLED, payload });
@@ -21,7 +20,7 @@ export const updateUserDetails = (details, redirectSuccess) => (dispatch) => {
                 } else {
                     let updatedDetails = getObjectWithKeys(details, res.data);
                     dispatch({ type: types.UPDATE_USER_DETAILS_SUCCESS, userDetails: updatedDetails }); //TODO Handle un updated details
-                    if(redirectSuccess) {
+                    if (redirectSuccess) {
                         dispatch(push(redirectSuccess));
                     }
                 }
@@ -31,6 +30,10 @@ export const updateUserDetails = (details, redirectSuccess) => (dispatch) => {
         })
     }
 }
+
+export const updatePhoneNumber = (phoneNumber) => (dispatch) => {
+    dispatch({ type: types.UPDATE_USER_PHONENUMBER });
+};
 
 export const updateUserImage = (image) => (dispatch) => {
     dispatch({ type: types.UPDATE_USER_PROF_IMG_SUCCESS })

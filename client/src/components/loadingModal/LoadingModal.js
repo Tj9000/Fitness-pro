@@ -2,8 +2,6 @@ import { Component } from 'react';
 import React from 'react';
 import Modal from 'react-modal';
 
-import Icon from 'react-web-vector-icons';
-
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
 

@@ -10,7 +10,7 @@ function ProfilePage(props) {
     const isEditProfile = props.isEditProfile;
 
     return (
-        <div className="pageMainContainer">
+        <div className="pageMainContainer" style={{backgroundColor: 'var(--primary-black)'}}>
             <NavBar type="user" currentPageHead="Profile"/>
             {isEditProfile ? <Update /> : <View />}
         </div>

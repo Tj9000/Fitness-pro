@@ -1,18 +1,27 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
+import { showLoginModal } from "../../redux/actions/modal";
 
 import LandingNavBar from '../../components/navBar/Landing';
-import FitPic1 from '../../assets/images/landingpage/bg_2.jpg'
-import FitPic4 from '../../assets/images/landingpage/ripped-man.jpg'
-
-import FitPic2 from '../../assets/images/fitPic2.png'
-import FitPic3 from '../../assets/images/fitPic3.png'
 import styles from './landingPage.module.css'
 import FitvibService from "../../components/landingpage/FitvibService";
 
 
-class LandingPage extends Component {
+class LandingPage extends Component {p
+    constructor(props) {
+        super(props);
+        this.state= {
+            promptLoginMessage: null,
+            firstLoginPromptClose: false,
+            referPath: null,
+        };
+    }
+    componentDidMount() {
+        if(this.props.location && this.props.location.state && this.props.location.state.promptLoginMessage) {
+            // this.props.showLoginModal()
+        }
+    }
     render() {
         return (
             <div className="pageMainContainer">
@@ -77,40 +86,6 @@ class LandingPage extends Component {
                     </div>
                 </div>
 
-
-                {/* 
-                <div className={styles.homepageContainer1} style={{ width: '100%' }}>
-                    <div style={{ textAlign: 'center' }}>
-                        <p style={{ display: 'inline', fontStyle: 'italic', fontSize: '35px' }}>
-                            MOVIE STARS
-                        </p>
-                    </div>
-                    <div style={{ textAlign: 'center', margin: '10px', alignSelf: 'center' }}>
-                        <p style={{ display: 'inline', fontStyle: 'bold', fontSize: '70px' }}>
-                            FITNESS IS<br />NOT SECRET
-                        </p>
-                    </div>
-                    <div style={{ textAlign: 'center' }}>
-                        <p>
-                            YOU ARE CELEBRITY FOR US<br />SO TRAIN AS ONE WITH CELEB TRAINERS
-                        </p>
-                    </div>
-                </div>
-                <div style={{ textAlign: 'center', padding: '3px' }}>
-                    <p style={{ fontStyle: 'italic', fontSize: '20px' }}>
-                        Train With The Best To Become Beast
-                    </p>
-                </div>
-                <div style={{ width: '100%' }}><img src={FitPic2} width='100%'></img></div>
-                <div style={{ textAlign: 'center', padding: '5px' }}>
-                    <p style={{ fontStyle: 'italic', fontSize: '20px' }}>
-                        Our Promise Is Result Not Pumpkins
-                    </p>
-                </div>
-                <div style={{ width: '100%' }}><img src={FitPic3} width='100%'></img></div>
-                <div className={'landingpage-fittext-container'}>
-
-                </div> */}
             </div>
         )
     }
@@ -120,6 +95,7 @@ class LandingPage extends Component {
 const mapStateToProps = (state, ownProps) => ({
 });
 const mapDispatchToProps = {
-    pushRoute: push
+    pushRoute: push,
+    showLoginModal
 };
 export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);

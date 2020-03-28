@@ -4,7 +4,7 @@ import { push } from 'connected-react-router';
 import { updateUserDetails, updateUserImage } from '../../redux/actions/user';
 
 import Icon from 'react-web-vector-icons';
-import FitProfilePic from '../../assets/images/fitProfilePic.png';
+import ProfilePic from '../../assets/images/profile.png';
 import { ListInput } from "../../components/input/ListInput";
 
 import * as _ from 'lodash';
@@ -44,7 +44,7 @@ class Update extends Component {
         let userDetails = this.props.userDetails || {};
         let values = this.getFormValues()
         let reducedValues = _.pickBy(values, (v, k) => {
-            return v && (userDetails[k] != v);
+            return v && (userDetails[k] !== v);
         });
         return reducedValues;
     }
@@ -72,7 +72,7 @@ class Update extends Component {
         })
         //TODO: handle Invalid Res
 
-        return _.size(invalidRes) == 0;
+        return _.size(invalidRes) === 0;
     }
 
     saveEdit = () => {
@@ -122,12 +122,12 @@ class Update extends Component {
             { label: 'Weight', type: 'number', defaultValue: this.props.userDetails && this.props.userDetails.weight },
             { label: 'Email', type: 'email', readOnly: true, defaultValue: this.props.userDetails && this.props.userDetails.email },
             { label: 'Phone', type: 'text', readOnly: true, defaultValue: this.props.userDetails && this.props.userDetails.phone },
-            { label: 'Country', type: 'text', readOnly: true, defaultValue: this.props.userDetails && this.props.userDetails.country || COUNTRY_DEFAULT },
+            { label: 'Country', type: 'text', readOnly: true, defaultValue: (this.props.userDetails && this.props.userDetails.country) || COUNTRY_DEFAULT },
             { label: 'City', type: 'text', defaultValue: this.props.userDetails && this.props.userDetails.city },
             { label: 'Zipcode', type: 'number', defaultValue: this.props.userDetails && this.props.userDetails.zipCode },
             { label: 'Gym Access', type: 'text', defaultValue: this.props.userDetails && this.props.userDetails.gymAccess },
             { label: 'Target', type: 'text', defaultValue: this.props.userDetails && this.props.userDetails.target },
-            { label: 'Language Preference', type: 'text', readOnly: true, defaultValue: this.props.userDetails && this.props.userDetails.languagePref || LANG_PREF_DEFAULT }
+            { label: 'Language Preference', type: 'text', readOnly: true, defaultValue: (this.props.userDetails && this.props.userDetails.languagePref) || LANG_PREF_DEFAULT }
         ];
         return (<div className={styles.profileContentContainer}>
             <div className={styles.profileContentSubContainer}>
@@ -139,7 +139,7 @@ class Update extends Component {
 
                 <div className={styles.profileContentRightList}>
                     <div className={styles.profileImageEditContainer} onClick={this._chooseImage}>
-                        <img className={styles.profileImageEdit} src={this.state.newImageBase64 || FitProfilePic}></img>
+                        <img className={styles.profileImageEdit} src={this.state.newImageBase64 || ProfilePic} alt={'Profile Pic'}></img>
                         <span className={styles.profileImageEditIcon}><Icon name="edit" font="MaterialIcons" size={32} color={'black'}></Icon></span>
                     </div>
                     <div className={styles.profileButtonContainer}>

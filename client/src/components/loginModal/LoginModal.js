@@ -77,7 +77,7 @@ class LoginModal extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  showModal: state.modal.showModal == MODALSCREEN.LOGIN
+  showModal: state.modal.showModal === MODALSCREEN.LOGIN
 });
 const mapDispatchToProps = {
   pushRoute: push,

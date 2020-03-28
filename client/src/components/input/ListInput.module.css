@@ -15,6 +15,16 @@
     -moz-appearance: textfield;
 }
 
+.tableInputField {
+    color: var(--primary-black);
+}
+
+.tableInputField:read-only {
+    background: none;
+    border: none;
+    color: var(--primary-white);
+}
+
 .table {
     border-spacing: 10px;
     min-width: 350px;

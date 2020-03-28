@@ -7,7 +7,7 @@ class FitvibService extends React.Component {
         return (
             <div className={styles.serviceContainer}>
                 <div className={styles.imageWrapper}>
-                    <img src={Gym} height='70px' width='70px' className={styles.image}></img>
+                    <img src={Gym} alt={'Gym'} height='70px' width='70px' className={styles.image}></img>
                 </div>
                 <div className={styles.serviceHeader}>{this.props.serviceHeader}</div>
                 <div className={styles.serviceContent}>

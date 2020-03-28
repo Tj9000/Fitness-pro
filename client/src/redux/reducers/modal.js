@@ -21,6 +21,11 @@ const modal = (state = initialState, action) => {
         case types.FETCH_CHECKADDUSER_SUCCESS:
             return { ...state, showModal: null };
         
+        case  types.LOGOUT_START:
+            return { ...state, showModal: MODALSCREEN.LOGOUT };
+        case types.LOGOUT_FINISH:
+            return initialState;
+            
         default:
             return state;
     }

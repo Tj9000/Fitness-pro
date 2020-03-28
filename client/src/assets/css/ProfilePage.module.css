@@ -4,6 +4,8 @@
     align-items: center;
     padding: 20px;
     height: 100%;
+    background-color: var(--primary-black);
+    color: var(--primary-white);
 }
 
 .profileContentSubContainer {
@@ -27,8 +29,9 @@
 
 .profileImage {
     display: block;
-    max-width: 200px;
-    max-height: 200px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
 }
 
 .profileImageContainer {
@@ -38,20 +41,30 @@
     position: relative;
     height: 200px;
     width: 200px;
+    border-radius: 200px;
+    overflow: hidden;
 }
 
 .profileButtonContainer {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .button {
     width: 80px;
     height: 32px;
     border-radius: 12px;
-    background: #000;
-    color: #fff;
+    background: var(--primary-black);
+    color: var(--primary-white);
+    border-color: var(--primary-white);
+}
+
+.button:hover {
+    background: var(--primary-black);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    font-weight: bold;
 }
 
 .workoutContentLeftList {
@@ -86,13 +99,16 @@
     height: 200px;
     width: 200px;
     background: #ccc;
+    border-radius: 100px;
+    overflow: hidden;
 }
 
 .profileImageEdit {
     display: block;
     border: 2px solid black;
-    max-width: 200px;
-    max-height: 200px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
 }
 
 .profileImageEditContainer:hover .profileImageEdit {
@@ -124,6 +140,7 @@
     padding: 5px;
     cursor: pointer;
 }
+
 .IconContainer:hover {
     background-color: #ddd;
     border-radius: 50px;

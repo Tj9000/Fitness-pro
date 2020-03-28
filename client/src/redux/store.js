@@ -1,10 +1,8 @@
 import { createStore, applyMiddleware } from 'redux';
-import { createEpicMiddleware } from 'redux-observable';
 import { routerMiddleware } from 'connected-react-router'
 import ThunkMiddleware from 'redux-thunk';
 import { createBrowserHistory } from 'history';
 import rootReducer from './reducers';
-import rootEpic from './epics';
 
 
 import { persistStore, persistReducer } from 'redux-persist';
@@ -12,9 +10,6 @@ import storage from 'redux-persist/lib/storage'; // defaults to localStorage for
 const expireReducer = require('redux-persist-expire');
 
 export const history = createBrowserHistory();
-
-// const epicMiddleware = createEpicMiddleware();
-// epicMiddleware.run(rootEpic);
 
 const persistConfig = {
   key: 'root',

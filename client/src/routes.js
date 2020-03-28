@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router'
 import LandingPage from './pages/landingPage/landingPage';
 import LoginPage from './pages/login/LoginPage';
@@ -15,7 +15,7 @@ import SelectTraining from './pages/selectTraining/SelectTraining';
 import Modals from './Modals';
 
 import { history } from './redux/store';
-import store from './redux/store';
+import { FireBase } from './firebase/firebase';
 
 import Footer from './components/footer';
 import HomePage from './pages/homepage/HomePage';
@@ -66,9 +66,10 @@ function PrivateRoute({ children, ...rest }) {
         />
     );
 }
+
 function isAuthenticated() {
-    let userState = store.getState().user;
-    return (userState && userState.details && userState.details.email);
+    let currentUser = FireBase.auth().currentUser;
+    return !!currentUser;
 }
 
 export default Routes;

@@ -33,13 +33,13 @@ class View extends Component {
                 <div className={styles.profileContentSubContainer} >
                     <div className={styles.profileContentLeftList}>
                         <ListTableView
-                            data={_.filter(this.viewListData, (e, i) => e != null)}
+                            data={_.filter(this.viewListData, (e, i) => e !== null)}
                         />
                     </div>
 
                     <div className={styles.profileContentRightList}>
                         <div className={styles.profileImageContainer}>
-                            <img className={styles.profileImage} src={FitProfilePic}></img>
+                            <img className={styles.profileImage} src={FitProfilePic} alt={'Profile Pic'}></img>
                         </div>
                         <div className={styles.profileButtonContainer}>
                             <button onClick={this.displayUpdatePage} className={styles.button}>Edit</button>

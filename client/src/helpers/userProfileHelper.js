@@ -9,7 +9,7 @@ export const validateUserInput = (field, value) => {
         case 'weight':
             return parseInt(value) && value > 0 && value <= 200;
         case 'phone':
-            return validateUserInput && value.toString().length == 10;
+            return validateUserInput && value.toString().length === 10;
         case 'gender':
             return true;
         case 'email':
@@ -17,7 +17,7 @@ export const validateUserInput = (field, value) => {
         case 'city':
             return /^[a-z][a-z\s]*$/i.test(value)
         case 'zipCode':
-            return parseInt(value) != NaN;
+            return !isNaN(parseInt(value));
         case 'gymAccess':
         case 'target':
         case 'languagePref':
