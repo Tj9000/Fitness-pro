@@ -5,12 +5,11 @@ import LandingPage from './pages/landingPage/landingPage';
 import LoginPage from './pages/login/LoginPage';
 import SignupPage from './pages/signup/SignupPage';
 
-import MembershipPage from './pages/membership/MembershipPage';
 import BillingPage from './pages/billing/BillingPage';
 import SupportPage from './pages/support/SupportPage';
-import WorkoutPlanPage from './pages/workoutplan/WorkoutPlanPage';
 import ProfilePage from './pages/profile/ProfilePage';
 import SelectTraining from './pages/selectTraining/SelectTraining';
+import MyCoursesPage from './pages/myCourses/MyCoursesPage';
 
 import Modals from './Modals';
 
@@ -29,11 +28,9 @@ const Routes = () => {
                 <PrivateRoute path='/signup' exact ><SignupPage/></PrivateRoute>
                 <PrivateRoute path='/profile' exact> <ProfilePage isEditProfile={false} /> </PrivateRoute>
                 <PrivateRoute path='/profile/update' exact> <ProfilePage isEditProfile={true} /> </PrivateRoute>
-                <PrivateRoute path='/membership' exact> <MembershipPage isEdit={false} /> </PrivateRoute>
-                <PrivateRoute path='/membership/update' exact> <MembershipPage isEdit={true} /> </PrivateRoute>
+                <PrivateRoute path='/mycourses' exact> <MyCoursesPage/> </PrivateRoute>
                 <PrivateRoute path='/billing' exact> <BillingPage /> </PrivateRoute>
                 <PrivateRoute path='/support' exact> <SupportPage /> </PrivateRoute>
-                <PrivateRoute path='/workoutplan' exact> <WorkoutPlanPage /> </PrivateRoute>
                 <PrivateRoute path='/homepage' exact> <HomePage /> </PrivateRoute>
                 <PrivateRoute path='/training/select' exact><SelectTraining/></PrivateRoute>
             </Switch>

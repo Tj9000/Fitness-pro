@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { push } from 'connected-react-router';
+import { push, replace } from 'connected-react-router';
 import { showLoginModal } from "../../redux/actions/modal";
+import { checkUserSignedIn } from '../../redux/actions/login';
 
 import LandingNavBar from '../../components/navBar/Landing';
 import styles from './landingPage.module.css'
@@ -12,7 +13,7 @@ import TrainingImg3 from '../../assets/images/landingpage/weightsTraining.jpg'
 
 
 
-class LandingPage extends Component {p
+class LandingPage extends Component {
     constructor(props) {
         super(props);
         this.state= {
@@ -24,6 +25,13 @@ class LandingPage extends Component {p
     componentDidMount() {
         if(this.props.location && this.props.location.state && this.props.location.state.promptLoginMessage) {
             // this.props.showLoginModal()
+        }
+        this.props.checkUserSignedIn()
+
+    }
+    componentDidUpdate() {
+        if (!this.props.checkingLogin && !!this.props.signedIn) {
+            this.props.replaceRoute('/homepage');
         }
     }
     render() {
@@ -129,9 +137,13 @@ class LandingPage extends Component {p
 }
 
 const mapStateToProps = (state, ownProps) => ({
+    checkingLogin: state.login.checkingLogin,
+    signedIn: state.login.signedIn,
 });
 const mapDispatchToProps = {
     pushRoute: push,
-    showLoginModal
+    replaceRoute: replace,
+    showLoginModal,
+    checkUserSignedIn
 };
 export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);
