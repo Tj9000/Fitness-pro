@@ -6,6 +6,9 @@ const initialState = {
 
 const training = (state = initialState, action) => {
     switch (action.type) {
+        case types.LOGOUT_FINISH:
+            return initialState;
+            
         case types.TRAINING_GETALL_COURSE_LIST_SUCCESS:
             return { ...state, courses: action.courses || [] };
         case types.TRAINING_GETALL_COURSE_LIST_START:

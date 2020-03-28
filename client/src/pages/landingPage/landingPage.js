@@ -19,7 +19,7 @@ class LandingPage extends Component {p
     }
     componentDidMount() {
         if(this.props.location && this.props.location.state && this.props.location.state.promptLoginMessage) {
-            this.props.showLoginModal()
+            // this.props.showLoginModal()
         }
     }
     render() {

@@ -1,5 +1,6 @@
 import * as types from '../types';
 import { push } from 'connected-react-router';
+import { history } from '../../redux/store';
 
 import { FireBase, googleAuthProvider, PhoneAuthApplicationVerifier, getCurrentUser } from '../../firebase/firebase';
 import * as firebase from 'firebase/app';
@@ -74,18 +75,29 @@ const checkAndGetUserData = () => (dispatch) => {
 };
 
 export const checkUserSignedIn = () => (dispatch) => {
-    dispatch({ type: types.CHECK_USER_SIGNEDIN_START});
-    getCurrentUser().then(currentUser=>{
-        dispatch({ type: types.CHECK_USER_SIGNEDIN_SUCCESS, currentUser: currentUser});
-    }).catch(e=>{
-        dispatch({ type: types.CHECK_USER_SIGNEDIN_ERROR});
+    dispatch({ type: types.CHECK_USER_SIGNEDIN_START });
+    getCurrentUser().then(currentUser => {
+        dispatch({ type: types.CHECK_USER_SIGNEDIN_SUCCESS, currentUser: currentUser });
+    }).catch(e => {
+        dispatch({ type: types.CHECK_USER_SIGNEDIN_ERROR });
     });
 }
 
 export const logout = () => (dispatch) => {
+    dispatch({ type: types.LOGOUT_START });
     FireBase.auth().signOut().then(res => {
         console.log(res);
+        setTimeout(() => {
+            dispatch({ type: types.LOGOUT_FINISH });
+            setTimeout(() => {
+                resetRoute();
+            }, 100);
+        }, 1000);
     });
+}
+
+function resetRoute() {
+    history.replace('/');
 }
 function validatePhoneNumber(email) {
     return email !== null;

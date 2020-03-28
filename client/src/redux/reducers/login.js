@@ -8,6 +8,9 @@ const initialState = {
 
 const login = (state = initialState, action) => {
     switch (action.type) {
+        case types.LOGOUT_FINISH:
+            return initialState;
+            
         case types.LOGIN_WITH_PHONE_START:
         case types.LOGIN_WITH_PHONE_SUCCESS:
         case types.LOGIN_WITH_PHONE_ERROR:

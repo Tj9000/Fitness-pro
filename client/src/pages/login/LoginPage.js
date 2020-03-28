@@ -38,6 +38,7 @@ class LoginPage extends Component {
                 promptLoginMessage: true,
                 referPath: referPath
             }
+            this.props.showLoginModal()
             this.props.pushRoute(pathname, state);
         }
     }

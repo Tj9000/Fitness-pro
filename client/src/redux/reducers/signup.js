@@ -6,6 +6,9 @@ const initialState = {
 }
 const signup = (state = initialState, action) => {
     switch (action.type) {
+        case types.LOGOUT_FINISH:
+            return initialState;
+            
         case types.FETCH_CHECKADDUSER_SUCCESS:
             return {
                 ...state,
