@@ -59,7 +59,12 @@ export default class HomePage extends React.Component {
                 <div className={styles.homeContainer}>
                     <this.courseContent />
                     <div className={styles.sideNavContainer}>
-                        <div className={styles.myCoursesDiv}><span style={{ padding: '20px' }}>My Courses</span><span className={styles.dot} /></div>
+                        <div className={styles.myCoursesDiv}>
+                            <span style={{ padding: '20px' }}>
+                                My Courses
+                            </span>
+                            <span className={styles.dot} />
+                        </div>
                         <SideNavBarHome updateContentId={this.updateContainer} />
                     </div>
                 </div>
