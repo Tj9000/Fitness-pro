@@ -7,18 +7,52 @@ import { showLoginModal } from '../../redux/actions/modal';
 import NavBar from "../../components/navBar/NavBar"
 
 import styles from './Login.module.css';
+import { checkUserSignedIn } from '../../redux/actions/login';
+import SimpleLoader from '../../components/loader/SimpleLoader';
 
 class LoginPage extends Component {
+    state = {
+        checkingLogin: true,
+    }
+    componentDidMount() {
+        this.props.checkUserSignedIn()
+    }
+    static getDerivedStateFromProps(props, state) {
+        if (props.checkingLogin != state.checkingLogin) {
+            return { checkingLogin: props.checkingLogin }
+        }
+        return null;
+    }
     showlogin = () => {
         this.props.showLoginModal(); //TODO: Handle referring location
+    }
+    componentDidUpdate() {
+        let referPath = this.props.location && this.props.location.state && this.props.location.state.from && this.props.location.state.from.pathname;
+        if (!this.props.checkingLogin && !!this.props.signedIn) {
+            let pathname = (!referPath || referPath == '/')? '/homepage' : referPath;
+            this.props.pushRoute(pathname);
+        }
+        else if(!this.props.checkingLogin && !this.props.signedIn) {
+            let pathname = '/';
+            let state = {
+                promptLoginMessage: true,
+                referPath: referPath
+            }
+            this.props.pushRoute(pathname, state);
+        }
     }
     render() {
         return (
             <div className="pageMainContainer">
                 <NavBar currentPageHead="Login" />
-                <div>
-                    Please login to continue.<br/>
-                    <input type="button" className={styles.loginButton} onClick={this.showlogin} value="Login"></input>
+                <div className={styles.loginContainer}>
+                    <div>
+                        {this.state.checkingLogin ? 'Checking login, please wait' : (
+                            this.props.signedIn ? 'User already logged in' : 'Please login to continue.'
+                        )}
+                    </div>
+                    <SimpleLoader size={150}/>
+                    <div/>
                 </div>
             </div>
         );
@@ -26,9 +60,13 @@ class LoginPage extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
+    checkingLogin: state.login.checkingLogin,
+    signedIn: state.login.signedIn,
+    currentUser: state.login.currentUser
 });
 const mapDispatchToProps = {
     pushRoute: push,
+    checkUserSignedIn,
     showLoginModal
 };
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

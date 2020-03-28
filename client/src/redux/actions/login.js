@@ -1,7 +1,9 @@
 import * as types from '../types';
 import { push } from 'connected-react-router';
 
-import { FireBase, googleAuthProvider, PhoneAuthApplicationVerifier } from '../../firebase/firebase'
+import { FireBase, googleAuthProvider, PhoneAuthApplicationVerifier, getCurrentUser } from '../../firebase/firebase';
+import * as firebase from 'firebase/app';
+
 import { getApiCaller } from '../../utils/apiUtil';
 import * as _ from 'lodash';
 
@@ -18,7 +20,9 @@ export const loginUserWithPhoneNumber = phoneNumber => (dispatch) => {
 
 export const loginUserWithGoogle = () => (dispatch) => {
     dispatch({ type: types.LOGIN_WITH_GOOGLE_START });
-    FireBase.auth().signInWithPopup(googleAuthProvider).then(async (res) => {
+    FireBase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION).then(() => {
+        return FireBase.auth().signInWithPopup(googleAuthProvider);
+    }).then(async (res) => {
         dispatch({ type: types.LOGIN_WITH_GOOGLE_SUCCESS });  //TODO Handle
         try {
             let token = await dispatch(genrateIdToken());
@@ -49,14 +53,14 @@ export const genrateIdToken = () => (dispatch) => {
 }
 
 const checkAndGetUserData = () => (dispatch) => {
-    getApiCaller().then(apiObj=>{
-        return apiObj.get('/user/checkandadd').then(res=>{
+    getApiCaller().then(apiObj => {
+        return apiObj.get('/user/checkandadd').then(res => {
             console.log("res", res);
-            if(!res.data || !_.size(res.data)){
-                dispatch({type : types.FETCH_CHECKADDUSER_ERROR}); //TODO Handle
+            if (!res.data || !_.size(res.data)) {
+                dispatch({ type: types.FETCH_CHECKADDUSER_ERROR }); //TODO Handle
             } else {
-                dispatch({type : types.FETCH_CHECKADDUSER_SUCCESS, userDetails: res.data }); //TODO Handle
-                if(!res.data.profileSignupComplete) {
+                dispatch({ type: types.FETCH_CHECKADDUSER_SUCCESS, userDetails: res.data }); //TODO Handle
+                if (!res.data.profileSignupComplete) {
                     dispatch(push('/signup'));
                 }
                 else {
@@ -64,10 +68,19 @@ const checkAndGetUserData = () => (dispatch) => {
                 }
             }
         })
-    }).catch(e=>{
+    }).catch(e => {
         console.log(e);
     })
 };
+
+export const checkUserSignedIn = () => (dispatch) => {
+    dispatch({ type: types.CHECK_USER_SIGNEDIN_START});
+    getCurrentUser().then(currentUser=>{
+        dispatch({ type: types.CHECK_USER_SIGNEDIN_SUCCESS, currentUser: currentUser});
+    }).catch(e=>{
+        dispatch({ type: types.CHECK_USER_SIGNEDIN_ERROR});
+    });
+}
 
 export const logout = () => (dispatch) => {
     FireBase.auth().signOut().then(res => {
