@@ -75,7 +75,7 @@ class SignupPage extends Component {
                             <div className={[styles.signupContentList, styles.signupContentListEmail].join(' ')}>Email : &nbsp; {userDetails.email} </div>
                             <div className={[styles.signupContentList, styles.signupContentListPhoneNumber].join(' ')}>Mobile Number : &nbsp;
                             <div className={styles.inputPhoneNumberContainer}>
-                                    <textarea maxLength={10} rows={"1"} className={styles.inputPhoneNumber} autofocus></textarea></div>
+                                    <textarea maxLength={10} rows={"1"} className={styles.inputPhoneNumber} autoFocus></textarea></div>
                                 <div className={styles.OTPButton} onClick={this.getOTP}>Get OTP</div>
 
                             </div>

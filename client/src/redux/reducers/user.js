@@ -32,7 +32,8 @@ const user = (state = initialState, action) => {
     switch (action.type) {
         case types.LOGOUT_FINISH:
             return initialState;
-            
+
+        case types.GET_USER_DETAILS_SUCCESS:
         case types.FETCH_CHECKADDUSER_SUCCESS:
             return {
                 ...state,
