@@ -26,15 +26,15 @@ const Routes = () => {
             <Switch>
                 <Route path='/' exact component={LandingPage}></Route>
                 <Route path='/login' exact component={LoginPage}></Route>
-                <PrivateRoute path='/signup' exact ><SignupPage/></PrivateRoute>
-                <PrivateRoute path='/profile' exact> <ProfilePage isEditProfile={false} /> </PrivateRoute>
-                <PrivateRoute path='/profile/update' exact> <ProfilePage isEditProfile={true} /> </PrivateRoute>
-                <PrivateRoute path='/mycourses' exact> <MyCoursesPage/> </PrivateRoute>
-                <PrivateRoute path='/billing' exact> <BillingPage /> </PrivateRoute>
-                <PrivateRoute path='/support' exact> <SupportPage /> </PrivateRoute>
-                <PrivateRoute path='/homepage' exact> <HomePage /> </PrivateRoute>
-                <PrivateRoute path='/training/select' exact><SelectTraining/></PrivateRoute>
-                <PrivateRoute path='/training' exact><TrainingPage/> </PrivateRoute>
+                <PrivateRoute path='/signup' exact Rcomponent={SignupPage} ></PrivateRoute>
+                <PrivateRoute path='/profile' exact Rcomponent={ProfilePage} isEditProfile={false}> </PrivateRoute>
+                <PrivateRoute path='/profile/update' exact Rcomponent={ProfilePage} isEditProfile={true}> </PrivateRoute>
+                <PrivateRoute path='/mycourses' exact Rcomponent={MyCoursesPage}></PrivateRoute>
+                <PrivateRoute path='/billing' exact Rcomponent={BillingPage}> </PrivateRoute>
+                <PrivateRoute path='/support' exact Rcomponent={SupportPage}> </PrivateRoute>
+                <PrivateRoute path='/homepage' exact Rcomponent={HomePage}> </PrivateRoute>
+                <PrivateRoute path='/training/select' exact Rcomponent={SelectTraining}></PrivateRoute>
+                <PrivateRoute path='/training' exact Rcomponent={TrainingPage}></PrivateRoute>
             </Switch>
             <Modals />
 
@@ -46,24 +46,17 @@ const Routes = () => {
 
 // A wrapper for <Route> that redirects to the login
 // screen if you're not yet authenticated.
-function PrivateRoute({ children, ...rest }) {
-    return (
-        <Route
-            {...rest}
-            render={({ location }) =>
-                isAuthenticated() ? (
-                    children
-                ) : (
-                        <Redirect
-                            to={{
-                                pathname: "/login",
-                                state: { from: location }
-                            }}
-                        />
-                    )
-            }
-        />
-    );
+function PrivateRoute({ Rcomponent, ...props}) {
+    if (isAuthenticated()) {
+        return <Rcomponent {...props}  />;
+    } else {
+        return <Redirect
+            to={{
+                pathname: "/login",
+                state: { from: props.location }
+            }}
+        />;
+    }
 }
 
 function isAuthenticated() {

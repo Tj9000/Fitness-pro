@@ -15,8 +15,9 @@ import * as _ from 'lodash';
 import styles from './SelectTraining.module.css';
 
 class SelectTraining extends Component {
+    programFromProp = (this.props.location && this.props.location.state && this.props.location.state.program && COURSE_FILTERS.PROGRAM[this.props.location.state.program])
     state = {
-        selectedWorkoutProgram: COURSE_FILTERS.PROGRAM.National,
+        selectedWorkoutProgram: this.programFromProp || COURSE_FILTERS.PROGRAM.National,
         selectedWorkoutStyle: COURSE_FILTERS.STYLE.Gym,
         selectedWorkoutGoal: COURSE_FILTERS.GOAL.WeightLoss
     };
