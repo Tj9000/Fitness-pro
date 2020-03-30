@@ -4,6 +4,7 @@ import user from './user';
 import login from './login';
 import modal from './modal';
 import signup from './signup';
+import trainer from './trainer';
 import training from './training';
 
 const rootReducer = (history) => combineReducers({
@@ -12,6 +13,7 @@ const rootReducer = (history) => combineReducers({
   modal,
   signup,
   user,
+  trainer,
   training,
 });
 

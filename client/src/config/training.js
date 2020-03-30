@@ -1,8 +1,8 @@
 export const COURSE_FILTERS = {
     PROGRAM: {
-        National: 'National',
-        '7min': '7-min',
+        '7min': '7-Minutes',
         International: 'International',
+        National: 'National',
         BudgetFriendly: 'Budget Friendly',
     },
     STYLE: {

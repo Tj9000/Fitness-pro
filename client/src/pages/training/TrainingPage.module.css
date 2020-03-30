@@ -1,0 +1,219 @@
+.contentContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    flex-grow: 1;
+    min-height: 600px;
+}
+
+.contentSubContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    flex-grow: 1;
+    min-height: inherit;
+    align-items: center;
+    position: relative;
+}
+
+.SelectTrainingContainer {
+    background-color: var(--primary-white);
+    padding: 20px 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 400px;
+}
+
+.SelectTrainingHeaderContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.SelectTrainingHeader {
+    font-size: 3.2rem;
+    line-height: 1.1;
+    font-weight: bold;
+}
+
+.SelectTrainingSubHeader {
+    font-size: 1.5rem;
+    line-height: 1.1;
+    font-weight: bold;
+}
+
+.selectTrainigListContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.selectTrainingListCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 180px;
+    cursor: default;
+}
+
+.selectTrainingIconDiv {
+    transition: all 0.75s ease-in-out, box-shadow 0.75s ease-in-out;
+}
+
+.selectTrainingIconDiv:hover {
+    transform: rotateY(180deg);
+}
+
+.selectTrainingListName {
+    font-size: 1.5rem;
+    line-height: 1.1;
+    font-weight: bold;
+}
+
+.selectTrainingListExploreButton {
+    color: var(--primary-black);
+    border-color: var(--primary-black);
+    background-color: var(--primary-white);
+    padding: 10px 30px;
+    border: 2px solid;
+    border-radius: 40px;
+    white-space: normal;
+    transition: all 0.2s ease-in-out, box-shadow 2s ease-in-out;
+    cursor: pointer;
+}
+
+.selectTrainingListExploreButton:hover {
+    color: var(--primary-white);
+    border-color: var(--primary-white);
+    background-color: var(--primary-black);
+}
+
+.featuredTrainerContainerCommon {
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px 0;
+    min-height: 500px;
+}
+
+.StarTrainersContainer {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%), url(../../assets/images/background/selectTrainer_background-weights.jpg);
+    background-position-y: center;
+}
+
+.FeaturedTrainersContainer {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%), url(../../assets/images/background/selectTrainer_background-muscle.jpg);
+    background-position-y: center;
+}
+
+.featuredTrainerHeaderCommon {
+    font-size: 4.4rem;
+    line-height: 1.1;
+    font-weight: bold;
+}
+
+.featuredTrainerContentCommon {
+    display: flex;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.TrainerOfTheWeekContainer {
+    background-color: var(--primary-white);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px 0;
+    min-height: 500px;
+}
+
+.TrainerOfTheWeekContent {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.trainerOTWHeader {
+    font-size: 3.2rem;
+    line-height: 1.1;
+    font-weight: bold;
+}
+
+.trainerOTWProfilePicContainer {
+    width: 325px;
+    height: 325px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 25px 0;
+}
+
+.trainerOTWProfilePicImage {
+    width: 325px;
+    height: 325px;
+    object-fit: cover;
+}
+
+.trainerOTWName {
+    font-size: 1.5rem;
+    line-height: 1.1;
+    font-weight: 900;
+    padding: 10px 0;
+    font-family: 'Poppins', sans-serif;
+    color: #551a8b;
+}
+
+.trainerOTWTrainerType {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.trainerOTWAboutTrainerDescription {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.trainerOTWRating {
+    padding: 30px;
+}
+
+.ratingStar {
+    display: inline-block;
+    background-clip: text;
+    /* color: transparent; */
+    font-size: 32px;
+}
+
+.noTrainerFound {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding: 20px;
+}

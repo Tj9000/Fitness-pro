@@ -29,7 +29,7 @@ class General extends Component {
                         ) : null
                     }
                     <div className={styles.rightList} style={{ color: '#fff' }}>
-                        <span className={styles.listItemRightGeneral} ><Link to="/training/select">Trainings</Link></span>
+                        <span className={styles.listItemRightGeneral} ><Link to="/training">Trainings</Link></span>
                         <span className={styles.listItemRightGeneral} ><Link to="/mycourses">My Courses</Link></span>
                         <span className={styles.listItemRightGeneral} ><Link to="/billing">Billing</Link></span>
                         <span className={styles.listItemRightGeneral} ><Link to="/support">Support</Link></span>
