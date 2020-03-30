@@ -1,0 +1,47 @@
+.container {
+    width: 240px;
+    height: 340px;
+    background-color: var(--primary-black);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.trainerImageContainer {
+    width: 240px;
+    height: 240px;
+    overflow: hidden;
+}
+
+.trainerImage {
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
+}
+
+.trainerDetailsContainer {
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.trainerDetailsContainerWhite {
+    background-color: var(--primary-white);
+    color: var(--primary-black);
+}
+
+.trainerName {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+.trainerCategory {
+    font-size: 1rem;
+    line-height: 1.5;
+}

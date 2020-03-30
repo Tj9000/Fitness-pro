@@ -9,6 +9,7 @@ import BillingPage from './pages/billing/BillingPage';
 import SupportPage from './pages/support/SupportPage';
 import ProfilePage from './pages/profile/ProfilePage';
 import SelectTraining from './pages/selectTraining/SelectTraining';
+import TrainingPage from './pages/training/TrainingPage';
 import MyCoursesPage from './pages/myCourses/MyCoursesPage';
 
 import Modals from './Modals';
@@ -33,6 +34,7 @@ const Routes = () => {
                 <PrivateRoute path='/support' exact> <SupportPage /> </PrivateRoute>
                 <PrivateRoute path='/homepage' exact> <HomePage /> </PrivateRoute>
                 <PrivateRoute path='/training/select' exact><SelectTraining/></PrivateRoute>
+                <PrivateRoute path='/training' exact><TrainingPage/> </PrivateRoute>
             </Switch>
             <Modals />
 
