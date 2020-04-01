@@ -1,0 +1,57 @@
+.nutritionCard {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 500px;
+    background-color: var(--primary-white);
+    border-color: var(--primary-white);
+    border-radius: 15px;
+    border: 1px solid var(--tertiary-white);
+    transition: all .2s ease-in-out;
+    overflow: hidden;
+    cursor: default;
+}
+
+.nutritionCard:hover {
+    box-shadow: 5px 5px 8px #aaaaaa;
+    transform: scale(1.005);
+}
+
+.nutritionCardDesc {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: x-large;
+    font-weight: 900;
+    color: var(--secondary-color);
+}
+
+.nutritionCardList {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 10px;
+    text-align: justify;
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+}
+
+.nutritionCardListElement {
+    height: 50%;
+    padding: 0 20px;
+}
+
+.nutritionCardListElementHeader {
+    font-weight: bold;
+}
+
+.nutritionCardListElement ul {
+    height: 50%;
+    padding: 0 30px;
+}
+
+.noNutritionInfo {
+    height: 50%;
+}

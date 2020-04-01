@@ -5,34 +5,34 @@
     padding: 10px;
 }
 
-.sideNavList{
+.sideNavList {
     /* overflow-y: scroll; */
 }
 
 .navElement {
-    padding: 20px;
-    font-size: xx-large;
+    padding: 7px 7px;
+    font-size: x-large;
     color: #e5ce48;
     list-style-type: none;
     text-align: center;
     outline: 1px solid #e5ce48;
     cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.sideNavList div{
-    padding: 7px;
-}
-
-.navElement:hover{
+.navElement:hover {
+    padding: 6px 5px;
     background-color: #e5ce48;
     color: black;
-    font-weight: bold;}
+    font-weight: bold;
+}
 
 .active {
     background-color: #e5ce48;
     color: black;
     font-weight: bold;
-
 }
 
 .noCourseFoundContainer {

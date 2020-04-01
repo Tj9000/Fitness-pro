@@ -8,23 +8,20 @@ class SideNavBarHome extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedCourse: 'c1'
+            selectedCourseId: null
         };
     }
 
     selection = (courseId) => {
-        console.log("Inside selection")
         this.setState({
-            selectedCourse: courseId
+            selectedCourseId: courseId
         })
-        this.props.updateContentId(courseId);
-        console.log("side nav props : ", this.props)
     }
 
     navElement = ({ text, courseId, subscriptionId }) => {
         return (
             <div
-                className={[styles.navElement, this.state.selectedCourse === courseId ? styles.active : ''].join(' ')}
+                className={[styles.navElement, this.props.selectedSubscription === subscriptionId ? styles.active : ''].join(' ')}
                 onClick={() => this.selection({ courseId, subscriptionId })}>
 
                 {text}

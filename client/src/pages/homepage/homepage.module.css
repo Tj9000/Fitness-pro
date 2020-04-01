@@ -1,3 +1,18 @@
+.homeContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    height: 100%;
+    width: 100%;
+    background-color: var(--primary-black);
+}
+
+.homeSubContainer {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
 .homepageVideoContainer {
     display: flex;
     flex-direction: row;
@@ -5,7 +20,16 @@
     align-items: center;
     width: 100%;
     height: 400px;
-    background-color: black;
+    background-color: var(--primary-black);
+}
+
+.videoTitle {
+    font-size: 25px;
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+    text-align: center;
+    padding: 10px;
+    cursor: default;
 }
 
 .videoContainer {
@@ -21,28 +45,52 @@
     width: 100%;
 }
 
-.videoContainer:hover,
-.videoContainer:focus {
-  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
-  transform: translateY(-0.25em);
+.videoContainer:hover, .videoContainer:focus {
+    box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+    transform: translateY(-0.25em);
 }
-.title {
-    font-size: 25px;
-    background-color: black;
-    color: white;
+
+.videoDescripionContainer {
+    color: var(--primary-white);
+    text-align: center;
+    padding: 4px 8px;
+    cursor: default;
+}
+
+.videoDescripionName {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.videoDescripion {
+    font-size: 0.8rem;
+}
+
+.nutritionTitle {
+    font-size: 32px;
+    color: var(--primary-white);
     text-align: center;
     padding: 10px;
+    cursor: default;
 }
 
-.nutritionSection {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    background-color: black;
-    /* padding: 50px; */
+.nutritionTitle .dot {
+    height: 10px;
+    width: 10px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: inline-block;
+    transition: ease-in;
+    transition-duration: 0s;
+}
 
+.nutritionTitle:hover {
+    scale: 1.02;
+}
+
+.nutritionTitle:hover .dot {
+    transform: rotateY(180deg);
+    transition-duration: 1s;
 }
 
 .nutritionCardContainer {
@@ -52,45 +100,35 @@
     flex-direction: row;
     width: 100%;
     padding-bottom: 50px;
-    background-color: black;
+    background-color: var(--primary-black);
 }
 
-.title .dot {
-    height: 10px;
-    width: 10px;
-    background-color: #e5ce48;
-    border-radius: 50%;
-    display: inline-block;
-  }
-
-.homeContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    height: 100%;
-    width: 100%;
-    background-color: black;
-}
-
-.homeSubContainer {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.myCoursesDiv{
+.myCoursesDiv {
     font-size: 50px;
-    color: white;
+    color: var(--primary-white);
     text-align: center;
+    cursor: default;
 }
+
 .myCoursesDiv .dot {
     height: 18px;
     width: 18px;
-    background-color: #e5ce48;
+    background-color: var(--primary-color);
     border-radius: 50%;
     display: inline-block;
-  }
+    transition: ease-in;
+    transition-duration: 0s;
+}
 
-  .sideNavContainer{
-      border: #e5ce48;
-  }
+.myCoursesDiv:hover {
+    scale: 1.02;
+}
+
+.myCoursesDiv:hover .dot {
+    transform: rotateY(180deg);
+    transition-duration: 1s;
+}
+
+.sideNavContainer {
+    border: var(--primary-color);
+}
