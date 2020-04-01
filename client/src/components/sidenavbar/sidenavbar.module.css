@@ -1,36 +1,42 @@
 .sideNavBar {
     width: 400px;
-    background-color: black;
+    background-color: var(--primary-black);
     height: 100%;
     padding: 10px;
 }
 
-.sideNavList{
+.sideNavList {
     /* overflow-y: scroll; */
 }
 
 .navElement {
-    padding: 20px;
-    font-size: xx-large;
-    color: #e5ce48;
+    padding: 7px 7px;
+    margin: 10px 0;
+    font-size: x-large;
+    color: var(--primary-color);
     list-style-type: none;
     text-align: center;
-    outline: 1px solid #e5ce48;
+    outline: 1px solid var(--primary-color);
     cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.sideNavList div{
-    padding: 7px;
+.navElement:hover {
+    padding: 6px 5px;
+    background-color: var(--primary-color);
+    color: var(--primary-black);
 }
-
-.navElement:hover{
-    background-color: #e5ce48;
-    color: black;
-    font-weight: bold;}
 
 .active {
-    background-color: #e5ce48;
-    color: black;
+    padding: 6px 5px;
+    background-color: var(--tertiary-black);
+    color: var(--secondary-color);
     font-weight: bold;
+    border: 2px solid var(--primary-color);
+}
 
+.noCourseFoundContainer {
+    color: var(--primary-white);
 }
