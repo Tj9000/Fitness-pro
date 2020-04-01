@@ -1,6 +1,6 @@
 .sideNavBar {
     width: 400px;
-    background-color: black;
+    background-color: var(--primary-black);
     height: 100%;
     padding: 10px;
 }
@@ -11,11 +11,12 @@
 
 .navElement {
     padding: 7px 7px;
+    margin: 10px 0;
     font-size: x-large;
-    color: #e5ce48;
+    color: var(--primary-color);
     list-style-type: none;
     text-align: center;
-    outline: 1px solid #e5ce48;
+    outline: 1px solid var(--primary-color);
     cursor: pointer;
     white-space: nowrap;
     overflow: hidden;
@@ -24,15 +25,16 @@
 
 .navElement:hover {
     padding: 6px 5px;
-    background-color: #e5ce48;
-    color: black;
-    font-weight: bold;
+    background-color: var(--primary-color);
+    color: var(--primary-black);
 }
 
 .active {
-    background-color: #e5ce48;
-    color: black;
+    padding: 6px 5px;
+    background-color: var(--tertiary-black);
+    color: var(--secondary-color);
     font-weight: bold;
+    border: 2px solid var(--primary-color);
 }
 
 .noCourseFoundContainer {

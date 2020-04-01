@@ -110,7 +110,7 @@ class HomePage extends React.Component {
                             </span>
                             <span className={styles.dot} />
                         </div>
-                        <SideNavBarHome updateContentId={this.updateContainer} courseList={this.props.myCourseList} selectedSubscription={this.state.subscriptionId} />
+                        <SideNavBarHome updateContainer={this.updateContainer} courseList={this.props.myCourseList} selectedSubscription={this.state.subscriptionId} />
                     </div>
                 </div>
 

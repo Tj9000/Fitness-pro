@@ -12,10 +12,11 @@ class SideNavBarHome extends React.Component {
         };
     }
 
-    selection = (courseId) => {
+    selection = ({ courseId, subscriptionId }) => {
         this.setState({
             selectedCourseId: courseId
-        })
+        });
+        this.props.updateContainer({ courseId, subscriptionId })
     }
 
     navElement = ({ text, courseId, subscriptionId }) => {
