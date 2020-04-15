@@ -16,7 +16,7 @@ import styles from './LoginModal.module.css';
 
 class LoginModal extends Component {
   loginWithPhone = () => {
-    // this.props.loginUserWithPhoneNumber(this.state.phone);
+    this.props.loginUserWithPhoneNumber(this.state.phone, "phoneLoginButton");
   }
   phoneInputChange = (e) => {
     this.setState({ "phone": e.target.value });
@@ -25,10 +25,11 @@ class LoginModal extends Component {
     this.props.loginUserWithGoogle();
   }
   loginWithFacebook = () => {
-    
+
   }
 
   render() {
+    const phoneDisabled = this.props.signupModal;
     return (
       <Modal
         isOpen={this.props.showModal}
@@ -46,8 +47,8 @@ class LoginModal extends Component {
 
           <div className={styles.loginPhoneContent}>
             <div className={styles.loginPhoneContainer}>
-              <input type="text" className={styles.phoneInputButton} placeholder="Enter Phone Number" id="loginPhoneNumber" onChange={this.phoneInputChange} disabled style={{maxWidth: '250px'}}></input>
-              <input type="button" className={styles.loginButton} onClick={this.loginWithPhone} value="Login" disabled></input>
+              <input type="text" className={styles.phoneInputButton} placeholder="Enter Phone Number" id="loginPhoneNumber" onChange={this.phoneInputChange} disabled={phoneDisabled} style={{ maxWidth: '250px' }}></input>
+              <input type="button" className={styles.loginButton} onClick={this.loginWithPhone} value="Login" disabled={phoneDisabled} id="phoneLoginButton"></input>
             </div>
 
             <div>
@@ -77,7 +78,8 @@ class LoginModal extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  showModal: state.modal.showModal === MODALSCREEN.LOGIN
+  showModal: state.modal.showModal === MODALSCREEN.LOGIN,
+  signupModal: state.modal.params && state.modal.params.signup
 });
 const mapDispatchToProps = {
   pushRoute: push,

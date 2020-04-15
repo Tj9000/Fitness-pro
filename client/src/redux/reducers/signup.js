@@ -10,6 +10,7 @@ const signup = (state = initialState, action) => {
         case types.LOGOUT_FINISH:
             return initialState;
 
+        case types.LOGIN_WITH_PHONE_SUCCESS:
         case types.LOGIN_WITH_GOOGLE_SUCCESS:
         case types.CHECK_USER_SIGNEDIN_SUCCESS:
             let phoneNumber = action.currentUser && action.currentUser.phoneNumber;

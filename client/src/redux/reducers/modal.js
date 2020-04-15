@@ -7,7 +7,7 @@ const initialState = {
 
 const modal = (state = initialState, action) => {
     switch (action.type) {
-        case types.LOGIN_MODAL_SHOW: return { ...state, showModal: MODALSCREEN.LOGIN };
+        case types.LOGIN_MODAL_SHOW: return { ...state, showModal: MODALSCREEN.LOGIN, params: action.params };
         case types.LOGIN_MODAL_HIDE: return { ...state, showModal: null };
 
         case types.LOGIN_WITH_GOOGLE_START:
