@@ -23,6 +23,13 @@ export const loginUserWithPhoneNumber = (phoneNumber, signinButtonId) => (dispat
             // ...
         }
     });
+    const logoutAndSignup = () => {
+        return FireBase.auth().signOut().then(res => {
+            alert("Please Signup with Google or Facebook to continue");
+            dispatch(showSignupModal());
+            dispatch({ type: types.LOGIN_WITH_PHONE_ERROR, error: { code: 'SignupRequired', message: "Please Signup to continue" } });
+        });
+    }
     if (phoneNumber && validatePhoneNumber(phoneNumber)) {
         FireBase.auth().signInWithPhoneNumber("+91" + phoneNumber, verifier).then(confirmationVerifier => {
             console.log(confirmationVerifier);
@@ -34,15 +41,15 @@ export const loginUserWithPhoneNumber = (phoneNumber, signinButtonId) => (dispat
                         dispatch({ type: types.LOGIN_WITH_PHONE_ERROR, error: { code: 'NoUserObject', message: "No user object found" } });
                     });
                 } else if (!userObject.user.email) {
-                    FireBase.auth().currentUser.delete().then(res => {
-                        // User deleted.
-                        console.log("user Deleted.", res);
-                        FireBase.auth().signOut().then(res => {
-                            alert("Please Signup with Google or Facebook to continue");
-                            dispatch(showSignupModal());
-                            dispatch({ type: types.LOGIN_WITH_PHONE_ERROR, error: { code: 'SignupRequired', message: "Please Signup to continue" } });
+                    if (FireBase.auth().currentUser.providerData.length <= 1) {
+                        FireBase.auth().currentUser.delete().then(res => {
+                            // User deleted.
+                            console.log("user Deleted.");
+                            return logoutAndSignup();
                         });
-                    });
+                    } else {
+                        return logoutAndSignup();
+                    }
                 } else {
                     dispatch({ type: types.LOGIN_WITH_PHONE_SUCCESS, currentUser: userObject.user });
                     dispatch(checkAndGetUserData());
