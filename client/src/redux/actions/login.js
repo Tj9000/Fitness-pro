@@ -1,8 +1,10 @@
 import * as types from '../types';
 import { push } from 'connected-react-router';
-import { history } from '../../redux/store';
+import store, { history } from '../../redux/store';
 
 import { FireBase, googleAuthProvider, PhoneAuthApplicationVerifier, getCurrentUser } from '../../firebase/firebase';
+import { getUserDetails } from './user';
+
 import * as firebase from 'firebase/app';
 
 import { getApiCaller } from '../../utils/apiUtil';
@@ -82,6 +84,7 @@ export const checkUserSignedIn = () => (dispatch) => {
     dispatch({ type: types.CHECK_USER_SIGNEDIN_START });
     getCurrentUser().then(currentUser => {
         dispatch({ type: types.CHECK_USER_SIGNEDIN_SUCCESS, currentUser: currentUser });
+        dispatch(getUserDetails());
     }).catch(e => {
         dispatch({ type: types.CHECK_USER_SIGNEDIN_ERROR });
     });
@@ -99,6 +102,42 @@ export const logout = () => (dispatch) => {
         }, 1000);
     });
 }
+
+export const getOTPForPhoneNumber = (phoneNumber, verifierId) => (dispatch) => {
+    dispatch({ type: types.GET_PHONEOTP_START });
+    let verifier = new firebase.auth.RecaptchaVerifier(verifierId, {
+        'size': 'normal',
+        'callback': (e) => {
+            document.getElementById(verifierId).style.display = 'none';
+        },
+        'expired-callback': function () {
+            // Response expired. Ask user to solve reCAPTCHA again.
+            // ...
+        }
+    });
+    FireBase.auth().currentUser.linkWithPhoneNumber("+91" + phoneNumber, verifier).then(res => {
+        dispatch({ type: types.GET_PHONEOTP_SUCCESS, payload: res });
+    }).catch(e => {
+        //TODO: Handle errors
+        console.log(e);
+        dispatch({ type: types.GET_PHONEOTP_ERROR });
+    });
+};
+
+export const validateOTP = (phoneNumber, OTP) => (dispatch) => {
+    dispatch({ type: types.VERIFY_PHONEOTP_START });
+    let state = store.getState();
+    if (state.login.confirmationVerifier) {
+        state.login.confirmationVerifier.confirm(OTP).then((r) => {
+            dispatch({ type: types.VERIFY_PHONEOTP_SUCCESS });
+        }).catch(e => {
+            console.log(e);
+            dispatch({ type: types.VERIFY_PHONEOTP_ERROR, error: { code: e && e.code, message: e && e.message } });
+        });
+    } else {
+        dispatch({ type: types.VERIFY_PHONEOTP_ERROR, error: { code: "no-confirmer", message: "Please retry the entering Phone Number" } });
+    }
+};
 
 function resetRoute() {
     history.replace('/');

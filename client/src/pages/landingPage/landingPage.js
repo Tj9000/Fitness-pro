@@ -16,22 +16,23 @@ import TrainingImg3 from '../../assets/images/landingpage/weightsTraining.jpg'
 class LandingPage extends Component {
     constructor(props) {
         super(props);
-        this.state= {
+        this.state = {
             promptLoginMessage: null,
             firstLoginPromptClose: false,
             referPath: null,
         };
     }
     componentDidMount() {
-        if(this.props.location && this.props.location.state && this.props.location.state.promptLoginMessage) {
+        if (this.props.location && this.props.location.state && this.props.location.state.promptLoginMessage) {
             // this.props.showLoginModal()
         }
         this.props.checkUserSignedIn()
 
     }
     componentDidUpdate() {
-        if (!this.props.checkingLogin && !!this.props.signedIn) {
-            this.props.replaceRoute('/homepage');
+        if (!this.props.checkingLogin && !!this.props.signedIn && this.props.userDetails) {
+            let redirectRoute = this.props.userDetails.profileSignupComplete ? '/homepage' : '/signup';
+            this.props.replaceRoute(redirectRoute);
         }
     }
     render() {
@@ -139,6 +140,7 @@ class LandingPage extends Component {
 const mapStateToProps = (state, ownProps) => ({
     checkingLogin: state.login.checkingLogin,
     signedIn: state.login.signedIn,
+    userDetails: state.user.details
 });
 const mapDispatchToProps = {
     pushRoute: push,

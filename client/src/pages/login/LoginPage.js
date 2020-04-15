@@ -28,11 +28,12 @@ class LoginPage extends Component {
     }
     componentDidUpdate() {
         let referPath = this.props.location && this.props.location.state && this.props.location.state.from && this.props.location.state.from.pathname;
-        if (!this.props.checkingLogin && !!this.props.signedIn) {
-            let pathname = (!referPath || referPath == '/')? '/homepage' : referPath;
-            this.props.pushRoute(pathname);
+        if (!this.props.checkingLogin && !!this.props.signedIn && this.props.userDetails) {
+            let pathname = (!referPath || referPath == '/') ? '/homepage' : referPath;
+            let redirectRoute = this.props.userDetails.profileSignupComplete ? pathname : '/signup';
+            this.props.pushRoute(redirectRoute);
         }
-        else if(!this.props.checkingLogin && !this.props.signedIn) {
+        else if (!this.props.checkingLogin && !this.props.signedIn) {
             let pathname = '/';
             let state = {
                 promptLoginMessage: true,
@@ -52,8 +53,8 @@ class LoginPage extends Component {
                             this.props.signedIn ? 'User already logged in' : 'Please login to continue.'
                         )}
                     </div>
-                    <SimpleLoader size={150}/>
-                    <div/>
+                    <SimpleLoader size={150} />
+                    <div />
                 </div>
             </div>
         );
@@ -63,7 +64,8 @@ class LoginPage extends Component {
 const mapStateToProps = (state, ownProps) => ({
     checkingLogin: state.login.checkingLogin,
     signedIn: state.login.signedIn,
-    currentUser: state.login.currentUser
+    currentUser: state.login.currentUser,
+    userDetails: state.user.details
 });
 const mapDispatchToProps = {
     pushRoute: push,

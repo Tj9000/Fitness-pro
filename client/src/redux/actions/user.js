@@ -54,5 +54,18 @@ export const updateUserImage = (image) => (dispatch) => {
     dispatch({ type: types.UPDATE_USER_PROF_IMG_SUCCESS })
 }
 export const acceptTermsAndCondition = (image) => (dispatch) => {
-    dispatch({ type: types.UPDATE_USER_TANDC_SUCCESS })
+    dispatch({ type: types.UPDATE_USER_TANDC_START });
+    getApiCaller().then(apiObj => {
+        let details = { TandCAccepted: true };
+        return apiObj.post('/user/details', details).then(res => {
+            if (!res.data || !Array.isArray(res.data) && res.data.some(e => e === 'TandCAccepted')) {
+                dispatch({ type: types.UPDATE_USER_DETAILS_ERROR }); //TODO Handle
+            } else {
+                dispatch({ type: types.UPDATE_USER_TANDC_SUCCESS });
+            }
+        })
+    }).catch(e => {
+        console.log(e);
+        dispatch({ type: types.UPDATE_USER_TANDC_ERROR });
+    });
 }
