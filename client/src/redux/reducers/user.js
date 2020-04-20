@@ -73,6 +73,8 @@ function generateUserDetailsObject(userDetails) {
         gymAccess: userDetails.gymAccess,
         target: userDetails.target,
         languagePref: userDetails.languagePref,
+        TandCAccepted: userDetails.TandCAccepted,
+        profileSignupComplete: userDetails.profileSignupComplete,
     };
 }
 

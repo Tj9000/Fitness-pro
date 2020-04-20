@@ -80,7 +80,8 @@ class Update extends Component {
             let valuesToUpdate = this.getChangedFormValues();
             let invalidations = _.pickBy(valuesToUpdate, (v, k) => !validateUserInput(k, v));
             if (!_.size(invalidations)) {
-                this.props.updateUserDetails(this.getChangedFormValues(), '/profile')
+                if (this.props.isSignup) valuesToUpdate.profileSignupComplete = true;
+                this.props.updateUserDetails(valuesToUpdate, this.props.redirectPage);
             }
             else {
                 alert(`Invalid ${Object.keys(invalidations).join(', ')}.`)
@@ -90,7 +91,7 @@ class Update extends Component {
         }
     }
     cancelEdit = () => {
-        this.props.pushRoute("/profile");
+        this.props.pushRoute(this.props.redirectPage);
     }
 
     _handleImageChange = (e) => {
@@ -144,7 +145,9 @@ class Update extends Component {
                     </div>
                     <div className={styles.profileButtonContainer}>
                         <button onClick={this.saveEdit} className={styles.button}>Save</button>
-                        <button onClick={this.cancelEdit} className={styles.button}>Cancel</button>
+                        {
+                            this.props.isSignup ? null : <button onClick={this.cancelEdit} className={styles.button}>Cancel</button>
+                        }
                     </div>
                 </div>
             </div>

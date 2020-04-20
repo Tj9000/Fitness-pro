@@ -1,20 +1,70 @@
 import * as types from '../types';
 import { push } from 'connected-react-router';
-import { history } from '../../redux/store';
+import store, { history } from '../../redux/store';
 
 import { FireBase, googleAuthProvider, PhoneAuthApplicationVerifier, getCurrentUser } from '../../firebase/firebase';
+import { getUserDetails } from './user';
+import { showSignupModal } from './modal';
+
 import * as firebase from 'firebase/app';
 
 import { getApiCaller } from '../../utils/apiUtil';
 import * as _ from 'lodash';
 
-export const loginUserWithPhoneNumber = phoneNumber => (dispatch) => {
+export const loginUserWithPhoneNumber = (phoneNumber, signinButtonId) => (dispatch) => {
+    dispatch({ type: types.LOGIN_WITH_PHONE_START });
+    let verifier = new firebase.auth.RecaptchaVerifier(signinButtonId, {
+        'size': 'invisible',
+        'callback': (e) => {
+            //success Callback
+        },
+        'expired-callback': function () {
+            // Response expired. Ask user to solve reCAPTCHA again.
+            // ...
+        }
+    });
+    const logoutAndSignup = () => {
+        return FireBase.auth().signOut().then(res => {
+            alert("Please Signup with Google or Facebook to continue");
+            dispatch(showSignupModal());
+            dispatch({ type: types.LOGIN_WITH_PHONE_ERROR, error: { code: 'SignupRequired', message: "Please Signup to continue" } });
+        });
+    }
     if (phoneNumber && validatePhoneNumber(phoneNumber)) {
-        FireBase.auth().signInWithPhoneNumber(phoneNumber, PhoneAuthApplicationVerifier).then(res => {
-            //TODO
-            dispatch(genrateIdToken());
+        FireBase.auth().signInWithPhoneNumber("+91" + phoneNumber, verifier).then(confirmationVerifier => {
+            console.log(confirmationVerifier);
+            var code = window.prompt('Provide your SMS OTP code');
+            confirmationVerifier.confirm(code).then((userObject) => {
+                if (!userObject || !userObject.user) {
+                    FireBase.auth().signOut().then(res => {
+                        alert("Something went wrong. Please Sign in again.");
+                        dispatch({ type: types.LOGIN_WITH_PHONE_ERROR, error: { code: 'NoUserObject', message: "No user object found" } });
+                    });
+                } else if (!userObject.user.email) {
+                    if (FireBase.auth().currentUser.providerData.length <= 1) {
+                        FireBase.auth().currentUser.delete().then(res => {
+                            // User deleted.
+                            console.log("user Deleted.");
+                            return logoutAndSignup();
+                        });
+                    } else {
+                        return logoutAndSignup();
+                    }
+                } else {
+                    dispatch({ type: types.LOGIN_WITH_PHONE_SUCCESS, currentUser: userObject.user });
+                    dispatch(checkAndGetUserData());
+                }
+            }).catch(e => {
+                console.log(e);
+                alert("Login Failed. Try again.");
+                dispatch({ type: types.LOGIN_WITH_PHONE_ERROR, error: { code: e && e.code, message: e && e.message } });
+            });
+
+            // dispatch(genrateIdToken());
         }).catch((err) => {
-            console.log("err", err)
+            //TODO: Handle this
+            console.log("err", err);
+            dispatch({ type: types.LOGIN_WITH_PHONE_ERROR, error: { code: err && err.code, message: err && err.message } });
         });
     }
 };
@@ -81,6 +131,9 @@ const checkAndGetUserData = () => (dispatch) => {
 export const checkUserSignedIn = () => (dispatch) => {
     dispatch({ type: types.CHECK_USER_SIGNEDIN_START });
     getCurrentUser().then(currentUser => {
+        if (currentUser) {
+            dispatch(getUserDetails());
+        }
         dispatch({ type: types.CHECK_USER_SIGNEDIN_SUCCESS, currentUser: currentUser });
     }).catch(e => {
         dispatch({ type: types.CHECK_USER_SIGNEDIN_ERROR });
@@ -99,6 +152,42 @@ export const logout = () => (dispatch) => {
         }, 1000);
     });
 }
+
+export const getOTPForPhoneNumber = (phoneNumber, verifierId) => (dispatch) => {
+    dispatch({ type: types.GET_PHONEOTP_START });
+    let verifier = new firebase.auth.RecaptchaVerifier(verifierId, {
+        'size': 'normal',
+        'callback': (e) => {
+            document.getElementById(verifierId).style.display = 'none';
+        },
+        'expired-callback': function () {
+            // Response expired. Ask user to solve reCAPTCHA again.
+            // ...
+        }
+    });
+    FireBase.auth().currentUser.linkWithPhoneNumber("+91" + phoneNumber, verifier).then(res => {
+        dispatch({ type: types.GET_PHONEOTP_SUCCESS, payload: res });
+    }).catch(e => {
+        //TODO: Handle errors
+        console.log(e);
+        dispatch({ type: types.GET_PHONEOTP_ERROR });
+    });
+};
+
+export const validateOTP = (phoneNumber, OTP) => (dispatch) => {
+    dispatch({ type: types.VERIFY_PHONEOTP_START });
+    let state = store.getState();
+    if (state.login.confirmationVerifier) {
+        state.login.confirmationVerifier.confirm(OTP).then((r) => {
+            dispatch({ type: types.VERIFY_PHONEOTP_SUCCESS });
+        }).catch(e => {
+            console.log(e);
+            dispatch({ type: types.VERIFY_PHONEOTP_ERROR, error: { code: e && e.code, message: e && e.message } });
+        });
+    } else {
+        dispatch({ type: types.VERIFY_PHONEOTP_ERROR, error: { code: "no-confirmer", message: "Please retry the entering Phone Number" } });
+    }
+};
 
 function resetRoute() {
     history.replace('/');

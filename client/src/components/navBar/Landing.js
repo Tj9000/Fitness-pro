@@ -4,7 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
 
-import { showLoginModal } from '../../redux/actions/modal';
+import { showLoginModal, showSignupModal } from '../../redux/actions/modal';
 
 import FitVibLogo from '../FitVibLogo/FitVibLogo';
 
@@ -21,7 +21,7 @@ class Landing extends Component {
                 </div>
                 <div className={styles.rightList}>
                     <span className={styles.listItemRightLanding} onClick={this.props.showLoginModal} >Login</span>
-                    <span className={styles.listItemRightLanding} onClick={this.props.showLoginModal} >Sign up</span>
+                    <span className={styles.listItemRightLanding} onClick={this.props.showSignupModal} >Sign up</span>
                 </div>
             </div>
 
@@ -33,7 +33,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 const mapDispatchToProps = {
     pushRoute: push,
-    showLoginModal: showLoginModal
+    showLoginModal,
+    showSignupModal
 
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Landing);
