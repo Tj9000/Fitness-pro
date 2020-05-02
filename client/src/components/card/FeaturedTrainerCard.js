@@ -6,7 +6,7 @@ class FeaturedTrainerCard extends Component {
     render() {
         const { trainer } = this.props;
         return (
-            <div className={styles.container}>
+            <div className={styles.container} key={trainer.id}>
                 <div className={styles.trainerImageContainer} >
                     <img src={trainer.photoUrl} alt="ProfilePic" className={styles.trainerImage} />
                 </div>

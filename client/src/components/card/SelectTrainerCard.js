@@ -1,8 +1,20 @@
 import React from 'react';
 
+import { connect } from 'react-redux';
+import { push } from 'connected-react-router';
+
 import styles from './SelectTrainerCard.module.css';
 
 class SelectTrainerCard extends React.Component {
+
+    viewTrainerPage = () => {
+        if(this.props.course.trainerDetail) {
+            this.props.pushRoute(`/trainer?id=${this.props.course.trainerDetail.id}`);
+        } else {
+            //TODO: handle courseId not found
+        }
+    }
+
     render() {
         let course = this.props.course || {};
         return (
@@ -23,7 +35,7 @@ class SelectTrainerCard extends React.Component {
                             <div className={styles.trainerDetailList}><span className={styles.trainerDetailListHead}>Category: </span> {course.trainerDetail.category}</div>
                             <div className={styles.trainerDetailList}><span className={styles.trainerDetailListHead}>Trained: </span> {course.trainerDetail.notableTrainedPeople}</div>
                         </div>
-                        <div className={styles.primaryButton}>View {course.trainerDetail.name.split(' ')[0]}</div>
+                        <div className={styles.primaryButton} onClick={this.viewTrainerPage}>View {course.trainerDetail.name.split(' ')[0]}</div>
                     </div>
                 </div>
 
@@ -52,4 +64,9 @@ class SelectTrainerCard extends React.Component {
     }
 }
 
-export default SelectTrainerCard;
+const mapStateToProps = (state, ownProps)=>({
+});
+const mapDispatchToProps = {
+    pushRoute: push
+};
+export default connect(mapStateToProps, mapDispatchToProps)(SelectTrainerCard);

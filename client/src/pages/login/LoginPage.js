@@ -29,7 +29,8 @@ class LoginPage extends Component {
         this.props.showLoginModal(); //TODO: Handle referring location
     }
     componentDidUpdate() {
-        let referPath = this.props.location && this.props.location.state && this.props.location.state.from && this.props.location.state.from.pathname;
+        let referred = this.props.location && this.props.location.state && this.props.location.state.from && this.props.location.state.from;
+        let referPath = referred && (referred.pathname + referred.search);
         if (!this.props.checkingLogin && !!this.props.signedIn && _.size(this.props.userDetails)) {
             let pathname = (!referPath || referPath == '/') ? '/homepage' : referPath;
             let redirectRoute = this.props.userDetails.profileSignupComplete ? pathname : '/signup';
