@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { push } from 'connected-react-router';
+import { push, replace } from 'connected-react-router';
 
 import { showLoginModal } from '../../redux/actions/modal';
 
@@ -33,7 +33,7 @@ class LoginPage extends Component {
         if (!this.props.checkingLogin && !!this.props.signedIn && _.size(this.props.userDetails)) {
             let pathname = (!referPath || referPath == '/') ? '/homepage' : referPath;
             let redirectRoute = this.props.userDetails.profileSignupComplete ? pathname : '/signup';
-            this.props.pushRoute(redirectRoute);
+            this.props.replaceRoute(redirectRoute);
         }
         else if (!this.props.checkingLogin && !this.props.signedIn) {
             let pathname = '/';
@@ -42,7 +42,7 @@ class LoginPage extends Component {
                 referPath: referPath
             }
             this.props.showLoginModal()
-            this.props.pushRoute(pathname, state);
+            this.props.replaceRoute(pathname, state);
         }
     }
     render() {
@@ -71,6 +71,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 const mapDispatchToProps = {
     pushRoute: push,
+    replaceRoute: replace,
     checkUserSignedIn,
     showLoginModal
 };

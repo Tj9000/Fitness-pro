@@ -15,7 +15,9 @@ const signup = (state = initialState, action) => {
         case types.CHECK_USER_SIGNEDIN_SUCCESS:
             let phoneNumber = action.currentUser && action.currentUser.phoneNumber;
             return { ...state, currentUser: action.currentUser, profileSignupStep: phoneNumber ? 2 : state.profileSignupStep };
+        
         case types.FETCH_CHECKADDUSER_SUCCESS:
+        case types.GET_USER_DETAILS_SUCCESS:
             return {
                 ...state,
                 profileSignupComplete: action.userDetails.profileSignupComplete
@@ -39,7 +41,6 @@ const signup = (state = initialState, action) => {
             return {
                 ...state,
                 profileSignupStep: -1,
-                profileSignupComplete: true
             };
         default:
             return state;

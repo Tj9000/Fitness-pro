@@ -55,6 +55,7 @@ function PrivateRoute({ Rcomponent, ...props}) {
                 pathname: "/login",
                 state: { from: props.location }
             }}
+            push={false}
         />;
     }
 }

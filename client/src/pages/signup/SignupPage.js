@@ -43,12 +43,11 @@ class SignupPage extends Component {
         }
     }
     componentDidUpdate(prevProps) {
-        if (this.props.userDetails && this.props.userDetails.TandCAccepted) {
-            this.props.pushRoute('/profile/update', { fromSignup: true });
-        }
-
         if (this.props.profileSignupStep === -1 && this.props.profileSignupComplete) {
-            this.props.pushRoute('/profile/update', { fromSignup: true });
+            this.props.replaceRoute('/homepage');
+        }
+        else if (this.props.userDetails && this.props.userDetails.TandCAccepted) {
+            this.props.replaceRoute('/profile/update', { fromSignup: true });
         }
 
         if (this.props.verifyPhoneError && this.props.verifyPhoneError != prevProps.verifyPhoneError) {
