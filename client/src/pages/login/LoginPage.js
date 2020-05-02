@@ -10,6 +10,8 @@ import styles from './Login.module.css';
 import { checkUserSignedIn } from '../../redux/actions/login';
 import SimpleLoader from '../../components/loader/SimpleLoader';
 
+import * as _ from 'lodash';
+
 class LoginPage extends Component {
     state = {
         checkingLogin: true,
@@ -28,7 +30,7 @@ class LoginPage extends Component {
     }
     componentDidUpdate() {
         let referPath = this.props.location && this.props.location.state && this.props.location.state.from && this.props.location.state.from.pathname;
-        if (!this.props.checkingLogin && !!this.props.signedIn && this.props.userDetails) {
+        if (!this.props.checkingLogin && !!this.props.signedIn && _.size(this.props.userDetails)) {
             let pathname = (!referPath || referPath == '/') ? '/homepage' : referPath;
             let redirectRoute = this.props.userDetails.profileSignupComplete ? pathname : '/signup';
             this.props.pushRoute(redirectRoute);

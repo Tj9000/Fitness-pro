@@ -37,6 +37,7 @@ class Update extends Component {
             val.gymAccess = values['Gym Access'];
             val.target = values['Target'];
             val.languagePref = values['Language Preference'];
+            val.profileSignupComplete = true;
             return val;
         }
     }
