@@ -11,7 +11,7 @@ export const getAllCoursesList = () => (dispatch) => {
             } else {
                 dispatch({ type: types.TRAINING_GETALL_COURSE_LIST_SUCCESS, courses: res.data });
             }
-        })
+        });
     }).catch(e => {
         console.log(e);
         dispatch({ type: types.TRAINING_GETALL_COURSE_LIST_ERROR }); //TODO Handle
@@ -31,7 +31,7 @@ export const getMyCoursesList = () => (dispatch) => {
         });
     }).catch(e => {
         console.log(e);
-        dispatch({ type: types.GET_MYCOURSES_ERROR}); //TODO Handle
+        dispatch({ type: types.GET_MYCOURSES_ERROR }); //TODO Handle
     })
 }
 
@@ -44,9 +44,25 @@ export const getExercises = (courseId) => (dispatch) => {
             } else {
                 dispatch({ type: types.GET_COURSE_EXERCISES_SUCCESS, exercises: res.data });
             }
-        })
+        });
     }).catch(e => {
         console.log(e);
         dispatch({ type: types.GET_COURSE_EXERCISES_ERROR }); //TODO Handle
+    });
+}
+
+export const getCourseDetail = (courseId) => (dispatch) => {
+    dispatch({ type: types.GET_COURSE_DETAILS_START, courseId });
+    getApiCaller().then(apiObj => {
+        return apiObj.get(`/course/${courseId}`).then(res => {
+            if (!res.data) {
+                dispatch({ type: types.GET_COURSE_DETAILS_ERROR, courseId }); //TODO Handle
+            } else {
+                dispatch({ type: types.GET_COURSE_DETAILS_SUCCESS, details: res.data });
+            }
+        });
+    }).catch(e => {
+        console.log(e);
+        dispatch({ type: types.GET_COURSE_DETAILS_ERROR, courseId }); //TODO Handle
     });
 }

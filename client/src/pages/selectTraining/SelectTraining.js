@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import { push, replace } from 'connected-react-router';
-import { getAllCoursesList } from '../../redux/actions/training';
+import { getAllTrainers } from '../../redux/actions/trainer';
 
 import NavBar from '../../components/navBar/NavBar';
 import { IconDropdown } from '../../components/dropdown/IconDropdown';
@@ -23,7 +23,7 @@ class SelectTraining extends Component {
     };
 
     componentDidMount() {
-        this.props.getAllCoursesList()
+        this.props.getAllTrainers()
     }
 
     selectWorkoutProgram = (i) => {
@@ -42,10 +42,10 @@ class SelectTraining extends Component {
         }
     }
 
-    courseRender = (props) => {
+    trainerRender = (props) => {
         return (
             <div className={styles.courseListItemContainer}>
-                {props.course ? <SelectTrainerCard course={props.course} /> : 'nothing to show'}
+                {props.trainer ? <SelectTrainerCard trainer={props.trainer} /> : 'nothing to show'}
             </div>
         );
     }
@@ -89,13 +89,13 @@ class SelectTraining extends Component {
                         </div>
                         <div className={styles.resultContentContainer}>
                             <div className={styles.resultCountHead}>
-                                {_.size(this.props.courses) || 'No'} Results found:
+                                {_.size(this.props.trainersList) || 'No'} Results found:
                             </div>
                             {
-                                _.size(this.props.courses) ? (
-                                    <Fragment>
-                                        {_.map(this.props.courses, (course, i) => <this.courseRender course={course} key={course.courseId} />)}
-                                    </Fragment>
+                                _.size(this.props.trainersList) ? (
+                                    <div className={styles.trainerListContent}>
+                                        {_.map(this.props.trainersList, (trainer, i) => <this.trainerRender trainer={trainer} key={trainer.id} />)}
+                                    </div>
                                 ) : (
                                         <div className={styles.noResultsFound}>
                                             No Results found. Try changing the filters.
@@ -113,12 +113,12 @@ class SelectTraining extends Component {
 const mapStateToProps = (state, ownProps) => {
     return {
         userDetails: state.user.details,
-        courses: state.training.courses
+        trainersList: state.trainer.trainersList
     }
 };
 const mapDispatchToProps = {
     pushRoute: push,
     replaceRoute: replace,
-    getAllCoursesList
+    getAllTrainers
 };
 export default connect(mapStateToProps, mapDispatchToProps)(SelectTraining);

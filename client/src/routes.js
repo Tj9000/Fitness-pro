@@ -37,8 +37,8 @@ const Routes = () => {
                 <PrivateRoute path='/homepage' exact Rcomponent={HomePage}> </PrivateRoute>
                 <PrivateRoute path='/training/select' exact Rcomponent={SelectTraining}></PrivateRoute>
                 <PrivateRoute path='/training' exact Rcomponent={TrainingPage}></PrivateRoute>
-                <PrivateRoute path='/trainer' exact Rcomponent={TrainerPage}></PrivateRoute>
-                <PrivateRoute path='/course' exact Rcomponent={CoursePage}></PrivateRoute>
+                <PrivateRoute path='/trainer/:ID' exact Rcomponent={TrainerPage}></PrivateRoute>
+                <PrivateRoute path='/course/:ID' exact Rcomponent={CoursePage}></PrivateRoute>
             </Switch>
             <Modals />
 

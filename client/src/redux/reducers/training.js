@@ -2,6 +2,7 @@ import * as types from '../types';
 
 const initialState = {
     courses: [],
+    courseDetails: {},
     myCourseList: {},
     selectedCourseExercises: []
 };
@@ -28,6 +29,13 @@ const training = (state = initialState, action) => {
         case types.GET_COURSE_EXERCISES_START:
         case types.GET_COURSE_EXERCISES_ERROR:
             return state;
+
+        case types.GET_COURSE_DETAILS_SUCCESS:
+            return { ...state, courseDetails: { ...state.courseDetails, [action.details.courseId]: action.details } };
+        case types.GET_COURSE_DETAILS_ERROR:
+        case types.GET_COURSE_DETAILS_START:
+            return state;
+
         default:
             return state;
     }

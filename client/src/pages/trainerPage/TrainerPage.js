@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
+import { getTrainerDetail } from '../../redux/actions/trainer';
 
 import styles from './TrainerPage.module.css';
 import NavBar from '../../components/navBar/NavBar';
@@ -13,8 +14,15 @@ class TrainerPage extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        let searchParam = this.props.computedMatch && this.props.computedMatch.params;
+        this.trainerId = searchParam && searchParam.ID;
+        this.props.getTrainerDetail(this.trainerId)
+    }
+
     render() {
-        let loading = true;
+        let { trainerDetails } = this.props; 
+        let loading = !(this.trainerId && trainerDetails && trainerDetails[this.trainerId]);
         return (
             <div className="pageMainContainer">
                 <NavBar currentPageHead="Trainer" />
@@ -32,8 +40,10 @@ class TrainerPage extends React.Component {
 
 
 const mapStateToProps = (state, ownProps) => ({
+    trainerDetails: state.trainer.details,
 });
 const mapDispatchToProps = {
     pushRoute: push,
+    getTrainerDetail
 };
 export default connect(mapStateToProps, mapDispatchToProps)(TrainerPage);

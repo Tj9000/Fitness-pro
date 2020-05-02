@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
+import { getCourseDetail } from '../../redux/actions/training';
 
 import styles from './CoursePage.module.css';
 import NavBar from '../../components/navBar/NavBar';
@@ -13,8 +14,15 @@ class CoursePage extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        let searchParam = this.props.computedMatch && this.props.computedMatch.params;
+        this.courseId = searchParam && searchParam.ID;
+        this.props.getCourseDetail(this.courseId)
+    }
+
     render() {
-        let loading = true;
+        let { courseDetails } = this.props; 
+        let loading = !(this.courseId && courseDetails && courseDetails[this.courseId]);
         return (
             <div className="pageMainContainer">
                 <NavBar currentPageHead="Course" />
@@ -33,8 +41,10 @@ class CoursePage extends React.Component {
 
 
 const mapStateToProps = (state, ownProps) => ({
+    courseDetails: state.training.courseDetails,
 });
 const mapDispatchToProps = {
     pushRoute: push,
+    getCourseDetail
 };
 export default connect(mapStateToProps, mapDispatchToProps)(CoursePage);
