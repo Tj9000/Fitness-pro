@@ -11,7 +11,7 @@ class Footer extends Component {
                         <div className={[styles.footerLiHead, 'fitVibText'].join(' ')}>FitVib</div>
                         <div>Home</div>
                         <span className={styles.pipe}>|</span>
-                        <div>Membership</div>
+                        <div>About</div>
                         <span className={styles.pipe}>|</span>
                         <div>Contact Us</div>
                     </div>
