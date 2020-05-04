@@ -39,7 +39,7 @@ class TrainerPage extends React.Component {
         let { trainerDetails } = this.props;
         let trainer = trainerDetails[this.trainerId] || null
         let category = trainer && [trainer.programCategory, trainer.styleCategory, trainer.goalCategory].filter(e => !!e).join(' / ')
-        let loading = !(this.trainerId && trainer && trainerDetails[this.trainerId]);
+        let loading = !(this.trainerId && trainer);
         return (
             <div className="pageMainContainer">
                 <NavBar currentPageHead="Trainer" />

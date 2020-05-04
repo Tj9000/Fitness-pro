@@ -16,10 +16,10 @@ class MyCoursesPage extends Component {
         this.props.getMyCoursesList();
     }
 
-    courseListRender = ({ course = {}, id }) => {
+    courseListRender = ({ course = {} }) => {
         let { trainerDetails } = course;
         let courseDet = {
-            id: id,
+            id: course.courseId,
             name: course.name,
             trainerName: trainerDetails && trainerDetails.name,
             photoUrl: course.image,
@@ -36,7 +36,7 @@ class MyCoursesPage extends Component {
                         {_.size(this.props.myCourseList) || 'No'} Courses Subscribed
                     </div>
                     <div className={styles.coursesList}>
-                        {_.map(this.props.myCourseList, (course, courseId) => <this.courseListRender course={course} id={courseId} key={courseId} />)}
+                        {_.map(this.props.myCourseList, (course, subscriptionId) => <this.courseListRender course={course} key={subscriptionId} />)}
                     </div>
                 </div>
             </div>

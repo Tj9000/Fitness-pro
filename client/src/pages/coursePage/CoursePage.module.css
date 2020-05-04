@@ -7,10 +7,254 @@
     height: 100%;
     width: 100%;
     background-color: var(--primary-black);
+    color: var(--primary-white);
+    cursor: context-menu;
 }
 
-.mainSubContainer {
+.loaderContainer {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.courseContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 95%;
+}
+
+.courseTitleContainer {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    margin-bottom: 10px;
+}
+
+.courseNameTitle {
+    font-size: min(calc((75vw - 5.5rem) / 7), 48px);
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.courseTainerName {
+    font-size: 24px;
+    color: var(--secondary-color);
+    cursor: pointer;
+    width: fit-content;
+    line-height: 28px;
+}
+
+.courseTainerName:hover {
+    font-size: 25px;
+}
+
+.courseVideoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 90%;
+    margin: 5px 0;
+    border: 1px solid var(--primary-white);
+}
+
+.courseDescriptionContainer {
+    margin: 10px;
+    max-width: 1000px;
+    align-self: center;
+}
+
+.courseDescription {
+    text-align: justify;
+    text-indent: 4ch;
+    font-size: 18px;
+}
+
+.courseElementCard {
+    max-height: 300px;
+    width: 380px;
+    margin: 10px;
+}
+
+.courseElementCardHead {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.courseBenefitsJoinContainer {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.courseBenefitsContainer {}
+
+.courseBenefitsHeading {}
+
+.courseBenefitsList {
+    padding-left: 8px;
+    line-height: 1.8rem;
+    font-size: 1.25rem;
+}
+
+.courseBenefitsList ul {
+    list-style-position: inside;
+}
+
+.listDisplay {}
+
+.courseJoinContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.courseJoinButtonContainer {}
+
+.courseJoinButton {
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    background: var(--primary-black);
+    color: var(--primary-white);
+    border-color: var(--primary-white);
+    cursor: pointer;
+}
+
+.courseJoinButton:hover {
+    font-weight: 500;
+    background: var(--primary-black);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.courseJoinPrice {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.courseTimeDifficultyContainer {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.courseTimeContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.courseTimeContainer:hover {
+    scale: 1.05;
+}
+
+.courseTimeIcon {
+    padding: 0 6px;
+}
+
+.courseTimeValue {
+    color: var(--tertiary-color);
+    font-size: 24px;
+}
+
+.courseDifficultyContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+
+.courseDifficultyContainer:hover .courseDifficultyIcon, .courseDifficultyContainer:hover .courseDifficultyContentValue {
+    scale: 1.05;
+}
+
+.courseDifficultyIcon {
+    padding: 0 6px;
+}
+
+.courseDifficultyContent {}
+
+.courseDifficultyContentValue {
+    font-size: 24px;
+    color: var(--tertiary-color);
+}
+
+.courseDifficultyContentsubHeading {}
+
+.coursePrereqFeedbackContainer {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.coursePrereqContainer {}
+
+.coursePrereqHeading {}
+
+.coursePrereqList {
+    padding-left: 8px;
+    line-height: 1.8rem;
+    font-size: 1.25rem;
+}
+
+.coursePrereqList ul {
+    list-style-position: inside;
+}
+
+.courseFeedbackContainer {}
+
+.courseFeedbackHeading {}
+
+.courseFeedbackContent {
+    font-size: 1rem;
+}
+
+.courseFeedbackContentValue {
+    display: inline-block;
+    font-size: 1.2rem;
+    color: var(--tertiary-color);
+}
+
+.courseFeedbackContent:hover .courseFeedbackContentValue {
+    scale: 1.05;
+}
+
+@media screen and (max-width: 768px) {
+    .courseContainer {
+        width: 100%;
+    }
+    .courseElementCard {
+        height: unset;
+        max-width: unset;
+        width: fit-content;
+    }
+    .courseBenefitsJoinContainer {
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+    .coursePrereqFeedbackContainer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .courseElementCardHead {
+        text-align: center;
+    }
 }
