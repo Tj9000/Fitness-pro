@@ -7,10 +7,209 @@
     height: 100%;
     width: 100%;
     background-color: var(--primary-black);
+    color: var(--primary-white);
 }
 
 .mainSubContainer {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+}
+
+.trainerContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 95%;
+}
+
+.trainerTitleContainer {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-bottom: 10px;
+}
+
+.trainerHeading {
+    font-size: 24px;
+}
+
+.trainerName {
+    font-size: min(calc((75vw - 4.5rem) / 7), 48px);
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.trainerInfoContainer {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 10px 0;
+}
+
+.infoElementCard {
+    height: 300px;
+    max-width: 350px;
+    justify-self: center;
+    align-self: center;
+}
+
+.infoElementItem {
+    width: 100%;
+    font-size: 1rem;
+}
+
+.infoElementItemHead {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--tertiary-color);
+}
+
+.trainerImageContainer {
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+    overflow: hidden;
+}
+
+.trainerImage {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+}
+
+.trainerDetailsContainer {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.trainerBasicInfoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.trainerSocialContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.socialButttonLink {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+}
+
+.socialIconWrapper {
+    border-radius: 27px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    padding: 7px;
+    cursor: pointer;
+}
+
+.socialIconText {
+    padding-left: 8px;
+}
+
+.trainerDescriptionContainer {
+    margin: 10px;
+    max-width: 1000px;
+    align-self: center;
+}
+
+.trainerDescription {
+    text-align: justify;
+    text-indent: 4ch;
+    font-size: 18px;
+}
+
+.trainerVideoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 90%;
+    margin: 5px 0;
+    border: 1px solid var(--primary-white);
+}
+
+.trainerCoursesContainer {
+    margin: 10px 0;
+}
+
+.trainerCoursesHeading {
+    font-size: 24px;
+    color: var(--secondary-color);
+    padding: 10px 0;
+}
+
+.trainerCoursesList {
+    display: grid;
+    grid-template-columns: auto;
+    align-items: flex-start;
+}
+
+@media screen and (max-width: 1365px) {
+    .trainerInfoContainer {
+        grid-template-rows: auto auto;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .trainerContainer {
+        width: 100%;
+    }
+    .trainerInfoContainer {
+        margin: 0;
+    }
+    .trainerDetailsContainer {
+        grid-template-rows: auto auto;
+        grid-template-columns: auto;
+    }
+    .trainerDetailsContainer .infoElementCard {
+        height: unset;
+        max-width: unset;
+        line-height: 36px;
+    }
+    .trainerSocialContainer {
+        flex-direction: row;
+        padding: 10px 0;
+    }
+    .trainerSocialContainer .infoElementItem {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .socialIconText {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .trainerImageContainer {
+        width: 80vw;
+        height: 80vw;
+        border-radius: 40vw;
+        overflow: hidden;
+    }
+    .trainerImage {
+        width: 80vw;
+        height: 80vw;
+        object-fit: contain;
+    }
 }
