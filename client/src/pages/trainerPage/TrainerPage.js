@@ -6,11 +6,11 @@ import Icon from 'react-web-vector-icons';
 
 import styles from './TrainerPage.module.css';
 import Video from '../../components/video/Video';
+import CourseCard from '../../components/card/CourseCard';
 import NavBar from '../../components/navBar/NavBar';
 import SimpleLoader from '../../components/loader/SimpleLoader';
 
 import * as _ from 'lodash';
-import CourseCard from '../../components/card/CourseCard';
 
 class TrainerPage extends React.Component {
     constructor(props) {

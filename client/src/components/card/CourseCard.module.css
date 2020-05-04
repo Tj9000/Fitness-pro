@@ -1,5 +1,5 @@
 .courseContainer {
-    width: 100%;
+    width: calc(100% - 8px);
     background-color: black;
     overflow: hidden;
     display: flex;
@@ -10,6 +10,7 @@
     border: 1px solid black;
     border-radius: 8px;
     cursor: context-menu;
+    color: var(--primary-white);
 }
 
 .courseImageContainer {}

@@ -73,7 +73,7 @@ export const getTrainerDetail = (trainerId) => (dispatch) => {
     } else {
         dispatch({ type: types.GET_TRAINER_DETAILS_START, trainerId });
         getApiCaller().then(apiObj => {
-            return apiObj.get(`/trainer/${trainerId}`).then(res => {
+            return apiObj.get(`/trainer/details/${trainerId}`).then(res => {
                 if (!res.data) {
                     dispatch({ type: types.GET_TRAINER_DETAILS_ERROR, trainerId }); //TODO Handle
                 } else {

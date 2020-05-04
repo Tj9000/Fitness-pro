@@ -54,7 +54,7 @@ export const getExercises = (courseId) => (dispatch) => {
 export const getCourseDetail = (courseId) => (dispatch) => {
     dispatch({ type: types.GET_COURSE_DETAILS_START, courseId });
     getApiCaller().then(apiObj => {
-        return apiObj.get(`/course/${courseId}`).then(res => {
+        return apiObj.get(`/course/details/${courseId}`).then(res => {
             if (!res.data) {
                 dispatch({ type: types.GET_COURSE_DETAILS_ERROR, courseId }); //TODO Handle
             } else {
