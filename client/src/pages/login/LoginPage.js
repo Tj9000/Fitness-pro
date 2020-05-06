@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { push } from 'connected-react-router';
+import { push, replace } from 'connected-react-router';
 
 import { showLoginModal } from '../../redux/actions/modal';
 
@@ -9,6 +9,8 @@ import NavBar from "../../components/navBar/NavBar"
 import styles from './Login.module.css';
 import { checkUserSignedIn } from '../../redux/actions/login';
 import SimpleLoader from '../../components/loader/SimpleLoader';
+
+import * as _ from 'lodash';
 
 class LoginPage extends Component {
     state = {
@@ -28,10 +30,10 @@ class LoginPage extends Component {
     }
     componentDidUpdate() {
         let referPath = this.props.location && this.props.location.state && this.props.location.state.from && this.props.location.state.from.pathname;
-        if (!this.props.checkingLogin && !!this.props.signedIn && this.props.userDetails) {
+        if (!this.props.checkingLogin && !!this.props.signedIn && _.size(this.props.userDetails)) {
             let pathname = (!referPath || referPath == '/') ? '/homepage' : referPath;
             let redirectRoute = this.props.userDetails.profileSignupComplete ? pathname : '/signup';
-            this.props.pushRoute(redirectRoute);
+            this.props.replaceRoute(redirectRoute);
         }
         else if (!this.props.checkingLogin && !this.props.signedIn) {
             let pathname = '/';
@@ -40,7 +42,7 @@ class LoginPage extends Component {
                 referPath: referPath
             }
             this.props.showLoginModal()
-            this.props.pushRoute(pathname, state);
+            this.props.replaceRoute(pathname, state);
         }
     }
     render() {
@@ -69,6 +71,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 const mapDispatchToProps = {
     pushRoute: push,
+    replaceRoute: replace,
     checkUserSignedIn,
     showLoginModal
 };

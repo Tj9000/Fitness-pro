@@ -11,6 +11,7 @@ import TrainingImg1 from '../../assets/images/landingpage/aerobicsTraining.jpg'
 import TrainingImg2 from '../../assets/images/landingpage/gymTraining.png'
 import TrainingImg3 from '../../assets/images/landingpage/weightsTraining.jpg'
 
+import * as _ from 'lodash';
 
 
 class LandingPage extends Component {
@@ -30,7 +31,7 @@ class LandingPage extends Component {
 
     }
     componentDidUpdate() {
-        if (!this.props.checkingLogin && !!this.props.signedIn && this.props.userDetails) {
+        if (!this.props.checkingLogin && !!this.props.signedIn && _.size(this.props.userDetails)) {
             let redirectRoute = this.props.userDetails.profileSignupComplete ? '/homepage' : '/signup';
             this.props.replaceRoute(redirectRoute);
         }
