@@ -67,6 +67,7 @@ class SupportPage extends Component {
                                 </div>
                             </div>) : (
                                 <div className={styles.initDiv}>
+                                    <div className={styles.heading}>Your feedback will help us improve and serve you better!</div>
                                     <div className={styles.feedbackBar}>
                                         <div onClick={() => this.setRating(1)} className={[styles.emojiDiv, this.state.ratingValue == 1 ? styles.emojiDivActive : null].join(' ')}>
                                             <Icon name="sentiment-very-dissatisfied" font="MaterialIcons" size={60} color={'#ff0000'} />
@@ -85,8 +86,8 @@ class SupportPage extends Component {
                                         </div>
 
                                     </div>
-                                    <div>
-                                        <textarea rows="10" cols="30" name='feedbackText' value={this.state.textValue} onChange={e => this.updateTextValue(e)} placeholder='Please give your feedback here..' style={{ resize: 'none' }}></textarea>
+                                    <div className={styles.textAreaDiv}>
+                                        <textarea className={styles.textArea} rows="10" cols="30" name='feedbackText' value={this.state.textValue} onChange={e => this.updateTextValue(e)} placeholder='Please leave your feedback here..' style={{ resize: 'none' }}></textarea>
                                     </div>
                                     <div className={styles.buttonDiv}>
                                         <button onClick={this.sendFeedBack} className={styles.button}>Submit</button>

@@ -1,20 +1,25 @@
-.feedbackContainter{
+.feedbackContainter {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.initDiv{
+.initDiv {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
-.feedbackBar{
-    width: 100%;
+.heading {
+    text-align: center;
+    font-size: 1.8rem;
+    max-width: 90vw;
+}
+
+.feedbackBar {
+    width: 70%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -22,11 +27,21 @@
     padding: 20px;
 }
 
-.emojiDiv :hover{
-    cursor: pointer;   
+.emojiDiv :hover {
+    cursor: pointer;
 }
 
-.buttonDiv{
+.textArea {
+    max-width: 90vw;
+}
+
+.textAreaDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonDiv {
     padding: 20px;
 }
 
@@ -46,7 +61,7 @@
     font-weight: bold;
 }
 
-.postSubmission{
+.postSubmission {
     display: flex;
     flex-direction: column;
     cursor: pointer;
@@ -54,11 +69,33 @@
     color: green;
 }
 
-.errorDiv{
+.errorDiv {
     color: #aa2121;
     padding: 20px;
 }
 
-.emojiDivActive{
+.emojiDivActive {
     scale: 1.5;
+}
+
+@media screen and (max-width: 414px) {
+    .heading {
+        font-size: 20px;
+        text-align: center;
+        width: 90%;
+    }
+    .textArea {
+        width: 90%;
+    }
+    .emojiDivActive {
+        scale: 1.3;
+    }
+    .feedbackBar{
+        padding: 10px;
+    }
+    .errorDiv{
+        font-size: 20px;
+        text-align: center;
+        width: 90%;
+    }
 }
