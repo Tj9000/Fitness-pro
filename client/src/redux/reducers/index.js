@@ -6,6 +6,7 @@ import modal from './modal';
 import signup from './signup';
 import trainer from './trainer';
 import training from './training';
+import support from "./support";
 
 const rootReducer = (history) => combineReducers({
   router: connectRouter(history),
@@ -15,6 +16,7 @@ const rootReducer = (history) => combineReducers({
   user,
   trainer,
   training,
+  support
 });
 
 export default rootReducer;
