@@ -1,8 +1,8 @@
 .nutritionCard {
     display: flex;
     flex-direction: column;
-    height: 300px;
-    width: 500px;
+    min-height: 300px;
+    max-width: 480px;
     background-color: var(--primary-white);
     border-color: var(--primary-white);
     border-radius: 15px;
@@ -10,6 +10,7 @@
     transition: all .2s ease-in-out;
     overflow: hidden;
     cursor: default;
+    margin: 10px;
 }
 
 .nutritionCard:hover {

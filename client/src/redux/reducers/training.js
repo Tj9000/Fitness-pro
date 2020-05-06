@@ -4,7 +4,8 @@ const initialState = {
     courses: [],
     courseDetails: {},
     myCourseList: {},
-    selectedCourseExercises: []
+    selectedCourseExercise: {},
+    selectedCourseExerciseError: null
 };
 
 const training = (state = initialState, action) => {
@@ -25,10 +26,11 @@ const training = (state = initialState, action) => {
             return state;
 
         case types.GET_COURSE_EXERCISES_SUCCESS:
-            return { ...state, selectedCourseExercises: action.exercises }
+            return { ...state, selectedCourseExercise: action.exercise, selectedCourseExerciseError: null }
         case types.GET_COURSE_EXERCISES_START:
+            return { ...state, selectedCourseExercise: {}, selectedCourseExerciseError: null }
         case types.GET_COURSE_EXERCISES_ERROR:
-            return state;
+            return { ...state, selectedCourseExercise: {}, selectedCourseExerciseError: action.error }
 
         case types.GET_COURSE_DETAILS_SUCCESS:
             return { ...state, courseDetails: { ...state.courseDetails, [action.details.courseId]: action.details } };
