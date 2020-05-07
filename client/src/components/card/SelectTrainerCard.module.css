@@ -1,6 +1,6 @@
 .trainerContainer {
     height: 300px;
-    width: 500px;
+    width: 480px;
     background-color: black;
     overflow: hidden;
     display: flex;
@@ -13,7 +13,8 @@
 }
 
 .trainerContainer .trainerCard {
-    width: 250px;
+    width: 240px;
+    height: 100%;
     margin-right: 10px;
     border: 1px solid black;
 }
@@ -82,4 +83,19 @@
     color: #000;
     background-color: var(--primary-color);
     border-color: #000;
+}
+
+@media screen and (max-width: 480px) {
+    .trainerContainer {
+        flex-direction: column;
+        height: 100%;
+        max-width: 100vw;
+        border-radius: 8px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .trainerContainer {
+        border-radius: 4px;
+    }
 }

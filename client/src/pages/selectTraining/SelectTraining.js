@@ -67,7 +67,7 @@ class SelectTraining extends Component {
                         </div>
                         <div className={styles.filterContentContainer}>
                             <IconDropdown
-                                buttonText={"Select Program"}
+                                buttonText={this.state.selectedWorkoutProgram || "Select Program"}
                                 onClick={this.selectWorkoutProgram}
                                 data={COURSE_FILTERS.PROGRAM}
                                 selectedVal={this.state.selectedWorkoutProgram}

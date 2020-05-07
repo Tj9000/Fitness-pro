@@ -4,10 +4,9 @@
     align-items: center;
     justify-content: center;
     padding: 0 60px;
-    width: 80%;
+    width: 90%;
     flex-grow: 1;
-    min-height: 600px;
-    min-width: 1000px;
+    min-height: 100vh;
 }
 
 .contentSubContainer {
@@ -22,7 +21,6 @@
 
 .contentHeaderContainer {
     margin: 5px 0;
-    height: 110px;
     width: 100%;
 }
 
@@ -47,7 +45,6 @@
     line-height: 1;
     text-transform: uppercase;
     display: inline-block;
-    white-space: nowrap;
 }
 
 .filterContentContainer {
@@ -72,10 +69,66 @@
 .trainerListContent {
     display: grid;
     grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: space-evenly;
 }
+
 .courseListItemContainer {
     padding: 10px 0;
     width: 100%;
 }
 
 .noResultsFound {}
+
+@media screen and (max-width: 1366px) {
+    .contentContainer {
+        padding: 0px;
+        width: 100%;
+    }
+    .contentHeaderContainer {
+        padding: 20px;
+    }
+    .filterContentContainer {
+        margin-left: 30px;
+    }
+    .resultCountHead {
+        margin-left: 20px;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .trainerListContent {
+        grid-template-columns: auto;
+    }
+    
+    .contentHeaderContainerText {
+        font-size: 2.8rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .contentHeaderContainer {
+        padding: 0px;
+    }
+    .filterContentContainer {
+        margin-left: 0px;
+    }
+    .resultCountHead {
+        margin-left: 0px;
+    }
+    .trainerListContent {
+        grid-template-columns: auto;
+    }
+    .contentHeaderContainerText {
+        font-size: max(min(calc(100vw/20),2.3rem),1.5rem);
+    }
+    .contentHeaderContainerLine {
+        width: 40%;
+        min-width: 150px;
+        max-width: 300px;
+    }
+    .filterContentContainer {
+        height: 100%;
+        flex-direction: column;
+    }
+}
