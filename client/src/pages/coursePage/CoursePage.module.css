@@ -104,7 +104,8 @@
 }
 
 .courseBenefitsList ul {
-    list-style-position: inside;
+    list-style-position: outside;
+    padding-left: 1ch;
 }
 
 .listDisplay {}
@@ -214,7 +215,8 @@
 }
 
 .coursePrereqList ul {
-    list-style-position: inside;
+    list-style-position: outside;
+    padding-left: 1ch;
 }
 
 .courseFeedbackContainer {}

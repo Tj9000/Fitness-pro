@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
+import Icon from 'react-web-vector-icons';
+
 import { getMyCoursesList, getExercises } from '../../redux/actions/training';
 import NutritionCard from '../../components/card/NutritionCard';
 
@@ -16,6 +18,7 @@ class HomePage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            revealSideCoursePanel: null,
             selectedCourse: {},
             courseId: null,
             subscriptionId: null
@@ -41,6 +44,11 @@ class HomePage extends React.Component {
         this.props.getExercises(this.state.subscriptionId);
     }
 
+    toggelSideCoursePanel = () => {
+        this.setState({
+            revealSideCoursePanel: !this.state.revealSideCoursePanel
+        });
+    }
     componentDidUpdate() {
         if (!this.defaultCourseSelected && !this.state.courseId && _.size(this.props.myCourseList)) {
             let [subscriptionId, course] = _.toPairs(this.props.myCourseList)[0];
@@ -62,7 +70,7 @@ class HomePage extends React.Component {
         return (
             <div className="pageMainContainer">
                 <NavBar currentPageHead="Today's Workouts " />
-                <div className={styles.homeContainer}>
+                <div className={[styles.homeContainer, this.state.revealSideCoursePanel ? styles.homeContainerCoursePanelActive : ''].join(' ')}>
                     {
                         this.props.selectedCourseExerciseError ? (
                             <div className={styles.selectedCourseErrorContainer}>
@@ -131,11 +139,16 @@ class HomePage extends React.Component {
                                     )
                             )
                     }
-                    <div className={styles.sideNavContainer}>
+                    <div className={[styles.sideNavHamburgerMenuContainer, this.state.revealSideCoursePanel ? styles.sideNavHamburgerMenuContainerPanelActive : ''].join(' ')} onClick={this.toggelSideCoursePanel}>
+                        <Icon name="menu" font="MaterialIcons" size={50} color={'#FFF'} />
+                    </div>
+                    <div className={[styles.sideNavContainer, this.state.revealSideCoursePanel ? styles.sideNavContainerPanelActive : ''].join(' ')}>
+                        <div className={[styles.sideNavContainerBackButton, this.state.revealSideCoursePanel ? styles.sideNavContainerBackButtonPanelActive : ''].join(' ')} onClick={this.toggelSideCoursePanel}>
+                            <Icon name="arrow-forward" font="MaterialIcons" size={50} color={'#FFF'} />
+                            <span className={styles.sideNavContainerBackButtonText} >Hide Panel</span>
+                        </div>
                         <div className={styles.myCoursesDiv}>
-                            <span style={{ padding: '20px' }}>
-                                My Courses
-                            </span>
+                            <span style={{ padding: '20px' }}>My Courses</span>
                             <span className={styles.dot} />
                         </div>
                         <SideNavBarHome updateContainer={this.updateContainer} courseList={this.props.myCourseList} selectedSubscription={this.state.subscriptionId} />

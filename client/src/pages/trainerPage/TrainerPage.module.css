@@ -8,6 +8,7 @@
     width: 100%;
     background-color: var(--primary-black);
     color: var(--primary-white);
+    cursor: default;
 }
 
 .mainSubContainer {
