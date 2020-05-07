@@ -18,7 +18,7 @@
 .imageTextheader {
     /* position: relative; */
     width: 200px;
-    color: white;
+    color: var(--primary-white);
     /* font: bold 24px/45px Helvetica, Sans-Serif; */
     letter-spacing: -1px;
     padding: 10px;
@@ -31,7 +31,7 @@
 }
 
 .imageTextContent {
-    color: white;
+    color: var(--primary-white);
     position: relative;
     width: 450px;
     padding-left: 10px;
@@ -56,7 +56,7 @@
 }
 
 .imgC1_1 {
-    background-image: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 90%), url('../../assets/images/landingpage/personalTraining.jpg');
+    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 90%), url('../../assets/images/landingpage/personalTraining.jpg');
     /* background-image: url('../../assets/images/landingpage/personalTraining.jpg'); */
     transform: scale(1.2);
 }
@@ -96,10 +96,10 @@
 
 .joinNow {
     padding: 10px;
-    background-color: #e5ce48;
-    border-color: #e5ce48;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
     font-size: 12px;
-    color: black;
+    color: var(--primary-black);
     font-family: 'Poppins';
     width: 100px;
     height: 40px;
@@ -114,48 +114,58 @@
     padding: 10px;
 }
 
-.fitnessText{
+.fitnessText {
     font-size: 3.2rem;
     font-weight: 900;
-    background-image: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 90%),url(../../assets/images/bg_4.jpg);
+    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 90%), url(../../assets/images/bg_4.jpg);
     width: 100%;
-    color: #e5ce48;
+    color: var(--primary-color);
     align-items: center;
     justify-content: center;
     display: flex;
     flex-direction: column;
+    text-align: center;
     padding: 20px;
 }
 
-.ourTrainingsContainer{
+.fitnessSubText {
+    font-size: 1.8rem;
+    padding: 10px;
+    color: var(--primary-white);
+}
+
+.ourTrainingsContainer {
     width: 100%;
     height: 500px;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: linear-gradient(135deg, rgba(209, 209, 209, 0.4) 0%, rgba(209, 209, 209, 0.4) 90%),url(../../assets/images/landingpage/ourTrainingsbg.jpg);
+    background-image: linear-gradient(135deg, rgba(209, 209, 209, 0.4) 0%, rgba(209, 209, 209, 0.4) 90%), url(../../assets/images/landingpage/ourTrainingsbg.jpg);
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
 }
-.ourTrainingsHeading{
+
+.ourTrainingsHeading {
     font-size: 3.2rem;
     font-weight: 900;
 }
-.ourTrainingsContent{
+
+.ourTrainingsContent {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
-.trainingImgWrapper{
+
+.trainingImgWrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.trainingImg{
+.trainingImg {
     /* height: 200px;
     width: 300px;
     border-radius: 100px / 150px; */
@@ -164,24 +174,23 @@
     border-radius: 50%;
 }
 
-.trainingImgDesc{
+.trainingImgDesc {
     padding: 30px;
     font-size: 1.5rem;
     font-weight: 800;
     text-align: center;
     line-height: 1.1rem;
-
 }
+
 .serviceContainer {
-    display: flex;
-    flex-direction: row;
-    background-color: black;
-    height: 300px;
-    padding-left: 200px;
-    padding-right: 200px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;
+    background-color: var(--primary-black);
+    min-height: 300px;
     width: 100%;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .serviceHeading {
@@ -191,7 +200,7 @@
     /* background-color: #090808; */
     text-align: center;
     padding: 20px;
-    color: white;
+    color: var(--primary-white);
 }
 
 .serviceSubHeading {
@@ -203,12 +212,12 @@
 }
 
 .fitvibServiceContainer {
-    padding: 20px;
+    padding: 0;
 }
 
 .serviceImgTextContainer {
     /* background-image: url(../../assets/images/bg_4.jpg); */
-    background-color: black;
+    background-color: var(--primary-black);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -223,40 +232,38 @@
     width: 100%;
     height: 100%;
     /* display: flex; */
-    
 }
 
-.aboutFitvib{
+.aboutFitvib {
     display: flex;
     flex-direction: column;
-    width: 600px;
+    max-width: 600px;
     align-items: center;
     justify-content: center;
 }
 
-.aboutFitvibWelcome{
+.aboutFitvibWelcome {
     padding-top: 30px;
 }
 
-.aboutFitvibWelcome span{
+.aboutFitvibWelcome span {
     font-size: 20px;
     font-weight: bold;
-    color: white;
+    color: var(--primary-white);
     /* background-color: red; */
-  
-    color: #e5ce48;
+    color: var(--primary-color);
     text-transform: uppercase;
 }
 
-.aboutFitvibHeading span{
+.aboutFitvibHeading span {
     font-size: 40px;
     font-weight: bolder;
-    color: white;
+    color: var(--primary-white);
     /* background-color: yellow; */
     text-transform: capitalize;
 }
 
-.aboutFitvibDesc p{
+.aboutFitvibDesc p {
     font-size: 17px;
     font-weight: bold;
     color: #C8C9CBC3;
@@ -266,10 +273,105 @@
     padding-left: 60px;
     padding-bottom: 60px;
 }
+
 .dot {
     height: 10px;
     width: 10px;
-    background-color: #e5ce48;
+    background-color: var(--primary-color);
     border-radius: 50%;
     display: inline-block;
-  }
+}
+
+@media screen and (max-width: 1200px) {
+    .textContainer {
+        top: 180px;
+        left: calc(100vw/6);
+    }
+}
+@media screen and (max-width: 980px) {
+
+    .joinNow {
+        padding: 10px;
+        font-size: 12px;
+        width: 100px;
+        height: 40px;
+        border-radius: 5px;
+    }
+    .trainingImg {
+        width: 250px;
+        height: 150px;
+    }
+    .serviceContainer {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .trainingImg {
+        width: 200px;
+        height: 130px;
+    }
+    .trainingImgDesc {
+        padding: 20px;
+        font-size: 1.25rem;
+    }
+    .fitnessText, .ourTrainingsHeading {
+        font-size: 2.8rem;
+    }
+    .fitnessSubText {
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .textContainer {
+        max-width: 400px;
+        width: 100%;
+    }
+    .imageTextContent {
+        width: 100%;
+    }
+    .ourTrainingsContent {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+    .trainingImgWrapper3 {
+        grid-column: 1/3;
+    }
+    .fitnessText, .ourTrainingsHeading {
+        font-size: 2.3rem;
+    }
+    .fitnessSubText {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .textContainer {
+        top: 180px;
+        left: 30px;
+    }
+    .trainingImg {
+        width: 150px;
+        height: 100px;
+    }
+    .trainingImgDesc {
+        padding: 10px;
+        font-size: 1rem;
+    }
+    .aboutFitvibDesc p {
+        font-size: 14px;
+    }
+    .aboutFitvibWelcome span {
+        font-size: 16px;
+    }
+    .aboutFitvibHeading span {
+        font-size: 28px;
+    }
+    .fitnessText, .ourTrainingsHeading {
+        font-size: 1.8rem;
+    }
+    .fitnessSubText {
+        font-size: 0.8rem;
+    }
+}

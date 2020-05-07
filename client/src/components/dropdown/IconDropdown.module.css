@@ -1,6 +1,6 @@
 .DropdownContainer {
     display: inline-flex;
-    margin-right: 20px;
+    margin: 10px;
     position: relative;
     transition: .5s all;
     width: 200px;
@@ -33,6 +33,7 @@
 .DropdownContainer:hover .DropdownContent {
     display: block;
     position: absolute;
+    z-index: 1;
 }
 
 .DropdownList {
@@ -71,4 +72,10 @@
     color: var(--tertiary-black);
     font-weight: bold;
     border-color: var(--primary-black);
+}
+
+@media screen and (max-width: 768px) {
+    .DropdownContainer {
+        width: 180px;
+    }
 }

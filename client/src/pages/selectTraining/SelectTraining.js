@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import { push, replace } from 'connected-react-router';
-import { getAllCoursesList } from '../../redux/actions/training';
+import { getAllTrainers } from '../../redux/actions/trainer';
 
 import NavBar from '../../components/navBar/NavBar';
 import { IconDropdown } from '../../components/dropdown/IconDropdown';
@@ -19,33 +19,73 @@ class SelectTraining extends Component {
     state = {
         selectedWorkoutProgram: this.programFromProp || COURSE_FILTERS.PROGRAM.National,
         selectedWorkoutStyle: COURSE_FILTERS.STYLE.Gym,
-        selectedWorkoutGoal: COURSE_FILTERS.GOAL.WeightLoss
+        selectedWorkoutGoal: COURSE_FILTERS.GOAL.WeightLoss,
+        trainersListFiltered: []
     };
 
     componentDidMount() {
-        this.props.getAllCoursesList()
+        this.props.getAllTrainers()
+    }
+
+    static getDerivedStateFromProps(props, state) {
+        if (state.trainersList != props.trainersList) {
+            return {
+                trainersList: props.trainersList,
+                trainersListFiltered: _.filter(props.trainersList, (trainer) =>
+                    trainer.programCategory === state.selectedWorkoutProgram && trainer.styleCategory === state.selectedWorkoutStyle && trainer.goalCategory === state.selectedWorkoutGoal
+                )
+            };
+        } else {
+            return null;
+        }
     }
 
     selectWorkoutProgram = (i) => {
         if (COURSE_FILTERS.PROGRAM[i]) {
-            this.setState({ selectedWorkoutProgram: COURSE_FILTERS.PROGRAM[i] });
+            this.trainerFilter({
+                selectedWorkoutProgram: COURSE_FILTERS.PROGRAM[i],
+                selectedWorkoutStyle: this.state.selectedWorkoutStyle,
+                selectedWorkoutGoal: this.state.selectedWorkoutGoal
+            });
         }
     }
     selectWorkoutStyle = (i) => {
         if (COURSE_FILTERS.STYLE[i]) {
-            this.setState({ selectedWorkoutStyle: COURSE_FILTERS.STYLE[i] });
+            this.trainerFilter({
+                selectedWorkoutProgram: this.state.selectedWorkoutProgram,
+                selectedWorkoutStyle: COURSE_FILTERS.STYLE[i],
+                selectedWorkoutGoal: this.state.selectedWorkoutGoal
+            });
         }
     }
     selectWorkoutGoal = (i) => {
         if (COURSE_FILTERS.GOAL[i]) {
-            this.setState({ selectedWorkoutGoal: COURSE_FILTERS.GOAL[i] });
+            this.trainerFilter({
+                selectedWorkoutProgram: this.state.selectedWorkoutProgram,
+                selectedWorkoutStyle: this.state.selectedWorkoutStyle,
+                selectedWorkoutGoal: COURSE_FILTERS.GOAL[i]
+            });
         }
     }
 
-    courseRender = (props) => {
+    trainerFilter = ({
+        selectedWorkoutProgram = this.state.selectedWorkoutProgram,
+        selectedWorkoutStyle = this.state.selectedWorkoutStyle,
+        selectedWorkoutGoal = this.state.selectedWorkoutGoal }) => {
+        this.setState({
+            selectedWorkoutProgram,
+            selectedWorkoutStyle,
+            selectedWorkoutGoal,
+            trainersListFiltered: _.filter(this.state.trainersList, (trainer) =>
+                trainer.programCategory === selectedWorkoutProgram && trainer.styleCategory === selectedWorkoutStyle && trainer.goalCategory === selectedWorkoutGoal
+            )
+        });
+    }
+
+    trainerRender = (props) => {
         return (
             <div className={styles.courseListItemContainer}>
-                {props.course ? <SelectTrainerCard course={props.course} /> : 'nothing to show'}
+                {props.trainer ? <SelectTrainerCard trainer={props.trainer} /> : 'nothing to show'}
             </div>
         );
     }
@@ -67,7 +107,7 @@ class SelectTraining extends Component {
                         </div>
                         <div className={styles.filterContentContainer}>
                             <IconDropdown
-                                buttonText={"Select Program"}
+                                buttonText={this.state.selectedWorkoutProgram || "Select Program"}
                                 onClick={this.selectWorkoutProgram}
                                 data={COURSE_FILTERS.PROGRAM}
                                 selectedVal={this.state.selectedWorkoutProgram}
@@ -89,13 +129,13 @@ class SelectTraining extends Component {
                         </div>
                         <div className={styles.resultContentContainer}>
                             <div className={styles.resultCountHead}>
-                                {_.size(this.props.courses) || 'No'} Results found:
+                                {_.size(this.state.trainersListFiltered) || 'No'} Results found:
                             </div>
                             {
-                                _.size(this.props.courses) ? (
-                                    <Fragment>
-                                        {_.map(this.props.courses, (course, i) => <this.courseRender course={course} key={course.courseId} />)}
-                                    </Fragment>
+                                _.size(this.state.trainersListFiltered) ? (
+                                    <div className={styles.trainerListContent}>
+                                        {_.map(this.state.trainersListFiltered, (trainer, i) => <this.trainerRender trainer={trainer} key={trainer.id} />)}
+                                    </div>
                                 ) : (
                                         <div className={styles.noResultsFound}>
                                             No Results found. Try changing the filters.
@@ -113,12 +153,12 @@ class SelectTraining extends Component {
 const mapStateToProps = (state, ownProps) => {
     return {
         userDetails: state.user.details,
-        courses: state.training.courses
+        trainersList: state.trainer.trainersList
     }
 };
 const mapDispatchToProps = {
     pushRoute: push,
     replaceRoute: replace,
-    getAllCoursesList
+    getAllTrainers
 };
 export default connect(mapStateToProps, mapDispatchToProps)(SelectTraining);

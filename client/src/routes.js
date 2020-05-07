@@ -11,6 +11,8 @@ import ProfilePage from './pages/profile/ProfilePage';
 import SelectTraining from './pages/selectTraining/SelectTraining';
 import TrainingPage from './pages/training/TrainingPage';
 import MyCoursesPage from './pages/myCourses/MyCoursesPage';
+import TrainerPage from './pages/trainerPage/TrainerPage';
+import CoursePage from './pages/coursePage/CoursePage';
 
 import Modals from './Modals';
 
@@ -35,6 +37,8 @@ const Routes = () => {
                 <PrivateRoute path='/homepage' exact Rcomponent={HomePage}> </PrivateRoute>
                 <PrivateRoute path='/training/select' exact Rcomponent={SelectTraining}></PrivateRoute>
                 <PrivateRoute path='/training' exact Rcomponent={TrainingPage}></PrivateRoute>
+                <PrivateRoute path='/trainer/:ID' exact Rcomponent={TrainerPage}></PrivateRoute>
+                <PrivateRoute path='/course/:ID' exact Rcomponent={CoursePage}></PrivateRoute>
             </Switch>
             <Modals />
 

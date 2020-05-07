@@ -9,7 +9,7 @@ class Video extends Component {
     state = {
         url: this.props.url,
         pip: false,
-        playing: true,
+        playing: false,
         controls: true,
         light: true,
         volume: 0.8,

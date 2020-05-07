@@ -1,8 +1,8 @@
 .nutritionCard {
     display: flex;
     flex-direction: column;
-    height: 300px;
-    width: 500px;
+    min-height: 300px;
+    max-width: 480px;
     background-color: var(--primary-white);
     border-color: var(--primary-white);
     border-radius: 15px;
@@ -10,6 +10,7 @@
     transition: all .2s ease-in-out;
     overflow: hidden;
     cursor: default;
+    margin: 10px;
 }
 
 .nutritionCard:hover {
@@ -34,6 +35,7 @@
     flex-grow: 1;
     padding: 10px;
     text-align: justify;
+    font-size: 1rem;
     background-color: var(--primary-black);
     color: var(--primary-white);
 }
@@ -49,9 +51,23 @@
 
 .nutritionCardListElement ul {
     height: 50%;
-    padding: 0 30px;
+    list-style-position: outside;
+    padding-left: 3ch;
 }
 
 .noNutritionInfo {
     height: 50%;
+}
+
+@media screen and (max-width: 399px) {
+    .nutritionCardList {
+        font-size: max(min(0.9rem, calc((40vw - 2rem) / 8)), 12px);
+    }
+    .nutritionCardListElement {
+        padding: 0;
+    }
+    
+    .nutritionCardDesc {
+        font-size: large;
+    }
 }

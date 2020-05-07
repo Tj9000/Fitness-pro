@@ -1,1 +1,26 @@
-.mainContainer {}
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex-grow: 1;
+    width: 100%;
+    padding: 20px;
+    background-color: var(--primary-black);
+}
+
+.coursesHeading {
+    font-size: 28px;
+    color: var(--secondary-color);
+    padding: 10px 0;
+}
+
+.coursesList {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 450px) {
+    .coursesHeading {
+        font-size: 22px;
+    }
+}

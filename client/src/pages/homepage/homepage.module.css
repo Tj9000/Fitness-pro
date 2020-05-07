@@ -1,16 +1,64 @@
 .homeContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: auto 400px;
     height: 100%;
     width: 100%;
+    flex-grow: 1;
     background-color: var(--primary-black);
 }
 
-.homeSubContainer {
+.loader {
+    align-self: center;
+    justify-self: center;
+}
+
+.selectedCourseErrorContainer {
+    padding: 20px;
+}
+
+.selectedCourseExerciseErrorText {
+    color: #ea0909;
+    font-size: 1.25rem;
+    padding: 10px 0;
+}
+
+.selectedCourseExerciseErrorButton {
+    width: 80px;
+    height: 32px;
+    border-radius: 12px;
+    background: var(--primary-black);
+    color: var(--primary-white);
+    border-color: var(--primary-white);
+}
+
+.selectedCourseExerciseErrorButton:hover {
+    font-weight: bold;
+    border-width: 3px;
+}
+
+.exerciseContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+}
+
+.exerciseTitleContainer {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    margin-bottom: 10px;
+}
+
+.titleExerciseName {
+    font-size: max(min(calc((40vw - 4.5rem) / 7), 48px), 28px);
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.titleCourseName {
+    font-size: max(min(calc((40vw - 4.5rem) / 14), 24px), 14px);
+    color: var(--secondary-color);
 }
 
 .homepageVideoContainer {
@@ -19,17 +67,23 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    max-width: 100vw;
     height: 400px;
     background-color: var(--primary-black);
 }
 
 .videoTitle {
-    font-size: 25px;
+    font-size: 24px;
     background-color: var(--primary-black);
     color: var(--primary-white);
-    text-align: center;
+    align-self: flex-start;
     padding: 10px;
     cursor: default;
+}
+
+.videoTitleNumber {
+    font-size: 26px;
+    color: var(--secondary-color);
 }
 
 .videoContainer {
@@ -43,11 +97,6 @@
 
 .homepageVideo {
     width: 100%;
-}
-
-.videoContainer:hover, .videoContainer:focus {
-    box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
-    transform: translateY(-0.25em);
 }
 
 .videoDescripionContainer {
@@ -64,6 +113,40 @@
 
 .videoDescripion {
     font-size: 0.8rem;
+}
+
+.stepsToPerformMainContainer {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.stepsToPerformContainer {
+    display: flex;
+    width: inherit;
+    flex-direction: column;
+    max-height: 300px;
+    max-width: 380px;
+    margin: 10px;
+}
+
+.stepsToPerformHeader {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.stepsToPerformListContainer {
+    color: var(--primary-white);
+    padding-left: 8px;
+    font-size: 1rem;
+}
+
+.stepsToPerformListContainer ul {
+    list-style-position: outside;
+    padding-left: 1ch;
 }
 
 .nutritionTitle {
@@ -99,14 +182,65 @@
     width: inherit;
     flex-direction: row;
     width: 100%;
-    padding-bottom: 50px;
+    padding-bottom: 10px;
     background-color: var(--primary-black);
+}
+
+.finishTrainingButton {
+    width: 220px;
+    height: 40px;
+    margin: 20px 0 30px;
+    align-self: center;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    background: var(--primary-black);
+    color: var(--tertiary-color);
+    border-color: var(--tertiary-color);
+    cursor: pointer;
+}
+
+.finishTrainingButton:hover {
+    font-weight: 500;
+    background: var(--primary-black);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.sideNavHamburgerMenuContainer {
+    display: none;
+    cursor: pointer;
+}
+.sideNavHamburgerMenuContainer:hover {
+    box-shadow: 0px 0px 1px 1px var(--primary-white);
+}
+.sideNavContainer {
+    background: var(--primary-black);
+    border: var(--primary-color);
+    height: 100%;
+    max-width: 400px;
+    border-left: 1px dashed var(--primary-white);
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.sideNavContainerBackButton {
+    display: none;
+    cursor: pointer;
+    margin: 2px;
+}
+.sideNavContainerBackButton:hover {
+    box-shadow: 0px 0px 1px 1px var(--primary-white);
 }
 
 .myCoursesDiv {
     font-size: 50px;
     color: var(--primary-white);
+    max-width: 400px;
     text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     cursor: default;
 }
 
@@ -129,6 +263,79 @@
     transition-duration: 1s;
 }
 
-.sideNavContainer {
-    border: var(--primary-color);
+@media screen and (max-width: 1400px) {
+    .nutritionCardContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+    .stepsToPerformMainContainer {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 1012px) {
+    .homeContainer {
+        grid-template-columns: auto;
+    }
+    .homeSubContainer {
+        width: 100%;
+    }
+    .sideNavContainer {
+        display: none;
+    }
+    .sideNavContainerPanelActive {
+        display: flex;
+        width: 400px;
+        position: sticky;
+        right: 0;
+    }
+    .sideNavHamburgerMenuContainer {
+        display: block;
+        position: absolute;
+        right: 10px;
+    }
+    .homeContainerCoursePanelActive {
+        grid-template-columns: auto auto;
+    }
+    .sideNavContainerBackButtonPanelActive {
+        display: flex;
+        align-items: center;
+    }
+    .sideNavContainerBackButtonText {
+        color: var(--primary-white);
+        font-size: 24px;
+    }
+    .exerciseTitleContainer {
+        width: calc(100% - 60px);
+    }
+}
+
+@media screen and (max-width: 768PX) {
+    .stepsToPerformListContainer {
+        font-size: 0.9rem;
+    }
+    .exerciseContainer {
+        padding: 20px 2px;
+    }
+}
+
+@media screen and (max-width: 399px) {
+    .sideNavContainerPanelActive {
+        width: 100vw;
+    }
+    .sideNavContainerBackButtonText {
+        font-size: max(min(calc(100vw/9),24px),12px);
+    }
+    .myCoursesDiv {
+        font-size: max(min(calc(100vw/8),50px),14px);
+    }
+        
+}
+@media screen and (max-width: 220px) {
+    .myCoursesDiv .dot {
+        display: none;
+    }
+        
 }

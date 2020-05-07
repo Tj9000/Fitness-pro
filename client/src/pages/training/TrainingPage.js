@@ -38,7 +38,7 @@ class TrainingPage extends Component {
         return (
             <Fragment>
                 {_.map(_.toPairs(COURSE_FILTERS.PROGRAM), ([key, program]) =>
-                    <div className={styles.selectTrainingListCard}>
+                    <div className={styles.selectTrainingListCard} key={key}>
                         <div className={styles.selectTrainingIconDiv}>{icons[program]}</div>
                         <div className={styles.selectTrainingListName}>{program}</div>
                         <div className={styles.selectTrainingListExploreButton} onClick={() => { this.selectTraining(key) }}>Explore</div>
