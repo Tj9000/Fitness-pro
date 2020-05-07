@@ -36,6 +36,10 @@ class LandingPage extends Component {
             this.props.replaceRoute(redirectRoute);
         }
     }
+
+    signup = () => {
+        this.props.pushRoute('/signup');
+    }
     render() {
         return (
             <div className="pageMainContainer">
@@ -46,7 +50,7 @@ class LandingPage extends Component {
                         <div className={styles.textContainer}>
                             <div className={styles.imageTextheader}>Personal <span style={{ color: '#e5ce48' }}>Training</span></div>
                             <div className={styles.imageTextContent}>We know how to make you stronger</div>
-                            <div className={styles.buttonWrapper}><button className={styles.joinNow}>Join now</button></div>
+                            <div className={styles.buttonWrapper}><button className={styles.joinNow} onClick={this.signup}>Join now</button></div>
                         </div>
                     </div>
                     <div className={[styles.imgC1_def, styles.imgC1_2].join(' ')}>
@@ -54,7 +58,7 @@ class LandingPage extends Component {
                         <div className={styles.textContainer}>
                             <div className={styles.imageTextheader}>We are <span style={{ color: '#e5ce48' }} className={'fitVibText'}>FitVib</span></div>
                             <div className={styles.imageTextContent}> The future of fitness</div>
-                            <div className={styles.buttonWrapper}><button className={styles.joinNow}>Join now</button></div>
+                            <div className={styles.buttonWrapper}><button className={styles.joinNow} onClick={this.signup}>Join now</button></div>
                         </div>
                     </div>
                 </div>
@@ -62,7 +66,7 @@ class LandingPage extends Component {
                     <span>
                         FITNESS IS NOT A SECRET
                     </span>
-                    <span style={{ color: 'white', fontSize: '1.8rem', padding: '10px' }}>
+                    <span className={styles.fitnessSubText}>
                         Train With The Best To Become Beast
                     </span>
                 </div>
@@ -78,7 +82,7 @@ class LandingPage extends Component {
                             <img src={TrainingImg2} className={styles.trainingImg} />
                             <div className={styles.trainingImgDesc}>Gym</div>
                         </div>
-                        <div className={styles.trainingImgWrapper}>
+                        <div className={[styles.trainingImgWrapper, styles.trainingImgWrapper3].join(' ')}>
                             <img src={TrainingImg3} className={styles.trainingImg} />
                             <div className={styles.trainingImgDesc}>Free Weights</div>
 
