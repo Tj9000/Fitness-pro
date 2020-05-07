@@ -21,7 +21,7 @@ class CourseCard extends React.Component {
             <div className={styles.courseContainer} onClick={this.viewCoursePage}>
                 {/* Course image */}
                 <div className={styles.courseImageContainer}>
-                    <img src={course && course.photoUrl} alt="Course Detail" className={styles.courseImage}></img>
+                    <img src={course && course.photoUrl} alt="CourseImg" className={styles.courseImage}></img>
                 </div>
                 {/* Course Detail */}
                 <div className={styles.courseDetailContainer}>

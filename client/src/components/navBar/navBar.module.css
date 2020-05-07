@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    overflow: hidden;
 }
 
 .nav {
@@ -105,9 +106,24 @@
     font-size: 140%;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (max-width: 1200px) {
     .listItemRightGeneral a {
-        padding: 10px 15px;
+        padding: 10px 10px;
+    }
+    .listItemRightGeneral a, .listItemRightGeneral span {
+        font-size: 0.9rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+    }
+    .currentPageHeadText {
+        font-size: max(min(calc(100vw/50), 24px), 14px);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .currentPageHeadContainer {
+        padding: 0 10px;
     }
 }
 

@@ -33,13 +33,14 @@
 }
 
 .courseNameTitle {
-    font-size: min(calc((75vw - 5.5rem) / 7), 48px);
+    font-size: max(min(calc((75vw - 5.5rem) / 7), 48px), 14px);
     font-weight: bold;
     color: var(--primary-color);
 }
 
 .courseTainerName {
     font-size: 24px;
+    font-size: max(min(calc((75vw - 10rem) / 7), 24px), 12px);
     color: var(--secondary-color);
     cursor: pointer;
     width: fit-content;
@@ -258,5 +259,30 @@
     }
     .courseElementCardHead {
         text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .courseDescription {
+        font-size: 14px;
+    }
+    .courseBenefitsList, .coursePrereqList {
+        font-size: 1rem;
+        min-width: 70vw;
+    }
+}
+
+@media screen and (max-width: 399px) {
+    .courseTimeValue, .courseDifficultyContentValue {
+        font-size: 20px;
+    }
+    .courseBenefitsList, .coursePrereqList {
+        width: 100vw;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .courseTimeDifficultyContainer {
+        flex-direction: column;
     }
 }

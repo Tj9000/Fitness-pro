@@ -32,11 +32,11 @@
 }
 
 .trainerHeading {
-    font-size: 24px;
+    font-size: max(min(calc((75vw - 19rem) / 7), 24px), 12px);
 }
 
 .trainerName {
-    font-size: min(calc((75vw - 4.5rem) / 7), 48px);
+    font-size: max(min(calc((75vw - 4.5rem) / 7), 48px), 16px);
     font-weight: bold;
     color: var(--primary-color);
 }
@@ -212,5 +212,8 @@
         width: 80vw;
         height: 80vw;
         object-fit: contain;
+    }
+    .trainerDescription {
+        font-size: 14px;
     }
 }

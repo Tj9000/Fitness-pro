@@ -22,7 +22,7 @@ class SelectTrainerCard extends React.Component {
             <div className={styles.trainerContainer}>
                 {/* Trainer image */}
                 <div className={[styles.trainerCard, styles.trainerimageContainer].join(' ')}>
-                    <img src={trainer && trainer.photoUrl} alt="Trainer Detail" className={styles.trainerimage}></img>
+                    <img src={trainer && trainer.photoUrl} alt="TrainerImg" className={styles.trainerimage}></img>
                 </div>
                 {/* Trainer Detail */}
                 <div className={[styles.trainerCard, styles.trainerDetailContainer].join(' ')}>

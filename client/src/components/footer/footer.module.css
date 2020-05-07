@@ -20,6 +20,7 @@
     justify-content: center;
     flex-direction: column;
     color: white;
+    overflow: hidden;
 }
 
 .footerTextContainer{
@@ -37,28 +38,24 @@
     align-items: center;
     justify-content: space-evenly;
     color: white;
-    font-size:25px;
-    width: 400px;
-
+    font-size: 25px;
+    max-width: 400px;
+    width: 100%;
 }
 
 .iconWrapper{
-    background-color:#E72975 ;
+    background-color: var(--secondary-color);
     border-radius: 27px;
     width: 50px;
     height: 50px;
     text-align: center;
     padding: 7px;
     cursor: pointer;
-
 }
-
 
 .iconWrapper:hover{
     scale: 1.1;
 }
-
-
 
 .pipe{
     font-size: xx-large;
@@ -79,21 +76,28 @@
 }
 
 .footerLiHead {
-    color:#E72975;
+    color: var(--secondary-color);
     font-size: 32px;
     line-height: 36px;
     padding-bottom: 12px;
     text-underline-position: under;
 }
-@media screen and (max-width: 768px) {
-    .footer {
-        align-items: center;
-        width: 100%;
+
+@media screen and (max-width: 769px) {
+    .footerIconContainer {
+        padding: 25px;
     }
 }
 
-@media screen and (min-width: 769px) {
-    .footer {
-        width: 50%;
+@media screen and (max-width: 400px) {
+    .footerIconContainer {
+        padding: 10px 0;
+    }
+    .pipe {
+        display: none;
+    }
+    .footerTextContainer {
+        flex-direction: column;
+        padding: 10px 0;
     }
 }
