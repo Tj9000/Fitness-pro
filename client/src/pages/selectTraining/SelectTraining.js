@@ -19,27 +19,67 @@ class SelectTraining extends Component {
     state = {
         selectedWorkoutProgram: this.programFromProp || COURSE_FILTERS.PROGRAM.National,
         selectedWorkoutStyle: COURSE_FILTERS.STYLE.Gym,
-        selectedWorkoutGoal: COURSE_FILTERS.GOAL.WeightLoss
+        selectedWorkoutGoal: COURSE_FILTERS.GOAL.WeightLoss,
+        trainersListFiltered: []
     };
 
     componentDidMount() {
         this.props.getAllTrainers()
     }
 
+    static getDerivedStateFromProps(props, state) {
+        if (state.trainersList != props.trainersList) {
+            return {
+                trainersList: props.trainersList,
+                trainersListFiltered: _.filter(props.trainersList, (trainer) =>
+                    trainer.programCategory === state.selectedWorkoutProgram && trainer.styleCategory === state.selectedWorkoutStyle && trainer.goalCategory === state.selectedWorkoutGoal
+                )
+            };
+        } else {
+            return null;
+        }
+    }
+
     selectWorkoutProgram = (i) => {
         if (COURSE_FILTERS.PROGRAM[i]) {
-            this.setState({ selectedWorkoutProgram: COURSE_FILTERS.PROGRAM[i] });
+            this.trainerFilter({
+                selectedWorkoutProgram: COURSE_FILTERS.PROGRAM[i],
+                selectedWorkoutStyle: this.state.selectedWorkoutStyle,
+                selectedWorkoutGoal: this.state.selectedWorkoutGoal
+            });
         }
     }
     selectWorkoutStyle = (i) => {
         if (COURSE_FILTERS.STYLE[i]) {
-            this.setState({ selectedWorkoutStyle: COURSE_FILTERS.STYLE[i] });
+            this.trainerFilter({
+                selectedWorkoutProgram: this.state.selectedWorkoutProgram,
+                selectedWorkoutStyle: COURSE_FILTERS.STYLE[i],
+                selectedWorkoutGoal: this.state.selectedWorkoutGoal
+            });
         }
     }
     selectWorkoutGoal = (i) => {
         if (COURSE_FILTERS.GOAL[i]) {
-            this.setState({ selectedWorkoutGoal: COURSE_FILTERS.GOAL[i] });
+            this.trainerFilter({
+                selectedWorkoutProgram: this.state.selectedWorkoutProgram,
+                selectedWorkoutStyle: this.state.selectedWorkoutStyle,
+                selectedWorkoutGoal: COURSE_FILTERS.GOAL[i]
+            });
         }
+    }
+
+    trainerFilter = ({
+        selectedWorkoutProgram = this.state.selectedWorkoutProgram,
+        selectedWorkoutStyle = this.state.selectedWorkoutStyle,
+        selectedWorkoutGoal = this.state.selectedWorkoutGoal }) => {
+        this.setState({
+            selectedWorkoutProgram,
+            selectedWorkoutStyle,
+            selectedWorkoutGoal,
+            trainersListFiltered: _.filter(this.state.trainersList, (trainer) =>
+                trainer.programCategory === selectedWorkoutProgram && trainer.styleCategory === selectedWorkoutStyle && trainer.goalCategory === selectedWorkoutGoal
+            )
+        });
     }
 
     trainerRender = (props) => {
@@ -89,12 +129,12 @@ class SelectTraining extends Component {
                         </div>
                         <div className={styles.resultContentContainer}>
                             <div className={styles.resultCountHead}>
-                                {_.size(this.props.trainersList) || 'No'} Results found:
+                                {_.size(this.state.trainersListFiltered) || 'No'} Results found:
                             </div>
                             {
-                                _.size(this.props.trainersList) ? (
+                                _.size(this.state.trainersListFiltered) ? (
                                     <div className={styles.trainerListContent}>
-                                        {_.map(this.props.trainersList, (trainer, i) => <this.trainerRender trainer={trainer} key={trainer.id} />)}
+                                        {_.map(this.state.trainersListFiltered, (trainer, i) => <this.trainerRender trainer={trainer} key={trainer.id} />)}
                                     </div>
                                 ) : (
                                         <div className={styles.noResultsFound}>
